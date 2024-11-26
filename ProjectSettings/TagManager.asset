@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - Apple
+  - panelUIPlayers
   layers:
   - Default
   - TransparentFX
