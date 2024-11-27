@@ -1,5 +1,7 @@
 using UnityEngine;
 using Mirror;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 /*
 	Documentation: https://mirror-networking.gitbook.io/docs/components/network-room-manager
@@ -18,7 +20,7 @@ using Mirror;
 /// </summary>
 public class MainNetworkRoomManager : NetworkRoomManager
 {
-    
+    private Button startButton;
     // Overrides the base singleton so we don't
     // have to cast to this type everywhere.
     public static new MainNetworkRoomManager singleton => (MainNetworkRoomManager)NetworkRoomManager.singleton;
@@ -61,7 +63,24 @@ public class MainNetworkRoomManager : NetworkRoomManager
     /// This is called on the server when a networked scene finishes loading.
     /// </summary>
     /// <param name="sceneName">Name of the new scene.</param>
-    public override void OnRoomServerSceneChanged(string sceneName) { }
+    public override void OnRoomServerSceneChanged(string sceneName) 
+    {
+        if (sceneName == RoomScene)
+        {
+            startButton = GameObject.FindWithTag("startButton").GetComponent<Button>();
+            startButton.onClick.RemoveAllListeners();
+            startButton.onClick.AddListener(() =>
+            {
+                if (allPlayersReady)
+                {
+                    // set to false to hide it in the game scene
+                    startButton.interactable = false;
+                    ServerChangeScene(GameplayScene);
+                }
+            });            
+            startButton.interactable = false;
+        }
+    }
 
     /// <summary>
     /// This allows customization of the creation of the room-player object on the server.
@@ -107,7 +126,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
     /// <returns>False to not allow this player to replace the room player.</returns>
     public override bool OnRoomServerSceneLoadedForPlayer(NetworkConnectionToClient conn, GameObject roomPlayer, GameObject gamePlayer)
     {
-        return base.OnRoomServerSceneLoadedForPlayer(conn, roomPlayer, gamePlayer);
+        return true;
     }
 
     /// <summary>
@@ -117,21 +136,32 @@ public class MainNetworkRoomManager : NetworkRoomManager
     {
         base.ReadyStatusChanged();
     }
-
+    bool showStartButton;
     /// <summary>
     /// This is called on the server when all the players in the room are ready.
     /// <para>The default implementation of this function uses ServerChangeScene() to switch to the game player scene. By implementing this callback you can customize what happens when all the players in the room are ready, such as adding a countdown or a confirmation for a group leader.</para>
     /// </summary>
     public override void OnRoomServerPlayersReady()
     {
-        base.OnRoomServerPlayersReady();
+        if (Utils.IsHeadless())
+        {
+            base.OnRoomServerPlayersReady();            
+        }
+        else
+        {
+            startButton.interactable = true;
+            showStartButton = true;
+        }        
     }
 
     /// <summary>
     /// This is called on the server when CheckReadyToBegin finds that players are not ready
     /// <para>May be called multiple times while not ready players are joining</para>
     /// </summary>
-    public override void OnRoomServerPlayersNotReady() { }
+    public override void OnRoomServerPlayersNotReady() 
+    {
+        startButton.interactable = false;
+    }
 
     #endregion
 
@@ -179,6 +209,13 @@ public class MainNetworkRoomManager : NetworkRoomManager
     public override void OnGUI()
     {
         base.OnGUI();
+        if (allPlayersReady && showStartButton && GUI.Button(new Rect(150, 300, 120, 20), "START GAME"))
+        {
+            // set to false to hide it in the game scene
+            showStartButton = false;
+
+            ServerChangeScene(GameplayScene);
+        }
     }
 
     #endregion

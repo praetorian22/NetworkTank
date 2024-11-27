@@ -1,5 +1,6 @@
 using UnityEngine;
 using Mirror;
+using UnityEngine.UI;
 
 /*
 	Documentation: https://mirror-networking.gitbook.io/docs/components/network-room-player
@@ -14,6 +15,25 @@ using Mirror;
 /// </summary>
 public class MainNetworkRoomPlayer : NetworkRoomPlayer
 {
+    [SerializeField] private PlayerLobby playerLobbyUI;
+    [SerializeField] private Toggle ready;
+
+    public override void Start()
+    {
+        base.Start();
+        playerLobbyUI = GetComponent<PlayerLobby>();
+    }    
+    private void ReadyTooglePress(bool ready)
+    {
+        if (ready)
+        {
+            CmdChangeReadyState(true);
+        }
+        else
+        {
+            CmdChangeReadyState(false);
+        }
+    }
     #region Start & Stop Callbacks
 
     /// <summary>
@@ -21,7 +41,11 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// <para>This could be triggered by NetworkServer.Listen() for objects in the scene, or by NetworkServer.Spawn() for objects that are dynamically created.</para>
     /// <para>This will be called for objects on a "host" as well as for object on a dedicated server.</para>
     /// </summary>
-    public override void OnStartServer() { }
+    public override void OnStartServer() 
+    {
+        base.OnStartServer();
+
+    }
 
     /// <summary>
     /// Invoked on the server when the object is unspawned
@@ -70,7 +94,10 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// </summary>
     public override void OnClientEnterRoom() 
     {
-        gameObject.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);
+        //gameObject.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);
+        ready = GameObject.FindWithTag("toggleReady").GetComponent<Toggle>();
+        //ready.onValueChanged.RemoveAllListeners();
+        ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
     }
 
     /// <summary>
@@ -87,7 +114,10 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// </summary>
     /// <param name="oldIndex">The old index value</param>
     /// <param name="newIndex">The new index value</param>
-    public override void IndexChanged(int oldIndex, int newIndex) { }
+    public override void IndexChanged(int oldIndex, int newIndex) 
+    {
+        if (playerLobbyUI != null) playerLobbyUI.namePlayer.text = "Player_" + newIndex.ToString() + "_(Client)";
+    }
 
     /// <summary>
     /// This is a hook that is invoked on clients when a RoomPlayer switches between ready or not ready.
@@ -95,7 +125,10 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// </summary>
     /// <param name="oldReadyState">The old readyState value</param>
     /// <param name="newReadyState">The new readyState value</param>
-    public override void ReadyStateChanged(bool oldReadyState, bool newReadyState) { }
+    public override void ReadyStateChanged(bool oldReadyState, bool newReadyState) 
+    { 
+
+    }
 
     #endregion
 
