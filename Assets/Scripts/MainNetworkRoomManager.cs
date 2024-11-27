@@ -68,6 +68,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
         if (sceneName == RoomScene)
         {
             startButton = GameObject.FindWithTag("startButton").GetComponent<Button>();
+            startButton.GetComponent<Image>().color = Color.white;
             startButton.onClick.RemoveAllListeners();
             startButton.onClick.AddListener(() =>
             {
@@ -126,6 +127,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
     /// <returns>False to not allow this player to replace the room player.</returns>
     public override bool OnRoomServerSceneLoadedForPlayer(NetworkConnectionToClient conn, GameObject roomPlayer, GameObject gamePlayer)
     {
+        //zfpolnyaen playera
         return true;
     }
 

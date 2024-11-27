@@ -16,12 +16,12 @@ using UnityEngine.UI;
 public class MainNetworkRoomPlayer : NetworkRoomPlayer
 {
     [SerializeField] private PlayerLobby playerLobbyUI;
-    [SerializeField] private Toggle ready;
+    [SerializeField] private Toggle ready;    
 
     public override void Start()
     {
         base.Start();
-        playerLobbyUI = GetComponent<PlayerLobby>();
+        playerLobbyUI = GetComponent<PlayerLobby>();        
     }    
     private void ReadyTooglePress(bool ready)
     {
@@ -57,7 +57,10 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// Called on every NetworkBehaviour when it is activated on a client.
     /// <para>Objects on the host have this function called, as there is a local client on the host. The values of SyncVars on object are guaranteed to be initialized correctly with the latest state from the server when this function is called on the client.</para>
     /// </summary>
-    public override void OnStartClient() { }
+    public override void OnStartClient() 
+    {
+        
+    }
 
     /// <summary>
     /// This is invoked on clients when the server has caused this object to be destroyed.
@@ -69,7 +72,12 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// Called when the local player object has been set up.
     /// <para>This happens after OnStartClient(), as it is triggered by an ownership message from the server. This is an appropriate place to activate components or functionality that should only be active for the local player, such as cameras and input.</para>
     /// </summary>
-    public override void OnStartLocalPlayer() { }
+    public override void OnStartLocalPlayer()
+    {
+        ready = GameObject.FindWithTag("toggleReady").GetComponent<Toggle>();
+        ready.onValueChanged.RemoveAllListeners();
+        ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
+    }
 
     /// <summary>
     /// This is invoked on behaviours that have authority, based on context and <see cref="NetworkIdentity.hasAuthority">NetworkIdentity.hasAuthority</see>.
@@ -94,10 +102,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// </summary>
     public override void OnClientEnterRoom() 
     {
-        //gameObject.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);
-        ready = GameObject.FindWithTag("toggleReady").GetComponent<Toggle>();
-        //ready.onValueChanged.RemoveAllListeners();
-        ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
+        playerLobbyUI.roomPlayerUI.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);        
     }
 
     /// <summary>
