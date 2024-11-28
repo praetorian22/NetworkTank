@@ -19,8 +19,9 @@ using UnityEngine.UI;
 /// NetworkRoomManager is derived from NetworkManager, and so it implements many of the virtual functions provided by the NetworkManager class.
 /// </summary>
 public class MainNetworkRoomManager : NetworkRoomManager
-{
+{    
     private Button startButton;
+    public GameObject UIPlayerPrefab;
     // Overrides the base singleton so we don't
     // have to cast to this type everywhere.
     public static new MainNetworkRoomManager singleton => (MainNetworkRoomManager)NetworkRoomManager.singleton;
@@ -51,7 +52,10 @@ public class MainNetworkRoomManager : NetworkRoomManager
     /// This is called on the server when a new client connects to the server.
     /// </summary>
     /// <param name="conn">The new connection.</param>
-    public override void OnRoomServerConnect(NetworkConnectionToClient conn) { }
+    public override void OnRoomServerConnect(NetworkConnectionToClient conn) 
+    {        
+        
+    }
 
     /// <summary>
     /// This is called on the server when a client disconnects.
@@ -91,13 +95,16 @@ public class MainNetworkRoomManager : NetworkRoomManager
     /// <returns>The new room-player object.</returns>
     public override GameObject OnRoomServerCreateRoomPlayer(NetworkConnectionToClient conn)
     {
-        return base.OnRoomServerCreateRoomPlayer(conn);        
+        return null;        
     }
 
     /// <summary>
     /// This allows customization of the creation of the GamePlayer object on the server.
     /// <para>By default the gamePlayerPrefab is used to create the game-player, but this function allows that behaviour to be customized. The object returned from the function will be used to replace the room-player on the connection.</para>
     /// </summary>
+    /// Это позволяет настроить создание объекта GamePlayer на сервере.
+    ///  По умолчанию для создания игрока используется gamePlayerPrefab, но эта функция позволяет настроить такое поведение.Объект, 
+    ///  возвращаемый функцией, будет использоваться для замены игрока в комнате при подключении.
     /// <param name="conn">The connection the player object is for.</param>
     /// <param name="roomPlayer">The room player object for this connection.</param>
     /// <returns>A new GamePlayer object.</returns>
@@ -170,8 +177,12 @@ public class MainNetworkRoomManager : NetworkRoomManager
 
     /// <summary>
     /// This is a hook to allow custom behaviour when the game client enters the room.
+    /// Это функция, которая позволяет настроить поведение при входе игрового клиента в комнату.
     /// </summary>
-    public override void OnRoomClientEnter() { }
+    public override void OnRoomClientEnter() 
+    {
+        
+    }
 
     /// <summary>
     /// This is a hook to allow custom behaviour when the game client exits the room.

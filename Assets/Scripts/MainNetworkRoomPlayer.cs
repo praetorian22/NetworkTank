@@ -1,6 +1,9 @@
 using UnityEngine;
 using Mirror;
 using UnityEngine.UI;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 /*
 	Documentation: https://mirror-networking.gitbook.io/docs/components/network-room-player
@@ -15,8 +18,16 @@ using UnityEngine.UI;
 /// </summary>
 public class MainNetworkRoomPlayer : NetworkRoomPlayer
 {
-    [SerializeField] private PlayerLobby playerLobbyUI;
+    public PlayerLobby playerLobbyUI;
+    public GameObject roomPlayerUIPrefab;
     private Toggle ready;
+
+    [Command]
+    public void CmdCreateUI()
+    {
+        GameObject playerRoomUI = Instantiate(roomPlayerUIPrefab);
+        NetworkServer.Spawn(playerRoomUI);
+    }
 
     public override void Start()
     {
@@ -74,11 +85,31 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// </summary>
     public override void OnStartLocalPlayer()
     {
-        ready = GameObject.FindWithTag("toggleReady").GetComponent<Toggle>();
-        ready.onValueChanged.RemoveAllListeners();
-        ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));        
+        GameObject toggle = GameObject.FindWithTag("toggleReady");
+        if (toggle)
+        {
+            ready = toggle.GetComponent<Toggle>();
+            ready.onValueChanged.RemoveAllListeners();
+            ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
+        }  
+        else
+        {
+            StartCoroutine(InitiateCoro());
+        }
+        CmdCreateUI();
     }
-
+    private IEnumerator InitiateCoro()
+    {
+        GameObject toggle = null;
+        while (ready == null)
+        {
+            yield return null;
+            toggle = GameObject.FindWithTag("toggleReady");            
+        }
+        ready = toggle.GetComponent<Toggle>();
+        ready.onValueChanged.RemoveAllListeners();
+        ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
+    }
     /// <summary>
     /// This is invoked on behaviours that have authority, based on context and <see cref="NetworkIdentity.hasAuthority">NetworkIdentity.hasAuthority</see>.
     /// <para>This is called after <see cref="OnStartServer">OnStartServer</see> and before <see cref="OnStartClient">OnStartClient.</see></para>
@@ -97,12 +128,14 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     #region Room Client Callbacks
 
     /// <summary>
-    /// This is a hook that is invoked on all player objects when entering the room.
+    /// Это функция, которая вызывается для всех player объектов при входе в комнату.
     /// <para>Note: isLocalPlayer is not guaranteed to be set until OnStartLocalPlayer is called.</para>
     /// </summary>
     public override void OnClientEnterRoom() 
     {
-        playerLobbyUI.roomPlayerUI.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);        
+        //GameObject UI = Instantiate(playerLobbyUI.roomPlayerUIPrefab);
+        //UI.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);
+        //gameObject.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);        
     }
 
     /// <summary>
@@ -134,8 +167,8 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// <param name="oldReadyState">The old readyState value</param>
     /// <param name="newReadyState">The new readyState value</param>
     public override void ReadyStateChanged(bool oldReadyState, bool newReadyState) 
-    { 
-
+    {
+        
     }
 
     #endregion

@@ -1108,7 +1108,7 @@ MonoBehaviour:
   offlineSceneLoadDelay: 0
   transport: {fileID: 1686750700}
   networkAddress: localhost
-  maxConnections: 2
+  maxConnections: 6
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
@@ -1118,6 +1118,7 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 5051654939893222197, guid: 23b1547af921a77469ace45c4171e6f2, type: 3}
   - {fileID: 957285339245572837, guid: 2f34a00739b82474b9767748d9282ed2, type: 3}
+  - {fileID: 3476768555009756323, guid: c9be978a8e331654a9aa2acfa23652c3, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2
@@ -1140,6 +1141,7 @@ MonoBehaviour:
   GameplayScene: Assets/Scenes/Game.unity
   _allPlayersReady: 0
   clientIndex: 0
+  UIPlayerPrefab: {fileID: 3476768555009756323, guid: c9be978a8e331654a9aa2acfa23652c3, type: 3}
 --- !u!1 &2000680231
 GameObject:
   m_ObjectHideFlags: 0
