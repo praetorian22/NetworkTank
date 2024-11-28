@@ -16,7 +16,7 @@ using UnityEngine.UI;
 public class MainNetworkRoomPlayer : NetworkRoomPlayer
 {
     [SerializeField] private PlayerLobby playerLobbyUI;
-    [SerializeField] private Toggle ready;    
+    private Toggle ready;
 
     public override void Start()
     {
@@ -76,7 +76,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     {
         ready = GameObject.FindWithTag("toggleReady").GetComponent<Toggle>();
         ready.onValueChanged.RemoveAllListeners();
-        ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
+        ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));        
     }
 
     /// <summary>
@@ -108,7 +108,10 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// <summary>
     /// This is a hook that is invoked on all player objects when exiting the room.
     /// </summary>
-    public override void OnClientExitRoom() { }
+    public override void OnClientExitRoom() 
+    {
+        
+    }
 
     #endregion
 
@@ -121,7 +124,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// <param name="newIndex">The new index value</param>
     public override void IndexChanged(int oldIndex, int newIndex) 
     {
-        if (playerLobbyUI != null) playerLobbyUI.namePlayer.text = "Player_" + newIndex.ToString() + "_(Client)";
+        //if (playerLobbyUI != null) playerLobbyUI.namePlayer.text = "Player_" + newIndex.ToString() + "_(Client)";
     }
 
     /// <summary>

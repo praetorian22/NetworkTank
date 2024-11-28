@@ -7,5 +7,6 @@ using System;
 public class PlayerLobby : MonoBehaviour
 {
     public Text namePlayer;
+    public GameObject roomPlayerUIPrefab;
     public GameObject roomPlayerUI;
 }

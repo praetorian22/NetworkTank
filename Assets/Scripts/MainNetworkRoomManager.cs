@@ -138,7 +138,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
     {
         base.ReadyStatusChanged();
     }
-    bool showStartButton;
+    
     /// <summary>
     /// This is called on the server when all the players in the room are ready.
     /// <para>The default implementation of this function uses ServerChangeScene() to switch to the game player scene. By implementing this callback you can customize what happens when all the players in the room are ready, such as adding a countdown or a confirmation for a group leader.</para>
@@ -151,8 +151,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
         }
         else
         {
-            startButton.interactable = true;
-            showStartButton = true;
+            if (startButton != null) startButton.interactable = true;            
         }        
     }
 
@@ -162,7 +161,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
     /// </summary>
     public override void OnRoomServerPlayersNotReady() 
     {
-        startButton.interactable = false;
+        if (startButton != null) startButton.interactable = false;
     }
 
     #endregion
@@ -210,14 +209,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
 
     public override void OnGUI()
     {
-        base.OnGUI();
-        if (allPlayersReady && showStartButton && GUI.Button(new Rect(150, 300, 120, 20), "START GAME"))
-        {
-            // set to false to hide it in the game scene
-            showStartButton = false;
-
-            ServerChangeScene(GameplayScene);
-        }
+        base.OnGUI();        
     }
 
     #endregion
