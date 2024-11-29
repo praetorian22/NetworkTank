@@ -9,6 +9,7 @@ TagManager:
   - panelUIPlayers
   - toggleReady
   - startButton
+  - UIPlayerRoom
   layers:
   - Default
   - TransparentFX

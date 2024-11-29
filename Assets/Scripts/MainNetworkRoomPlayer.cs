@@ -18,21 +18,34 @@ using System.Collections.Generic;
 /// </summary>
 public class MainNetworkRoomPlayer : NetworkRoomPlayer
 {
-    public PlayerLobby playerLobbyUI;
     public GameObject roomPlayerUIPrefab;
-    private Toggle ready;
+    private GameObject panelUIPlayers;
+    private Toggle ready;    
 
     [Command]
     public void CmdCreateUI()
     {
-        GameObject playerRoomUI = Instantiate(roomPlayerUIPrefab);
+        GameObject playerRoomUI = Instantiate(roomPlayerUIPrefab);        
+        if (panelUIPlayers)
+        {
+            playerRoomUI.transform.parent = panelUIPlayers.transform;
+            playerRoomUI.transform.localScale = new Vector3(1f, 1f, 1f);
+            playerRoomUI.transform.localPosition = new Vector3(playerRoomUI.transform.localPosition.x, playerRoomUI.transform.localPosition.y, 0f);
+        }
         NetworkServer.Spawn(playerRoomUI);
+        RPCCreateUI(playerRoomUI);
     }
-
+    [ClientRpc]
+    public void RPCCreateUI(GameObject playerRoomUI)
+    {
+        if (!panelUIPlayers) panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
+        playerRoomUI.transform.parent = panelUIPlayers.transform;        
+        playerRoomUI.transform.localScale = new Vector3(1f, 1f, 1f);
+        playerRoomUI.transform.localPosition = new Vector3(playerRoomUI.transform.localPosition.x, playerRoomUI.transform.localPosition.y, 0f);
+    }
     public override void Start()
     {
-        base.Start();
-        playerLobbyUI = GetComponent<PlayerLobby>();        
+        base.Start();              
     }    
     private void ReadyTooglePress(bool ready)
     {
@@ -84,23 +97,31 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// <para>This happens after OnStartClient(), as it is triggered by an ownership message from the server. This is an appropriate place to activate components or functionality that should only be active for the local player, such as cameras and input.</para>
     /// </summary>
     public override void OnStartLocalPlayer()
-    {
+    {        
         GameObject toggle = GameObject.FindWithTag("toggleReady");
-        if (toggle)
+        panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
+        if (toggle && panelUIPlayers)
         {
             ready = toggle.GetComponent<Toggle>();
             ready.onValueChanged.RemoveAllListeners();
             ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("UIPlayerRoom");
+            foreach (GameObject gameObject in gameObjects)
+            {
+                gameObject.transform.parent = panelUIPlayers.transform;
+                gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0f);
+            }
+            CmdCreateUI();
         }  
         else
         {
             StartCoroutine(InitiateCoro());
-        }
-        CmdCreateUI();
+        }        
     }
     private IEnumerator InitiateCoro()
     {
-        GameObject toggle = null;
+        GameObject toggle = null;        
         while (ready == null)
         {
             yield return null;
@@ -109,6 +130,18 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
         ready = toggle.GetComponent<Toggle>();
         ready.onValueChanged.RemoveAllListeners();
         ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
+        while (!panelUIPlayers)
+        {
+            panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
+        }
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("UIPlayerRoom");
+        foreach (GameObject gameObject in gameObjects)
+        {
+            gameObject.transform.parent = panelUIPlayers.transform;
+            gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0f);
+        }
+        CmdCreateUI();
     }
     /// <summary>
     /// This is invoked on behaviours that have authority, based on context and <see cref="NetworkIdentity.hasAuthority">NetworkIdentity.hasAuthority</see>.
@@ -135,7 +168,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     {
         //GameObject UI = Instantiate(playerLobbyUI.roomPlayerUIPrefab);
         //UI.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);
-        //gameObject.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);        
+        //gameObject.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);
     }
 
     /// <summary>
@@ -157,7 +190,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// <param name="newIndex">The new index value</param>
     public override void IndexChanged(int oldIndex, int newIndex) 
     {
-        //if (playerLobbyUI != null) playerLobbyUI.namePlayer.text = "Player_" + newIndex.ToString() + "_(Client)";
+        //playerLobbyUI.namePlayer.text = "Player_" + newIndex.ToString() + "_(Client)";
     }
 
     /// <summary>

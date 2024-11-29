@@ -1379,6 +1379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1174295418}
   - component: {fileID: 1174295417}
+  - component: {fileID: 1174295419}
   m_Layer: 0
   m_Name: SaveLoad
   m_TagString: Untagged
@@ -1398,6 +1399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9535d39afaedc9044bfb549a0daae0b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
 --- !u!4 &1174295418
 Transform:
   m_ObjectHideFlags: 0
@@ -1413,6 +1417,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1174295419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174295416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 1630144066
+  _assetId: 0
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
 --- !u!1 &1411223578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,6 +1444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1411223580}
   - component: {fileID: 1411223579}
+  - component: {fileID: 1411223581}
   m_Layer: 0
   m_Name: DataPlayer
   m_TagString: Untagged
@@ -1442,6 +1464,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e591ca13d645744aa83018fa2ee6f49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   playerName: 
 --- !u!4 &1411223580
 Transform:
@@ -1458,6 +1483,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1411223581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411223578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 2995976001
+  _assetId: 0
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
 --- !u!1 &1649355354
 GameObject:
   m_ObjectHideFlags: 0

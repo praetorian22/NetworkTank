@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class GenericSingletonClass<T> : MonoBehaviour where T : Component
+public class GenericSingletonClass<T> : NetworkBehaviour where T : Component
 {
     private static T instance;
     public static T Instance
