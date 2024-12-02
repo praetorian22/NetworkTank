@@ -46,6 +46,7 @@ public class StartPanel : MonoBehaviour
     {
         SaveData saveData = new SaveData();
         saveData.namePlayer = inputNameField.text;
+        DataPlayer.Instance.playerName = saveData.namePlayer;
         SaveLoad.Instance.SaveData(saveData);
         clientServerPanel.SetActive(true);
     }

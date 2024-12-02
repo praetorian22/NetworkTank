@@ -21,27 +21,27 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     public GameObject roomPlayerUIPrefab;
     private GameObject panelUIPlayers;
     private Toggle ready;    
-
+    
     [Command]
     public void CmdCreateUI()
     {
         GameObject playerRoomUI = Instantiate(roomPlayerUIPrefab);        
         if (panelUIPlayers)
         {
-            playerRoomUI.transform.parent = panelUIPlayers.transform;
-            playerRoomUI.transform.localScale = new Vector3(1f, 1f, 1f);
-            playerRoomUI.transform.localPosition = new Vector3(playerRoomUI.transform.localPosition.x, playerRoomUI.transform.localPosition.y, 0f);
+            playerRoomUI.transform.SetParent(panelUIPlayers.transform, false);
+            //playerRoomUI.transform.localScale = new Vector3(1f, 1f, 1f);
+            //playerRoomUI.transform.localPosition = new Vector3(playerRoomUI.transform.localPosition.x, playerRoomUI.transform.localPosition.y, 0f);
         }
-        NetworkServer.Spawn(playerRoomUI);
+        NetworkServer.Spawn(playerRoomUI, connectionToClient);
         RPCCreateUI(playerRoomUI);
     }
     [ClientRpc]
     public void RPCCreateUI(GameObject playerRoomUI)
     {
         if (!panelUIPlayers) panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
-        playerRoomUI.transform.parent = panelUIPlayers.transform;        
-        playerRoomUI.transform.localScale = new Vector3(1f, 1f, 1f);
-        playerRoomUI.transform.localPosition = new Vector3(playerRoomUI.transform.localPosition.x, playerRoomUI.transform.localPosition.y, 0f);
+        playerRoomUI.transform.SetParent(panelUIPlayers.transform, false);
+        //playerRoomUI.transform.localScale = new Vector3(1f, 1f, 1f);
+        //playerRoomUI.transform.localPosition = new Vector3(playerRoomUI.transform.localPosition.x, playerRoomUI.transform.localPosition.y, 0f);
     }
     public override void Start()
     {
@@ -108,9 +108,9 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
             GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("UIPlayerRoom");
             foreach (GameObject gameObject in gameObjects)
             {
-                gameObject.transform.parent = panelUIPlayers.transform;
-                gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-                gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0f);
+                gameObject.transform.SetParent(panelUIPlayers.transform, false);
+                //gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+                //gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0f);
             }
             CmdCreateUI();
         }  
@@ -137,9 +137,9 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("UIPlayerRoom");
         foreach (GameObject gameObject in gameObjects)
         {
-            gameObject.transform.parent = panelUIPlayers.transform;
-            gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0f);
+            gameObject.transform.SetParent(panelUIPlayers.transform, false);
+            //gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            //gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0f);
         }
         CmdCreateUI();
     }
