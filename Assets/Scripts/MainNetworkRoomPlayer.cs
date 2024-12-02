@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+
 /*
 	Documentation: https://mirror-networking.gitbook.io/docs/components/network-room-player
 	API Reference: https://mirror-networking.com/docs/api/Mirror.NetworkRoomPlayer.html
@@ -19,7 +20,7 @@ using System.Collections.Generic;
 public class MainNetworkRoomPlayer : NetworkRoomPlayer
 {
     public GameObject roomPlayerUIPrefab;
-    private GameObject panelUIPlayers;
+    private GameObject panelUIPlayers;    
     private Toggle ready;    
     
     [Command]
@@ -99,7 +100,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     public override void OnStartLocalPlayer()
     {        
         GameObject toggle = GameObject.FindWithTag("toggleReady");
-        panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
+        panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");        
         if (toggle && panelUIPlayers)
         {
             ready = toggle.GetComponent<Toggle>();
@@ -111,7 +112,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
                 gameObject.transform.SetParent(panelUIPlayers.transform, false);
                 //gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
                 //gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0f);
-            }
+            }            
             CmdCreateUI();
         }  
         else
@@ -121,7 +122,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     }
     private IEnumerator InitiateCoro()
     {
-        GameObject toggle = null;        
+        GameObject toggle = null;
         while (ready == null)
         {
             yield return null;
@@ -133,6 +134,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
         while (!panelUIPlayers)
         {
             panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
+            yield return null;
         }
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("UIPlayerRoom");
         foreach (GameObject gameObject in gameObjects)
@@ -140,7 +142,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
             gameObject.transform.SetParent(panelUIPlayers.transform, false);
             //gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             //gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, gameObject.transform.localPosition.y, 0f);
-        }
+        }               
         CmdCreateUI();
     }
     /// <summary>

@@ -7,7 +7,7 @@ using Mirror;
 public class UIDataPlayer : NetworkBehaviour
 {
     [SyncVar(hook = nameof(SyncName))] public string playerName;
-    public Text nameText;
+    public Text nameText;    
 
     void SyncName(string oldvalue, string newValue)
     {

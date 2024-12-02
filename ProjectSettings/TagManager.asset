@@ -10,6 +10,7 @@ TagManager:
   - toggleReady
   - startButton
   - UIPlayerRoom
+  - vcPlayer
   layers:
   - Default
   - TransparentFX

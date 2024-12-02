@@ -2,6 +2,7 @@ using UnityEngine;
 using Mirror;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Linq;
 
 /*
 	Documentation: https://mirror-networking.gitbook.io/docs/components/network-room-manager
@@ -22,6 +23,8 @@ public class MainNetworkRoomManager : NetworkRoomManager
 {    
     private Button startButton;
     public GameObject UIPlayerPrefab;
+    private static int startPositionIndexBlue;
+    private static int startPositionIndexRed;
     // Overrides the base singleton so we don't
     // have to cast to this type everywhere.
     public static new MainNetworkRoomManager singleton => (MainNetworkRoomManager)NetworkRoomManager.singleton;
@@ -123,7 +126,39 @@ public class MainNetworkRoomManager : NetworkRoomManager
     {
         base.OnRoomServerAddPlayer(conn);
     }
+    public Transform GetStartPosition(typeTank typeTank = typeTank.blue)
+    {
+        // first remove any dead transforms
+        startPositions.RemoveAll(t => t == null);
 
+        if (startPositions.Count == 0)
+            return null;
+
+        if (typeTank == typeTank.blue)
+        {
+            List<Transform> startPositionsBlue = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.blue).ToList();
+            if (playerSpawnMethod == PlayerSpawnMethod.Random)
+                return startPositionsBlue[UnityEngine.Random.Range(0, startPositionsBlue.Count)];
+            else
+            {
+                Transform startPosition = startPositionsBlue[startPositionIndexBlue];
+                startPositionIndexBlue = (startPositionIndexBlue + 1) % startPositionsBlue.Count;
+                return startPosition;
+            }
+        }
+        else
+        {
+            List<Transform> startPositionsRed = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.red).ToList();
+            if (playerSpawnMethod == PlayerSpawnMethod.Random)
+                return startPositionsRed[UnityEngine.Random.Range(0, startPositionsRed.Count)];
+            else
+            {
+                Transform startPosition = startPositionsRed[startPositionIndexRed];
+                startPositionIndexRed = (startPositionIndexRed + 1) % startPositionsRed.Count;
+                return startPosition;
+            }
+        }
+    }
     /// <summary>
     /// This is called on the server when it is told that a client has finished switching from the room scene to a game player scene.
     /// <para>When switching from the room, the room-player is replaced with a game-player object. This callback function gives an opportunity to apply state from the room-player to the game-player object.</para>
@@ -134,7 +169,10 @@ public class MainNetworkRoomManager : NetworkRoomManager
     /// <returns>False to not allow this player to replace the room player.</returns>
     public override bool OnRoomServerSceneLoadedForPlayer(NetworkConnectionToClient conn, GameObject roomPlayer, GameObject gamePlayer)
     {
-        //zfpolnyaen playera
+        if (gamePlayer.GetComponent<GamePlayer>() != null)
+        {
+            gamePlayer.transform.position = GetStartPosition(gamePlayer.GetComponent<GamePlayer>().typeTank).position;
+        }
         return true;
     }
 
@@ -224,4 +262,10 @@ public class MainNetworkRoomManager : NetworkRoomManager
     }
 
     #endregion
+}
+
+public enum typeTank
+{
+    red,
+    blue,
 }
