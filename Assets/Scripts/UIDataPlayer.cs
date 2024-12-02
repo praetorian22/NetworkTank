@@ -15,8 +15,8 @@ public class UIDataPlayer : NetworkBehaviour
     }
     public void ClientServerChangeName(string name)
     {
-        if (isServer) ChangeHealthValue(name);
-        else CmdChangeHealth(name);
+        if (isServer) ChangeName(name);
+        else CmdChangeName(name);
     }
 
     private void Start()
@@ -25,13 +25,13 @@ public class UIDataPlayer : NetworkBehaviour
     }
 
     [Server]
-    public void ChangeHealthValue(string newValue)
+    public void ChangeName(string newValue)
     {
         playerName = newValue;
     }
     [Command]
-    public void CmdChangeHealth(string newValue)
+    public void CmdChangeName(string newValue)
     {
-        ChangeHealthValue(newValue);
+        ChangeName(newValue);
     }
 }

@@ -1,0 +1,1269 @@
+fileFormatVersion: 2
+guid: cacd1ba2603a29e46b6514ad15b21018
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5236880236491022303
+    second: booms2_0
+  - first:
+      213: 3764063829883252285
+    second: booms2_1
+  - first:
+      213: -7807778576957691196
+    second: booms2_2
+  - first:
+      213: -4750171507895137151
+    second: booms2_3
+  - first:
+      213: -7602535095756886827
+    second: booms2_4
+  - first:
+      213: -3111736481705532783
+    second: booms2_5
+  - first:
+      213: 421209481701684931
+    second: booms2_6
+  - first:
+      213: -3079062330736613956
+    second: booms2_7
+  - first:
+      213: -4763638146940965847
+    second: booms2_8
+  - first:
+      213: -6331828397113503896
+    second: booms2_9
+  - first:
+      213: 7890724532967282145
+    second: booms2_10
+  - first:
+      213: -5435733963219224927
+    second: booms2_11
+  - first:
+      213: 7215996490651477145
+    second: booms2_12
+  - first:
+      213: -6514216267194405066
+    second: booms2_13
+  - first:
+      213: -8124737130951199940
+    second: booms2_14
+  - first:
+      213: 4091322998979206170
+    second: booms2_15
+  - first:
+      213: 980328688790639058
+    second: booms2_16
+  - first:
+      213: 8526787242924853927
+    second: booms2_17
+  - first:
+      213: 6168150617985532162
+    second: booms2_18
+  - first:
+      213: -375810730198384838
+    second: booms2_19
+  - first:
+      213: 5554600723357365289
+    second: booms2_20
+  - first:
+      213: 7783999238749830312
+    second: booms2_21
+  - first:
+      213: -4891228147406283937
+    second: booms2_22
+  - first:
+      213: 8044017951150737107
+    second: booms2_23
+  - first:
+      213: -1340176305739418063
+    second: booms2_24
+  - first:
+      213: -7201531420756783331
+    second: booms2_25
+  - first:
+      213: 6736970296967628032
+    second: booms2_26
+  - first:
+      213: 2275906912655051786
+    second: booms2_27
+  - first:
+      213: 1456850565887408022
+    second: booms2_28
+  - first:
+      213: -7484453822589855735
+    second: booms2_29
+  - first:
+      213: 6340718528502149744
+    second: booms2_30
+  - first:
+      213: -8145773294337917740
+    second: booms2_31
+  - first:
+      213: -7498556879480887597
+    second: booms2_32
+  - first:
+      213: -5161503302729392477
+    second: booms2_33
+  - first:
+      213: 8282443190760132644
+    second: booms2_34
+  - first:
+      213: 4706093944464210977
+    second: booms2_35
+  - first:
+      213: -3317342536532727181
+    second: booms2_36
+  - first:
+      213: -5206394738138250263
+    second: booms2_37
+  - first:
+      213: 6135748547680672507
+    second: booms2_38
+  - first:
+      213: -6749603326278720860
+    second: booms2_39
+  - first:
+      213: -4638236293483554369
+    second: booms2_40
+  - first:
+      213: 8981900077896772968
+    second: booms2_41
+  - first:
+      213: 1016137294853713794
+    second: booms2_42
+  - first:
+      213: 6418744259461287637
+    second: booms2_43
+  - first:
+      213: 3866428474596566160
+    second: booms2_44
+  - first:
+      213: 2387716058753391492
+    second: booms2_45
+  - first:
+      213: 8096792672629269100
+    second: booms2_46
+  - first:
+      213: 7563332751106242024
+    second: booms2_47
+  - first:
+      213: -5659112547974295647
+    second: booms2_48
+  - first:
+      213: 3050006364394228599
+    second: booms2_49
+  - first:
+      213: -9185002845213779559
+    second: booms2_50
+  - first:
+      213: 2836749688417300539
+    second: booms2_51
+  - first:
+      213: 7874290121262202700
+    second: booms2_52
+  - first:
+      213: -5041035049135280101
+    second: booms2_53
+  - first:
+      213: -7052810830618779059
+    second: booms2_54
+  - first:
+      213: 5507349906648113441
+    second: booms2_55
+  - first:
+      213: 5345772551612166730
+    second: booms2_56
+  - first:
+      213: 8721519700847944522
+    second: booms2_57
+  - first:
+      213: 5873342672265325874
+    second: booms2_58
+  - first:
+      213: -8919351595761234499
+    second: booms2_59
+  - first:
+      213: -976045475818787376
+    second: booms2_60
+  - first:
+      213: -8499863993268616009
+    second: booms2_61
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: 13
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: booms2_0
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 828
+        width: 65
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf9f4334d22da840800000000000000
+      internalID: 5236880236491022303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_1
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 815
+        width: 94
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e66144c14ac3430800000000000000
+      internalID: 3764063829883252285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_2
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 802
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca288b60c235a390800000000000000
+      internalID: -7807778576957691196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_3
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 797
+        width: 137
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c8ab95e20041eb0800000000000000
+      internalID: -4750171507895137151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_4
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 786
+        width: 157
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dc68f04c9e5e7690800000000000000
+      internalID: -7602535095756886827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_5
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 783
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19261551824e0d4d0800000000000000
+      internalID: -3111736481705532783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_6
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 779
+        width: 172
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c6fadcbacf68d500800000000000000
+      internalID: 421209481701684931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_7
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 787
+        width: 157
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5682faf19f445d0800000000000000
+      internalID: -3079062330736613956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_8
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 789
+        width: 152
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c651d185824edb0800000000000000
+      internalID: -4763638146940965847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_9
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 605
+        width: 147
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86f815bce93d028a0800000000000000
+      internalID: -6331828397113503896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_10
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 608
+        width: 143
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e599f7e72c718d60800000000000000
+      internalID: 7890724532967282145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_11
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 612
+        width: 134
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a6bacc92c46094b0800000000000000
+      internalID: -5435733963219224927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_12
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 612
+        width: 133
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9942fb5839e542460800000000000000
+      internalID: 7215996490651477145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_13
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 615
+        width: 129
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f6ecb91dad895a0800000000000000
+      internalID: -6514216267194405066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_14
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 618
+        width: 122
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c333a3840a22f3f80800000000000000
+      internalID: -8124737130951199940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_15
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 622
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1c9a8f379c47c830800000000000000
+      internalID: 4091322998979206170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_16
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 625
+        width: 108
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d19d7a9fb3da9d00800000000000000
+      internalID: 980328688790639058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_17
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 628
+        width: 102
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa4ed112db355670800000000000000
+      internalID: 8526787242924853927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_18
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 418
+        width: 101
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201422a8e4ca99550800000000000000
+      internalID: 6168150617985532162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_19
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 418
+        width: 101
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3fbebbc12ad8caf0800000000000000
+      internalID: -375810730198384838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_20
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 417
+        width: 105
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 924f7d8ade7e51d40800000000000000
+      internalID: 5554600723357365289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_21
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 415
+        width: 109
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ac3895f012560c60800000000000000
+      internalID: 7783999238749830312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_22
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 414
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5bd47e2aedde1cb0800000000000000
+      internalID: -4891228147406283937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_23
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 414
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d6843125b712af60800000000000000
+      internalID: 8044017951150737107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_24
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 412
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 136b10020ccb66de0800000000000000
+      internalID: -1340176305739418063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_25
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 412
+        width: 115
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f4af204550f0c90800000000000000
+      internalID: -7201531420756783331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_26
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 412
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0050d158ac68e7d50800000000000000
+      internalID: 6736970296967628032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_27
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 222
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c09ae5745a59f10800000000000000
+      internalID: 2275906912655051786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_28
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 222
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697bb86fed5c73410800000000000000
+      internalID: 1456850565887408022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_29
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 222
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90897b617e0e12890800000000000000
+      internalID: -7484453822589855735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_30
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 222
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 072bb1838e1cef750800000000000000
+      internalID: 6340718528502149744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_31
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 222
+        width: 116
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dcff12d85664fe80800000000000000
+      internalID: -8145773294337917740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_32
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 222
+        width: 117
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d6ea764f36cfe790800000000000000
+      internalID: -7498556879480887597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_33
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 222
+        width: 117
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae1fcdc718ae58b0800000000000000
+      internalID: -5161503302729392477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_34
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 222
+        width: 117
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4205c91233621f270800000000000000
+      internalID: 8282443190760132644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_35
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 224
+        width: 117
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12cf76f22876f4140800000000000000
+      internalID: 4706093944464210977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_36
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 47
+        width: 117
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a6caff98e66f1d0800000000000000
+      internalID: -3317342536532727181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_37
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 47
+        width: 117
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e38ec0029b2fb7b0800000000000000
+      internalID: -5206394738138250263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_38
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 47
+        width: 117
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa10a7abce862550800000000000000
+      internalID: 6135748547680672507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_39
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 47
+        width: 117
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2ac5229879452a0800000000000000
+      internalID: -6749603326278720860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_40
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 47
+        width: 117
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb9969e5aaca1afb0800000000000000
+      internalID: -4638236293483554369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: booms2_41
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 47
+        width: 117
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86d271f588e16ac70800000000000000
+      internalID: 8981900077896772968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      booms2_0: 5236880236491022303
+      booms2_1: 3764063829883252285
+      booms2_10: 7890724532967282145
+      booms2_11: -5435733963219224927
+      booms2_12: 7215996490651477145
+      booms2_13: -6514216267194405066
+      booms2_14: -8124737130951199940
+      booms2_15: 4091322998979206170
+      booms2_16: 980328688790639058
+      booms2_17: 8526787242924853927
+      booms2_18: 6168150617985532162
+      booms2_19: -375810730198384838
+      booms2_2: -7807778576957691196
+      booms2_20: 5554600723357365289
+      booms2_21: 7783999238749830312
+      booms2_22: -4891228147406283937
+      booms2_23: 8044017951150737107
+      booms2_24: -1340176305739418063
+      booms2_25: -7201531420756783331
+      booms2_26: 6736970296967628032
+      booms2_27: 2275906912655051786
+      booms2_28: 1456850565887408022
+      booms2_29: -7484453822589855735
+      booms2_3: -4750171507895137151
+      booms2_30: 6340718528502149744
+      booms2_31: -8145773294337917740
+      booms2_32: -7498556879480887597
+      booms2_33: -5161503302729392477
+      booms2_34: 8282443190760132644
+      booms2_35: 4706093944464210977
+      booms2_36: -3317342536532727181
+      booms2_37: -5206394738138250263
+      booms2_38: 6135748547680672507
+      booms2_39: -6749603326278720860
+      booms2_4: -7602535095756886827
+      booms2_40: -4638236293483554369
+      booms2_41: 8981900077896772968
+      booms2_5: -3111736481705532783
+      booms2_6: 421209481701684931
+      booms2_7: -3079062330736613956
+      booms2_8: -4763638146940965847
+      booms2_9: -6331828397113503896
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
