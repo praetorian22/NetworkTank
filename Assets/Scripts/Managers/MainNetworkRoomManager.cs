@@ -173,8 +173,8 @@ public class MainNetworkRoomManager : NetworkRoomManager
         {
             typeTank typeTank = roomPlayer.GetComponent<MainNetworkRoomPlayer>().uiDataPlayer.playerType;
             gamePlayer.transform.position = GetStartPosition(typeTank).position;
-            gamePlayer.GetComponent<GamePlayer>().Init(typeTank);
-            gamePlayer.GetComponent<PlayerController>().Init(typeTank);
+            gamePlayer.GetComponent<GamePlayer>().ChangeTypeTank(typeTank);
+            //gamePlayer.GetComponent<PlayerController>().Init(typeTank);
         }
         return true;
     }

@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class GamePlayer : MonoBehaviour
+public class GamePlayer : NetworkBehaviour
 {
-    public typeTank typeTank;
+    [SyncVar(hook = nameof(Init))] public typeTank typeTank;
     public SpriteRenderer tankSprite;
-    public void Init(typeTank typeTank)
+    
+    [Server]
+    public void ChangeTypeTank(typeTank typeTank)
     {
         this.typeTank = typeTank;
-        if (typeTank == typeTank.blue)
+    }
+
+    public void Init(typeTank oldvalue, typeTank newValue)
+    {        
+        if (newValue == typeTank.blue)
         {
             tankSprite.sprite = DataPlayer.Instance.defaultSpriteBlue;
         }
