@@ -1468,6 +1468,9 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   playerName: 
+  type: 0
+  defaultSpriteRed: {fileID: -1234117907, guid: 6173928bba23af34b838a711b8b354d8, type: 3}
+  defaultSpriteBlue: {fileID: -2078723621, guid: 6173928bba23af34b838a711b8b354d8, type: 3}
 --- !u!4 &1411223580
 Transform:
   m_ObjectHideFlags: 0

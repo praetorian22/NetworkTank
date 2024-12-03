@@ -478,7 +478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6404f86f1ef0a1343a5396c6f8ef5b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeTank: 0
+  typeTank: 1
+  tankSprite: {fileID: 9170463094100676297}
 --- !u!1 &9170463093390222600
 GameObject:
   m_ObjectHideFlags: 0
