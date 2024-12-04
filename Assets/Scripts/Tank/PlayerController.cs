@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Mirror;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     public CinemachineVirtualCamera virtualCamera;
     private float angleCamera;
@@ -11,9 +12,13 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        virtualCamera = GameObject.FindWithTag("vcPlayer").GetComponent<CinemachineVirtualCamera>();
-        virtualCamera.Follow = gameObject.transform;
-        virtualCamera.transform.rotation = Quaternion.AngleAxis(angleCamera, Vector3.forward);
+        if (isLocalPlayer)
+        {
+            virtualCamera = GameObject.FindWithTag("vcPlayer").GetComponent<CinemachineVirtualCamera>();
+            virtualCamera.Follow = gameObject.transform;
+            Init(gameObject.GetComponent<GamePlayer>().typeTank);
+            virtualCamera.transform.rotation = Quaternion.AngleAxis(angleCamera, Vector3.forward);
+        }        
     }
 
     public void Init(typeTank typeTank)

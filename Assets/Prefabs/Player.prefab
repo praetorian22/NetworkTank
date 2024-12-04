@@ -465,6 +465,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8be653179a7df4e87b39ba6d5381bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   virtualCamera: {fileID: 0}
 --- !u!114 &1036318319713258240
 MonoBehaviour:
@@ -478,8 +481,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6404f86f1ef0a1343a5396c6f8ef5b6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0.1
   typeTank: 1
-  tankSprite: {fileID: 9170463094100676297}
+  spriteForTank: {fileID: 0}
+  tankSpriteRenderer: {fileID: 9170463094100676297}
 --- !u!1 &9170463093390222600
 GameObject:
   m_ObjectHideFlags: 0
