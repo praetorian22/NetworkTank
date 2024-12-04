@@ -487,6 +487,8 @@ MonoBehaviour:
   typeTank: 1
   spriteForTank: {fileID: 0}
   tankSpriteRenderer: {fileID: 9170463094100676297}
+  defaultSpriteRed: {fileID: -1630903666, guid: eafe231bba859d44e9da342d7f10a1da, type: 3}
+  defaultSpriteBlue: {fileID: -2078723621, guid: 6173928bba23af34b838a711b8b354d8, type: 3}
 --- !u!1 &9170463093390222600
 GameObject:
   m_ObjectHideFlags: 0

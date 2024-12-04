@@ -6,27 +6,20 @@ using static UnityEngine.Tilemaps.Tilemap;
 
 public class GamePlayer : NetworkBehaviour
 {
-    [SyncVar] public typeTank typeTank;
-    [SyncVar(hook = nameof(SyncSprite))] public Sprite spriteForTank;
+    [SyncVar(hook = nameof(SyncSprite))] public typeTank typeTank;
+    public Sprite spriteForTank;
     public SpriteRenderer tankSpriteRenderer;
-    
+    public Sprite defaultSpriteRed;
+    public Sprite defaultSpriteBlue;
+
     [Server]
     public void ChangeTypeTank(typeTank typeTank)
     {
         this.typeTank = typeTank;
-    }
-    [Server]
-    public void ChangeSpriteTank(Sprite spriteTank)
+    }     
+    public void SyncSprite(typeTank oldValue, typeTank newValue)
     {
-        spriteForTank = spriteTank;
-    }
-
-    private void Start()
-    {
-        //Init(typeTank);
-    }
-    public void SyncSprite(Sprite oldValue, Sprite newValue)
-    {
-        tankSpriteRenderer.sprite = newValue;        
+        if (newValue == typeTank.red) tankSpriteRenderer.sprite = defaultSpriteRed;  
+        else tankSpriteRenderer.sprite = defaultSpriteRed;
     }
 }
