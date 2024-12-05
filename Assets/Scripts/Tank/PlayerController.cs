@@ -15,7 +15,9 @@ public class PlayerController : NetworkBehaviour
     private bool moveNow;
     [SerializeField] private Transform _tank;
     [SerializeField] private float _speed;
+    [SerializeField] private bool mobile;
 
+    public FixedJoystick fixedJoystick;
     public CinemachineVirtualCamera virtualCamera;
 
     private void Awake()
@@ -26,7 +28,11 @@ public class PlayerController : NetworkBehaviour
 
     private bool Move()
     {
-        Vector2 move = _control.Map.Move.ReadValue<Vector2>() * koefReversMove;
+        Vector2 move;
+        if (!mobile)
+            move = _control.Map.Move.ReadValue<Vector2>() * koefReversMove;
+        else
+            move = new Vector2(fixedJoystick.Horizontal, fixedJoystick.Vertical) * koefReversMove;
         _movement = Vector3.Lerp(_movement, move, 0.01f);
         _tank.rotation = Quaternion.Lerp(_tank.rotation, Quaternion.Euler(new Vector3(0, 0, Vector3.SignedAngle(Vector3.up, _movement * koefReversMove, Vector3.forward))), 0.05f);
         if (move.magnitude == 0) return false;
@@ -38,6 +44,7 @@ public class PlayerController : NetworkBehaviour
         if (isLocalPlayer)
         {
             virtualCamera = GameObject.FindWithTag("vcPlayer").GetComponent<CinemachineVirtualCamera>();
+            fixedJoystick = GameObject.FindWithTag("joystick").GetComponent<FixedJoystick>();
             virtualCamera.Follow = gameObject.transform;
             Init(gameObject.GetComponent<GamePlayer>().typeTank);
             virtualCamera.transform.rotation = Quaternion.AngleAxis(angleCamera, Vector3.forward);

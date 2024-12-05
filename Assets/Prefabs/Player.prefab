@@ -504,6 +504,8 @@ MonoBehaviour:
   syncInterval: 0
   _tank: {fileID: 9170463094100676298}
   _speed: 2
+  mobile: 1
+  fixedJoystick: {fileID: 0}
   virtualCamera: {fileID: 0}
 --- !u!114 &1036318319713258240
 MonoBehaviour:

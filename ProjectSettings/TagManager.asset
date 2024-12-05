@@ -11,6 +11,7 @@ TagManager:
   - startButton
   - UIPlayerRoom
   - vcPlayer
+  - joystick
   layers:
   - Default
   - TransparentFX
