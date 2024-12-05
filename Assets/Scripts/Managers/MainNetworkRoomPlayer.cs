@@ -27,12 +27,16 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     [Command]
     public void CmdCreateUI()
     {
-        GameObject playerRoomUI = Instantiate(roomPlayerUIPrefab);        
+        GameObject playerRoomUI = Instantiate(roomPlayerUIPrefab); 
+        //Ёто не надо. ClentRPC все равно вызоветс€ дл€ сервера тоже.
+        /*
         if (panelUIPlayers)
         {
             playerRoomUI.transform.SetParent(panelUIPlayers.transform, false);
             uiDataPlayer = playerRoomUI.GetComponent<UIDataPlayer>();
+            uiDataPlayer.Init();
         }
+        */
         NetworkServer.Spawn(playerRoomUI, connectionToClient);
         RPCCreateUI(playerRoomUI);
     }
@@ -42,6 +46,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
         if (!panelUIPlayers) panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
         playerRoomUI.transform.SetParent(panelUIPlayers.transform, false);
         uiDataPlayer = playerRoomUI.GetComponent<UIDataPlayer>();
+        uiDataPlayer.Init();
     }
     public override void Start()
     {
@@ -98,25 +103,27 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// </summary>
     public override void OnStartLocalPlayer()
     {        
-        GameObject toggle = GameObject.FindWithTag("toggleReady");
-        panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");        
-        if (toggle && panelUIPlayers)
+        GameObject toggle = GameObject.FindWithTag("toggleReady");               
+        //if (toggle && panelUIPlayers)
+        //{
+        ready = toggle.GetComponent<Toggle>();
+        ready.onValueChanged.RemoveAllListeners();
+        ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
+        //чтобы всех других видеть. »х локально нет в panelUIPlayers. ќни заспавнены в корне. Spawn всегда в корень спавнит
+        panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("UIPlayerRoom");
+        foreach (GameObject gameObject in gameObjects)
         {
-            ready = toggle.GetComponent<Toggle>();
-            ready.onValueChanged.RemoveAllListeners();
-            ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
-            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("UIPlayerRoom");
-            foreach (GameObject gameObject in gameObjects)
-            {
-                gameObject.transform.SetParent(panelUIPlayers.transform, false);
-            }
-            CmdCreateUI();
-        }  
-        else
-        {
-            StartCoroutine(InitiateCoro());
-        }        
+            gameObject.transform.SetParent(panelUIPlayers.transform, false);
+        }
+        CmdCreateUI();
+        //}  
+        ///else
+        //{
+        //    StartCoroutine(InitiateCoro());
+        //}        
     }
+    /*
     private IEnumerator InitiateCoro()
     {
         GameObject toggle = null;
@@ -140,6 +147,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
         }
         CmdCreateUI();
     }
+    */
     /// <summary>
     /// This is invoked on behaviours that have authority, based on context and <see cref="NetworkIdentity.hasAuthority">NetworkIdentity.hasAuthority</see>.
     /// <para>This is called after <see cref="OnStartServer">OnStartServer</see> and before <see cref="OnStartClient">OnStartClient.</see></para>

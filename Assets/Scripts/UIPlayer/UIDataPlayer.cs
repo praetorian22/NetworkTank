@@ -43,7 +43,7 @@ public class UIDataPlayer : NetworkBehaviour
         else CmdChangeType(type);
     }
 
-    private void Start()
+    public void Init()
     {
         ClientServerChangeName(DataPlayer.Instance.playerName);
         ClientServerChangeType(DataPlayer.Instance.type);
@@ -54,7 +54,7 @@ public class UIDataPlayer : NetworkBehaviour
                 ClientServerChangeType(typeTank.blue);
             else
                 ClientServerChangeType(typeTank.red);
-        });
+        });                
     }
     public override void OnStartAuthority() 
     {
