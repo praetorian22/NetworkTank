@@ -2,17 +2,19 @@ using System;
 using System.Net;
 using Mirror;
 using Mirror.Discovery;
+using UnityEngine.Events;
+using UnityEngine;
 
 /*
     Documentation: https://mirror-networking.gitbook.io/docs/components/network-discovery
     API Reference: https://mirror-networking.com/docs/api/Mirror.Discovery.NetworkDiscovery.html
 */
-
 public struct DiscoveryRequest : NetworkMessage
 {
     // Add public fields (not properties) for whatever information you want
     // sent by clients in their broadcast messages that servers will use.
-    public string language;
+
+    //public string language;
 }
 
 public struct DiscoveryResponse : NetworkMessage
@@ -25,8 +27,10 @@ public struct DiscoveryResponse : NetworkMessage
     public Uri uri;
 
     public GameMode gameMode;
-    public int TotalPlayers;
-    public int HostPlayerName;
+    public int totalPlayers;
+    public string hostPlayerName;
+    public IPEndPoint EndPoint { get; set; }
+    public long serverId;
 }
 
 public class MainNetworkDiscovery : NetworkDiscoveryBase<DiscoveryRequest, DiscoveryResponse>
@@ -75,7 +79,22 @@ public class MainNetworkDiscovery : NetworkDiscoveryBase<DiscoveryRequest, Disco
     /// <returns>A message containing information about this server</returns>
     protected override DiscoveryResponse ProcessRequest(DiscoveryRequest request, IPEndPoint endpoint) 
     {
-        return new DiscoveryResponse();
+        try
+        {
+            // this is an example reply message,  return your own
+            // to include whatever is relevant for your game
+            return new DiscoveryResponse
+            {
+                serverId = ServerId,
+                uri = transport.ServerUri(),
+                hostPlayerName = DataPlayer.Instance.playerName
+            };
+        }
+        catch (NotImplementedException)
+        {
+            Debug.LogError($"Transport {transport} does not support network discovery");
+            throw;
+        }
     }
 
     #endregion
@@ -103,7 +122,23 @@ public class MainNetworkDiscovery : NetworkDiscoveryBase<DiscoveryRequest, Disco
     /// </remarks>
     /// <param name="response">Response that came from the server</param>
     /// <param name="endpoint">Address of the server that replied</param>
-    protected override void ProcessResponse(DiscoveryResponse response, IPEndPoint endpoint) { }
+    protected override void ProcessResponse(DiscoveryResponse response, IPEndPoint endpoint) 
+    {
+        // we received a message from the remote endpoint
+        response.EndPoint = endpoint;
+
+        // although we got a supposedly valid url, we may not be able to resolve
+        // the provided host
+        // However we know the real ip address of the server because we just
+        // received a packet from it,  so use that as host.
+        UriBuilder realUri = new UriBuilder(response.uri)
+        {
+            Host = response.EndPoint.Address.ToString()
+        };
+        response.uri = realUri.Uri;
+
+        OnServerFound.Invoke(response);
+    }
 
     #endregion
 }
