@@ -29,8 +29,7 @@ public class UIConnectInterface : MonoBehaviour
         }
     }
 #endif
-
-    private void OnEnable()
+    public void FindServerBegin()
     {
         if (findServersCoro != null) StopCoroutine(findServersCoro);
         findServersCoro = StartCoroutine(FindServersCoroutine());
@@ -44,6 +43,15 @@ public class UIConnectInterface : MonoBehaviour
             networkDiscovery.AdvertiseServer();
         });
     }
+    public void FindServerStop()
+    {
+        if (findServersCoro != null) StopCoroutine(findServersCoro);
+        networkDiscovery.StopDiscovery();
+    }
+    private void OnEnable()
+    {
+        FindServerBegin();
+    }
     private void OnDisable()
     {
         if (findServersCoro != null) StopCoroutine(findServersCoro);
@@ -53,6 +61,16 @@ public class UIConnectInterface : MonoBehaviour
     {
         networkDiscovery.StopDiscovery();
         NetworkManager.singleton.StartClient(info.uri);
+    }
+    public void StartHost()
+    {
+        FindServerStop();
+        gameObject.GetComponent<MainNetworkRoomManager>().StartHost();
+    }
+    public void StartClient()
+    {
+        FindServerStop();
+        gameObject.GetComponent<MainNetworkRoomManager>().StartClient();
     }
     public void ChangeIPText()
     {

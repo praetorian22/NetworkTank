@@ -89,7 +89,6 @@ public class MainNetworkRoomManager : NetworkRoomManager
             startButton.interactable = false;
         }
     }
-
     /// <summary>
     /// This allows customization of the creation of the room-player object on the server.
     /// <para>By default the roomPlayerPrefab is used to create the room-player, but this function allows that behaviour to be customized.</para>

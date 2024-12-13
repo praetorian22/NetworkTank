@@ -1560,8 +1560,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1686750703}
-        m_TargetAssemblyTypeName: Mirror.NetworkManager, Mirror
+      - m_Target: {fileID: 1686750705}
+        m_TargetAssemblyTypeName: UIConnectInterface, Assembly-CSharp
         m_MethodName: StartHost
         m_Mode: 1
         m_Arguments:
@@ -2355,8 +2355,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1686750703}
-        m_TargetAssemblyTypeName: Mirror.NetworkManager, Mirror
+      - m_Target: {fileID: 1686750705}
+        m_TargetAssemblyTypeName: UIConnectInterface, Assembly-CSharp
         m_MethodName: StartClient
         m_Mode: 1
         m_Arguments:
@@ -2502,6 +2502,10 @@ MonoBehaviour:
   - {fileID: 5051654939893222197, guid: 23b1547af921a77469ace45c4171e6f2, type: 3}
   - {fileID: 957285339245572837, guid: 2f34a00739b82474b9767748d9282ed2, type: 3}
   - {fileID: 3476768555009756323, guid: c9be978a8e331654a9aa2acfa23652c3, type: 3}
+  - {fileID: 5066236815336661425, guid: dd4721282ae1db4428fafb14c23155ee, type: 3}
+  - {fileID: 6078609245098213169, guid: 5e2e4507ef719314ea82399cd4cf79d0, type: 3}
+  - {fileID: 5189488823735920756, guid: fe287c5b2122b1f4d9ce0a55d596c63e, type: 3}
+  - {fileID: 5347814738600988827, guid: f5812d48969c79a49ba6d6967896c612, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2

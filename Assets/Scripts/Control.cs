@@ -35,6 +35,15 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shot"",
+                    ""type"": ""Button"",
+                    ""id"": ""550d458d-620a-4655-979a-aa8fa74cb5b7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -92,6 +101,28 @@ public partial class @Control: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b56828f6-90e6-4ade-92d9-2326149fe321"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3af7c9bf-122f-4e52-b153-6147e1bf1073"",
+                    ""path"": ""<Touchscreen>/touch1/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -101,6 +132,7 @@ public partial class @Control: IInputActionCollection2, IDisposable
         // Map
         m_Map = asset.FindActionMap("Map", throwIfNotFound: true);
         m_Map_Move = m_Map.FindAction("Move", throwIfNotFound: true);
+        m_Map_Shot = m_Map.FindAction("Shot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,11 +195,13 @@ public partial class @Control: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Map;
     private List<IMapActions> m_MapActionsCallbackInterfaces = new List<IMapActions>();
     private readonly InputAction m_Map_Move;
+    private readonly InputAction m_Map_Shot;
     public struct MapActions
     {
         private @Control m_Wrapper;
         public MapActions(@Control wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Map_Move;
+        public InputAction @Shot => m_Wrapper.m_Map_Shot;
         public InputActionMap Get() { return m_Wrapper.m_Map; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -180,6 +214,9 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Shot.started += instance.OnShot;
+            @Shot.performed += instance.OnShot;
+            @Shot.canceled += instance.OnShot;
         }
 
         private void UnregisterCallbacks(IMapActions instance)
@@ -187,6 +224,9 @@ public partial class @Control: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Shot.started -= instance.OnShot;
+            @Shot.performed -= instance.OnShot;
+            @Shot.canceled -= instance.OnShot;
         }
 
         public void RemoveCallbacks(IMapActions instance)
@@ -207,5 +247,6 @@ public partial class @Control: IInputActionCollection2, IDisposable
     public interface IMapActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnShot(InputAction.CallbackContext context);
     }
 }

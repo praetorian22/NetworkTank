@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveShot : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private bool _blue;
 
     private Vector3 _movement;
     private Rigidbody2D _rb;
@@ -16,6 +17,7 @@ public class MoveShot : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.velocity = transform.up * _speed;
+        if (_blue) _rb.velocity = transform.up * _speed;
+        else _rb.velocity = - transform.up * _speed;
     }
 }

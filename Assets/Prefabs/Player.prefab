@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f8a5978b4818d4dbc76cc3a9d72361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shotPrefab: {fileID: 5066236815336661425, guid: dd4721282ae1db4428fafb14c23155ee, type: 3}
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   _timeReloadMin: 1
   _timeReloadMax: 2
   _pointToShot: {fileID: 9170463093686869631}
@@ -94,7 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f8a5978b4818d4dbc76cc3a9d72361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shotPrefab: {fileID: 5066236815336661425, guid: dd4721282ae1db4428fafb14c23155ee, type: 3}
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   _timeReloadMin: 1
   _timeReloadMax: 2
   _pointToShot: {fileID: 9170463093670996819}
@@ -505,6 +509,11 @@ MonoBehaviour:
   _tank: {fileID: 9170463094100676298}
   _speed: 2
   mobile: 1
+  weaponScripts:
+  - {fileID: 6794435720054386026}
+  - {fileID: 3726859285849081664}
+  - {fileID: 6871748054816999054}
+  - {fileID: 5883700185222826966}
   fixedJoystick: {fileID: 0}
   virtualCamera: {fileID: 0}
 --- !u!114 &1036318319713258240
@@ -525,8 +534,15 @@ MonoBehaviour:
   typeTank: 1
   spriteForTank: {fileID: 0}
   tankSpriteRenderer: {fileID: 9170463094100676297}
+  weaponScripts:
+  - {fileID: 6794435720054386026}
+  - {fileID: 3726859285849081664}
+  - {fileID: 6871748054816999054}
+  - {fileID: 5883700185222826966}
   defaultSpriteRed: {fileID: 1096323814, guid: eafe231bba859d44e9da342d7f10a1da, type: 3}
   defaultSpriteBlue: {fileID: -2078723621, guid: 6173928bba23af34b838a711b8b354d8, type: 3}
+  _shotPrefabRed: {fileID: 6078609245098213169, guid: 5e2e4507ef719314ea82399cd4cf79d0, type: 3}
+  _shotPrefabBlue: {fileID: 5066236815336661425, guid: dd4721282ae1db4428fafb14c23155ee, type: 3}
 --- !u!1 &9170463093390222600
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +727,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f8a5978b4818d4dbc76cc3a9d72361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shotPrefab: {fileID: 6078609245098213169, guid: 5e2e4507ef719314ea82399cd4cf79d0, type: 3}
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   _timeReloadMin: 1
   _timeReloadMax: 2
   _pointToShot: {fileID: 9170463093048508634}
@@ -725,6 +743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9170463094100676298}
   - component: {fileID: 9170463094100676297}
+  - component: {fileID: 8769337645783612765}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -805,6 +824,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8769337645783612765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9170463094100676299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a553cb17010b2403e8523b558bffbc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 9170463094100676298}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  timelineOffset: 1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  bufferResetMultiplier: 3
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
 --- !u!1 &9170463094773079222
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,7 +933,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f8a5978b4818d4dbc76cc3a9d72361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shotPrefab: {fileID: 5066236815336661425, guid: dd4721282ae1db4428fafb14c23155ee, type: 3}
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   _timeReloadMin: 1
   _timeReloadMax: 2
   _pointToShot: {fileID: 9170463094773079221}
