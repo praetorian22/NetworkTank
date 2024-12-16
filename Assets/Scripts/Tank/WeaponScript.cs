@@ -10,11 +10,21 @@ public class WeaponScript : NetworkBehaviour
     [SerializeField] private float _timeReloadMin;
     [SerializeField] private float _timeReloadMax;
     [SerializeField] private Transform _pointToShot;
+    [SerializeField] private Vector3 positionPointShotRed;
+    [SerializeField] private Vector3 positionPointShotBlue;
 
 
     private bool _readyToShot;
 
     public Action<Vector3> shotEvent;
+
+    public void SetPointShotPosition(typeTank typeTank)
+    {
+        if (typeTank == typeTank.red)
+            _pointToShot.localPosition = positionPointShotRed;
+        else
+            _pointToShot.localPosition = positionPointShotBlue;
+    }
 
     private void Start()
     {
@@ -40,7 +50,7 @@ public class WeaponScript : NetworkBehaviour
         }
     }
 
-    [Command]
+    [Command(requiresAuthority = false)]
     public void CmdShot(Quaternion rotation)
     {
         GameObject shot = Instantiate(_shotPrefab, _pointToShot.position, rotation);

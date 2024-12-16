@@ -4,15 +4,15 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.UI;
 
-public class GameManager : NetworkBehaviour
+public class GameManager : GenericSingletonClass<GameManager>
 {
-    public GameObject coinPrefab;
+    //public GameObject coinPrefab;
 
-    [SyncVar] public int globalCoins;
+    //[SyncVar] public int globalCoins;
 
-    public Text globalCoinsText;
-    public Text coinsText;
-
+    //public Text globalCoinsText;
+    //public Text coinsText;
+    /*
     private void Start()
     {
         if (isServer)
@@ -25,6 +25,7 @@ public class GameManager : NetworkBehaviour
             }
         }
     }
+    
     public void StopGame()
     {
         if (NetworkServer.active && NetworkClient.isConnected)
@@ -45,5 +46,22 @@ public class GameManager : NetworkBehaviour
                 }
             }
         }
+    }
+    */
+    private GameObject _player;
+
+    public void SetPlayer(GameObject player)
+    {
+        if (_player != null)
+        {
+            _player.GetComponent<HealthScript>().deadEvent -= PlayerDead;
+        }
+        _player = player;        
+        _player.GetComponent<HealthScript>().deadEvent += PlayerDead;
+    }
+    
+    private void PlayerDead(GameObject gameObject, typeTank typeTank)
+    {
+        gameObject.SetActive(false);
     }
 }

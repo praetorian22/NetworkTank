@@ -21,8 +21,8 @@ public class Player : NetworkBehaviour
     {
         if (!isLocalPlayer) return;
 
-        gameManager.globalCoinsText.text = "Global coins: " + gameManager.globalCoins;
-        gameManager.coinsText.text = "Player coins: " + coins;
+        //gameManager.globalCoinsText.text = "Global coins: " + gameManager.globalCoins;
+        //gameManager.coinsText.text = "Player coins: " + coins;
 
         input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         Flip();
@@ -57,6 +57,6 @@ public class Player : NetworkBehaviour
     [ClientRpc]
     public void RpcGlobalCoinI()
     {
-        gameManager.globalCoins += 1;
+        //gameManager.globalCoins += 1;
     }
 }

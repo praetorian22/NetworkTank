@@ -51,6 +51,8 @@ MonoBehaviour:
   _timeReloadMin: 1
   _timeReloadMax: 2
   _pointToShot: {fileID: 9170463093686869631}
+  positionPointShotRed: {x: 0, y: -0.36, z: 0}
+  positionPointShotBlue: {x: 0, y: 0.36, z: 0}
 --- !u!1 &9170463092928150552
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,6 +104,8 @@ MonoBehaviour:
   _timeReloadMin: 1
   _timeReloadMax: 2
   _pointToShot: {fileID: 9170463093670996819}
+  positionPointShotRed: {x: 0.1, y: -0.36, z: 0}
+  positionPointShotBlue: {x: 0.1, y: 0.36, z: 0}
 --- !u!1 &9170463092950402574
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9170463093048508634}
+  - component: {fileID: 8354428376220064485}
   m_Layer: 0
   m_Name: PointToShot
   m_TagString: Untagged
@@ -200,6 +205,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9170463093885745363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8354428376220064485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9170463093048508635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a553cb17010b2403e8523b558bffbc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 9170463093048508634}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  timelineOffset: 1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  bufferResetMultiplier: 3
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
 --- !u!1 &9170463093208556781
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +255,7 @@ GameObject:
   - component: {fileID: 7526702513665268579}
   - component: {fileID: -225631933353315531}
   - component: {fileID: 1036318319713258240}
+  - component: {fileID: 7942526752062611707}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -310,7 +349,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.68, y: 0.84}
+  m_Size: {x: 0.65, y: 0.8}
   m_EdgeRadius: 0
 --- !u!82 &9170463093208556773
 AudioSource:
@@ -508,7 +547,7 @@ MonoBehaviour:
   syncInterval: 0
   _tank: {fileID: 9170463094100676298}
   _speed: 2
-  mobile: 1
+  mobile: 0
   weaponScripts:
   - {fileID: 6794435720054386026}
   - {fileID: 3726859285849081664}
@@ -531,8 +570,6 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
-  typeTank: 1
-  spriteForTank: {fileID: 0}
   tankSpriteRenderer: {fileID: 9170463094100676297}
   weaponScripts:
   - {fileID: 6794435720054386026}
@@ -543,6 +580,23 @@ MonoBehaviour:
   defaultSpriteBlue: {fileID: -2078723621, guid: 6173928bba23af34b838a711b8b354d8, type: 3}
   _shotPrefabRed: {fileID: 6078609245098213169, guid: 5e2e4507ef719314ea82399cd4cf79d0, type: 3}
   _shotPrefabBlue: {fileID: 5066236815336661425, guid: dd4721282ae1db4428fafb14c23155ee, type: 3}
+--- !u!114 &7942526752062611707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9170463093208556781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f7cd266d7a41b449252c02a5a01502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0.1
+  _health: 2
+  _healthUp: 
 --- !u!1 &9170463093390222600
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +683,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9170463093670996819}
+  - component: {fileID: 2332965667345283237}
   m_Layer: 0
   m_Name: PointToShot
   m_TagString: Untagged
@@ -651,6 +706,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9170463092928150559}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2332965667345283237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9170463093670996828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a553cb17010b2403e8523b558bffbc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 9170463093670996819}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  timelineOffset: 1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  bufferResetMultiplier: 3
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
 --- !u!1 &9170463093686869624
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,6 +748,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9170463093686869631}
+  - component: {fileID: 4144841845467072584}
   m_Layer: 0
   m_Name: PointToShot
   m_TagString: Untagged
@@ -675,13 +764,46 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9170463093686869624}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9170463092888458742}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4144841845467072584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9170463093686869624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a553cb17010b2403e8523b558bffbc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 9170463093686869631}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  timelineOffset: 1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  bufferResetMultiplier: 3
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
 --- !u!1 &9170463093885745372
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +855,8 @@ MonoBehaviour:
   _timeReloadMin: 1
   _timeReloadMax: 2
   _pointToShot: {fileID: 9170463093048508634}
+  positionPointShotRed: {x: 0, y: 0, z: 0}
+  positionPointShotBlue: {x: 0, y: 0, z: 0}
 --- !u!1 &9170463094100676299
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +937,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2078723621, guid: 6173928bba23af34b838a711b8b354d8, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -821,7 +945,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8769337645783612765
@@ -866,6 +990,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9170463094773079221}
+  - component: {fileID: 570497761029877722}
   m_Layer: 0
   m_Name: PointToShot
   m_TagString: Untagged
@@ -882,12 +1007,45 @@ Transform:
   m_GameObject: {fileID: 9170463094773079222}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0.36, z: 0}
+  m_LocalPosition: {x: -0.1, y: 0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9170463094883652345}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &570497761029877722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9170463094773079222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a553cb17010b2403e8523b558bffbc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 9170463094773079221}
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  onlySyncOnChange: 1
+  compressRotation: 1
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  coordinateSpace: 0
+  timelineOffset: 1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  bufferResetMultiplier: 3
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
 --- !u!1 &9170463094883652346
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,3 +1097,5 @@ MonoBehaviour:
   _timeReloadMin: 1
   _timeReloadMax: 2
   _pointToShot: {fileID: 9170463094773079221}
+  positionPointShotRed: {x: -0.1, y: -0.36, z: 0}
+  positionPointShotBlue: {x: -0.1, y: 0.36, z: 0}

@@ -6,8 +6,8 @@ using static UnityEngine.Tilemaps.Tilemap;
 
 public class GamePlayer : NetworkBehaviour
 {
-    [SyncVar(hook = nameof(SyncSetting))] public typeTank typeTank;
-    public Sprite spriteForTank;
+    [SyncVar(hook = nameof(SyncSetting))] private typeTank typeTank;
+    public typeTank TypeTank => typeTank;
     public SpriteRenderer tankSpriteRenderer;
     public List<WeaponScript> weaponScripts = new List<WeaponScript>();
     public Sprite defaultSpriteRed;
@@ -18,25 +18,35 @@ public class GamePlayer : NetworkBehaviour
     [Server]
     public void ChangeTypeTank(typeTank typeTank)
     {
-        this.typeTank = typeTank;
+        //this.typeTank = typeTank;
+        SyncSetting(typeTank.red, typeTank);
     }     
-    public void SyncSetting(typeTank oldValue, typeTank newValue)
+    private void SyncSetting(typeTank oldValue, typeTank newValue)
     {
+        this.typeTank = newValue;
         if (newValue == typeTank.red)
         {
             tankSpriteRenderer.sprite = defaultSpriteRed;
             foreach (WeaponScript weapon in weaponScripts)
             {
                 weapon.Init(_shotPrefabRed);
+                weapon.SetPointShotPosition(newValue);
             }
         }
         else
         {
-            tankSpriteRenderer.sprite = defaultSpriteRed;
+            tankSpriteRenderer.sprite = defaultSpriteBlue;
             foreach (WeaponScript weapon in weaponScripts)
             {
                 weapon.Init(_shotPrefabBlue);
+                weapon.SetPointShotPosition(newValue);
             }
         }
+    }
+    public override void OnStartClient()
+    {
+        SyncSetting(typeTank.red, typeTank);
+        GameManager.Instance.SetPlayer(gameObject);
+        base.OnStartClient();
     }
 }

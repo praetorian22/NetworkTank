@@ -52,7 +52,7 @@ public class PlayerController : NetworkBehaviour, Control.IMapActions
             virtualCamera = GameObject.FindWithTag("vcPlayer").GetComponent<CinemachineVirtualCamera>();
             fixedJoystick = GameObject.FindWithTag("joystick").GetComponent<FixedJoystick>();
             virtualCamera.Follow = gameObject.transform;
-            Init(gameObject.GetComponent<GamePlayer>().typeTank);
+            Init(gameObject.GetComponent<GamePlayer>().TypeTank);
             virtualCamera.transform.rotation = Quaternion.AngleAxis(angleCamera, Vector3.forward);
         }        
     }
