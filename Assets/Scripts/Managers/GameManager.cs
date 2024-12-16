@@ -59,8 +59,27 @@ public class GameManager : GenericSingletonClass<GameManager>
         _player = player;        
         _player.GetComponent<HealthScript>().deadEvent += PlayerDead;
     }
-    
+
     private void PlayerDead(GameObject gameObject, typeTank typeTank)
+    {
+        if (isServer)
+        {
+            gameObject.SetActive(false);
+            RpcPlayerDead(gameObject, typeTank);
+        }
+        else
+        {
+            CmdPlayerDead(gameObject, typeTank);
+        }
+    }
+    [Command(requiresAuthority = false)]
+    private void CmdPlayerDead(GameObject gameObject, typeTank typeTank)
+    {
+        gameObject.SetActive(false);
+        RpcPlayerDead(gameObject, typeTank);
+    }
+    [ClientRpc]
+    private void RpcPlayerDead(GameObject gameObject, typeTank typeTank)
     {
         gameObject.SetActive(false);
     }

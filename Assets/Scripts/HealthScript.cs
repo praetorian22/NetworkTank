@@ -45,11 +45,11 @@ public class HealthScript : NetworkBehaviour
     {
         ShotScript shotScript = collision.GetComponent<ShotScript>();
 
-        if (shotScript != null && shotScript.IsEnemyShot != IsEnemy)
+        if (shotScript != null && shotScript.IsEnemyShot != IsEnemy && !shotScript.Dead)
         {
             Damage(shotScript.Damage);
             shotEvent?.Invoke(shotScript.gameObject.transform.position);
-            Destroy(shotScript.gameObject);
+            shotScript.SetDead();
         }
     }
 }

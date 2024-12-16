@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9170463092950402573}
   - component: {fileID: 9170463092950402563}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: RemainsIN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9170463093390222607}
   - component: {fileID: 9170463093390222606}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Taran
   m_TagString: Untagged
   m_Icon: {fileID: 0}
