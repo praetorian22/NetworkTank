@@ -15,12 +15,13 @@ public class UIDataPlayer : NetworkBehaviour
 
     void SyncName(string oldvalue, string newValue)
     {
-        this.nameText.text = newValue;
+        this.playerName = newValue;
+        nameText.text = newValue;
     }
     void SyncType(typeTank oldvalue, typeTank newValue)
     {
         this.playerType = newValue;
-        if (newValue == typeTank.blue)
+        if (playerType == typeTank.blue)
         {
             color.color = Color.blue;
         }
@@ -49,22 +50,18 @@ public class UIDataPlayer : NetworkBehaviour
         ClientServerChangeName(DataPlayer.Instance.playerName);
         ClientServerChangeType(DataPlayer.Instance.type);
         buttonChangeType.onClick.RemoveAllListeners();
-        buttonChangeType.onClick.AddListener(() =>
+        if (isOwned)
         {
-            if (playerType == typeTank.red)
-                ClientServerChangeType(typeTank.blue);
-            else
-                ClientServerChangeType(typeTank.red);
-        });                
+            buttonChangeType.onClick.AddListener(() =>
+            {
+                if (playerType == typeTank.red)
+                    ClientServerChangeType(typeTank.blue);
+                else
+                    ClientServerChangeType(typeTank.red);
+            });
+        }                        
     }
-    public override void OnStartAuthority() 
-    {
-        
-    }
-    public override void OnStopAuthority()
-    {
-        
-    }
+    
     [Server]
     public void ChangeName(string newValue)
     {
