@@ -8,7 +8,8 @@ using System;
 public class HealthScript : NetworkBehaviour
 {
     [SyncVar(hook = nameof(SyncEnemySet))] private bool _isEnemy;
-    [SerializeField] private int _health;    
+    [SyncVar(hook = nameof(SyncHealth))] private int _health;
+    [SerializeField] private int _healthMax;    
     [SerializeField] private List<int> _healthUp = new List<int>();
     public int Health { get => _health; }
     public bool IsEnemy { get => _isEnemy; }
@@ -16,38 +17,63 @@ public class HealthScript : NetworkBehaviour
     public Action<GameObject, typeTank> deadEvent;
     public Action<int> changeHealthEvent;
     public Action<Vector3> shotEvent;
-
+    public void Init()
+    {
+        SyncHealth(_health, _healthMax);        
+    }
     [Server]
     public void ChangeEnemySet(typeTank typeTank)
     {
         if (typeTank == typeTank.red) SyncEnemySet(false, true);
         else SyncEnemySet(false, false);
-    }    
+    }
+    [Server]
+    public void Damage(int value)
+    {
+        int health = _health;
+        if (health > 0)
+        {
+            health -= value;
+            //if (_health <= 0) deadEvent?.Invoke(gameObject, _isEnemy ? typeTank.red : typeTank.blue);
+        }
+        else
+        {
+            health = 0;
+            //deadEvent?.Invoke(gameObject, _isEnemy ? typeTank.red : typeTank.blue);
+        }
+        if (health < 0) health = 0;
+        SyncHealth(_health, health);
+        //changeHealthEvent?.Invoke(_health);
+    }
+    [Command(requiresAuthority = false)]
+    public void CmdDamage(int value)
+    {
+        Damage(value);
+    }
     private void SyncEnemySet(bool oldValue, bool newValue)
     {
         this._isEnemy = newValue;
     }
-    public void Damage(int value)
+    private void SyncHealth(int oldValue, int newValue)
     {
-        if (_health > 0)
-        {
-            _health -= value;
-            if (_health <= 0) deadEvent?.Invoke(gameObject, _isEnemy ? typeTank.red : typeTank.blue);
-        }
-        else
-        {
-            _health = 0;
-            deadEvent?.Invoke(gameObject, _isEnemy ? typeTank.red : typeTank.blue);
-        }
-        changeHealthEvent?.Invoke(_health);
+        this._health = newValue;
     }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!isLocalPlayer) return;
         ShotScript shotScript = collision.GetComponent<ShotScript>();
 
         if (shotScript != null && shotScript.IsEnemyShot != IsEnemy && !shotScript.Dead)
         {
-            Damage(shotScript.Damage);
+            if (isServer)
+            {
+                Damage(shotScript.Damage);
+            }
+            else
+            {
+                CmdDamage(shotScript.Damage);
+            }
             shotEvent?.Invoke(shotScript.gameObject.transform.position);
             shotScript.SetDead();
         }

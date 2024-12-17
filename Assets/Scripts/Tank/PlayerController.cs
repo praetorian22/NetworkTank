@@ -121,15 +121,18 @@ public class PlayerController : NetworkBehaviour, Control.IMapActions
 
     public void OnShot(InputAction.CallbackContext context)
     {
-        isShot = context.performed;
-        if (isShot)
+        if (isLocalPlayer)
         {
-            foreach (WeaponScript weaponScript in weaponScripts)
+            isShot = context.performed;
+            if (isShot)
             {
-                if (weaponScript.enabled)
-                    weaponScript.Shot(_tank.rotation);
+                foreach (WeaponScript weaponScript in weaponScripts)
+                {
+                    if (weaponScript.enabled)
+                        weaponScript.Shot(_tank.rotation);
+                }
             }
-        }        
+        }               
     }
 
     private void ActivateCannon(int level)

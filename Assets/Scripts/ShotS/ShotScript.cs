@@ -9,18 +9,17 @@ public class ShotScript : NetworkBehaviour
     [SerializeField] private bool _isEnemyShot;
     [SerializeField] private float _timeLife;
     [SyncVar(hook = nameof(DisableShot))] private bool dead;
-    public bool Dead;
+    public bool Dead => dead;
     public int Damage { get => _damage; }
     public bool IsEnemyShot { get => _isEnemyShot; }
 
-    private void Start()
-    {
-        Destroy(gameObject, _timeLife);
-    }
     private void DisableShot(bool oldValue, bool newValue)
     {
-        dead = newValue;
-        if (dead) Destroy(gameObject);
+        dead = newValue; 
+        if (dead)
+        {
+            gameObject.SetActive(false);
+        }
     }
     public void SetDead()
     {
