@@ -24,7 +24,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     private GameObject panelUIPlayers;    
     private Toggle ready;    
     
-    [Command]
+    [Command(requiresAuthority = false)]
     public void CmdCreateUI()
     {
         GameObject playerRoomUI = Instantiate(roomPlayerUIPrefab); 
@@ -103,51 +103,8 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// </summary>
     public override void OnStartLocalPlayer()
     {        
-        GameObject toggle = GameObject.FindWithTag("toggleReady");               
-        //if (toggle && panelUIPlayers)
-        //{
-        ready = toggle.GetComponent<Toggle>();
-        ready.onValueChanged.RemoveAllListeners();
-        ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
-        //чтобы всех других видеть. »х локально нет в panelUIPlayers. ќни заспавнены в корне. Spawn всегда в корень спавнит
-        panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
-        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("UIPlayerRoom");
-        foreach (GameObject gameObject in gameObjects)
-        {
-            gameObject.transform.SetParent(panelUIPlayers.transform, false);
-        }
-        CmdCreateUI();
-        //}  
-        ///else
-        //{
-        //    StartCoroutine(InitiateCoro());
-        //}        
-    }
-    /*
-    private IEnumerator InitiateCoro()
-    {
-        GameObject toggle = null;
-        while (ready == null)
-        {
-            yield return null;
-            toggle = GameObject.FindWithTag("toggleReady");            
-        }
-        ready = toggle.GetComponent<Toggle>();
-        ready.onValueChanged.RemoveAllListeners();
-        ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
-        while (!panelUIPlayers)
-        {
-            panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
-            yield return null;
-        }
-        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("UIPlayerRoom");
-        foreach (GameObject gameObject in gameObjects)
-        {
-            gameObject.transform.SetParent(panelUIPlayers.transform, false);
-        }
-        CmdCreateUI();
-    }
-    */
+                      
+    }    
     /// <summary>
     /// This is invoked on behaviours that have authority, based on context and <see cref="NetworkIdentity.hasAuthority">NetworkIdentity.hasAuthority</see>.
     /// <para>This is called after <see cref="OnStartServer">OnStartServer</see> and before <see cref="OnStartClient">OnStartClient.</see></para>
@@ -174,8 +131,30 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
         //GameObject UI = Instantiate(playerLobbyUI.roomPlayerUIPrefab);
         //UI.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);
         //gameObject.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);
+        if (isLocalPlayer && uiDataPlayer == null)
+        {
+            StartCoroutine(CreateUICoro());
+        }        
     }
-
+    private IEnumerator CreateUICoro()
+    {
+        while (!NetworkClient.ready)
+        {
+            yield return null;
+        }
+        GameObject toggle = GameObject.FindWithTag("toggleReady");
+        ready = toggle.GetComponent<Toggle>();
+        ready.onValueChanged.RemoveAllListeners();
+        ready.onValueChanged.AddListener((bool ready) => ReadyTooglePress(ready));
+        //чтобы всех других видеть. »х локально нет в panelUIPlayers. ќни заспавнены в корне. Spawn всегда в корень спавнит
+        panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("UIPlayerRoom");
+        foreach (GameObject gameObject in gameObjects)
+        {
+            gameObject.transform.SetParent(panelUIPlayers.transform, false);
+        }
+        CmdCreateUI();
+    }
     /// <summary>
     /// This is a hook that is invoked on all player objects when exiting the room.
     /// </summary>

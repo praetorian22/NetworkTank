@@ -15,10 +15,11 @@ public class UIDataPlayer : NetworkBehaviour
 
     void SyncName(string oldvalue, string newValue)
     {
-        nameText.text = newValue;
+        this.nameText.text = newValue;
     }
     void SyncType(typeTank oldvalue, typeTank newValue)
     {
+        this.playerType = newValue;
         if (newValue == typeTank.blue)
         {
             color.color = Color.blue;
@@ -67,9 +68,9 @@ public class UIDataPlayer : NetworkBehaviour
     [Server]
     public void ChangeName(string newValue)
     {
-        playerName = newValue;
+        SyncName("", newValue);
     }
-    [Command]
+    [Command(requiresAuthority = false)]
     public void CmdChangeName(string newValue)
     {
         ChangeName(newValue);
@@ -77,11 +78,11 @@ public class UIDataPlayer : NetworkBehaviour
     [Server]
     public void ChangeType(typeTank newValue)
     {
-        playerType = newValue;
+        SyncType(typeTank.red, newValue);
     }
-    [Command]
+    [Command(requiresAuthority = false)]
     public void CmdChangeType(typeTank newValue)
     {
         ChangeType(newValue);
-    }
+    }    
 }

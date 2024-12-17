@@ -672,7 +672,10 @@ namespace Mirror
         /// <summary>
         /// This is called on the client when the client is finished loading a new networked scene.
         /// </summary>
-        public virtual void OnRoomClientSceneChanged() {}
+        public virtual void OnRoomClientSceneChanged() 
+        {
+
+        }
 
         #endregion
 
