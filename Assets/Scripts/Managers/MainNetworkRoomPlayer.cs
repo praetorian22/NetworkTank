@@ -129,9 +129,6 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     /// </summary>
     public override void OnClientEnterRoom() 
     {
-        //GameObject UI = Instantiate(playerLobbyUI.roomPlayerUIPrefab);
-        //UI.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);
-        //gameObject.transform.SetParent(GameObject.FindWithTag("panelUIPlayers").transform, false);
         if (isLocalPlayer && uiDataPlayer == null)
         {
             StartCoroutine(CreateUICoro());
@@ -141,7 +138,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     {
         while (!NetworkClient.ready)
         {
-            yield return null;
+            yield return new WaitForSeconds(UnityEngine.Random.Range(1f,5f));
         }
         GameObject toggle = GameObject.FindWithTag("toggleReady");
         ready = toggle.GetComponent<Toggle>();
