@@ -22,12 +22,13 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     public GameObject roomPlayerUIPrefab;
     public UIDataPlayer uiDataPlayer;
     private GameObject panelUIPlayers;    
-    private Toggle ready;    
+    private Toggle ready;
+    public int IndexPlayer => index;
     
     [Command(requiresAuthority = false)]
     public void CmdCreateUI()
     {
-        GameObject playerRoomUI = Instantiate(roomPlayerUIPrefab); 
+        GameObject playerRoomUI = Instantiate(roomPlayerUIPrefab);
         //Это не надо. ClentRPC все равно вызовется для сервера тоже.
         /*
         if (panelUIPlayers)
@@ -45,7 +46,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     {
         if (!panelUIPlayers) panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
         playerRoomUI.transform.SetParent(panelUIPlayers.transform, false);
-        uiDataPlayer = playerRoomUI.GetComponent<UIDataPlayer>();
+        if (uiDataPlayer == null) uiDataPlayer = playerRoomUI.GetComponent<UIDataPlayer>();
         uiDataPlayer.Init();
     }
     public override void Start()
@@ -152,7 +153,7 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
         foreach (GameObject gameObject in gameObjects)
         {
             gameObject.transform.SetParent(panelUIPlayers.transform, false);
-        }
+        }        
         CmdCreateUI();
     }
     /// <summary>

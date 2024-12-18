@@ -12,6 +12,7 @@ public class UIDataPlayer : NetworkBehaviour
     public Text nameText;
     public Image color;
     public Button buttonChangeType;
+    private bool initOK;
 
     void SyncName(string oldvalue, string newValue)
     {
@@ -47,6 +48,7 @@ public class UIDataPlayer : NetworkBehaviour
 
     public void Init()
     {
+        if (initOK) return;
         ClientServerChangeName(DataPlayer.Instance.playerName);
         ClientServerChangeType(DataPlayer.Instance.type);
         buttonChangeType.onClick.RemoveAllListeners();
@@ -59,7 +61,8 @@ public class UIDataPlayer : NetworkBehaviour
                 else
                     ClientServerChangeType(typeTank.red);
             });
-        }                        
+        }
+        initOK = true;
     }
     
     [Server]
