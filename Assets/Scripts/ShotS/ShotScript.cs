@@ -8,19 +8,20 @@ public class ShotScript : NetworkBehaviour
     [SerializeField] private int _damage;
     [SerializeField] private bool _isEnemyShot;
     [SerializeField] private float _timeLife;
-    [SyncVar(hook = nameof(DisableShot))] private bool dead;
-    public bool Dead => dead;
+    //[SyncVar(hook = nameof(DisableShot))] private bool dead;
+    //public bool Dead => dead;
     public int Damage { get => _damage; }
     public bool IsEnemyShot { get => _isEnemyShot; }
-
+    /*
     private void DisableShot(bool oldValue, bool newValue)
     {
         dead = newValue; 
         if (dead)
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(false);            
         }
     }
+    */
     public void SetDead()
     {
         if (isServer)
@@ -36,7 +37,8 @@ public class ShotScript : NetworkBehaviour
     [Server]
     public void ChangeStatusDead(bool newValue)
     {
-        DisableShot(false, newValue);
+        //DisableShot(false, newValue);
+        NetworkServer.Destroy(gameObject);
     }
     [Command(requiresAuthority = false)]
     public void CmdChangeStatusDead(bool newValue)

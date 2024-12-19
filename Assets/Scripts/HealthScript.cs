@@ -41,7 +41,11 @@ public class HealthScript : NetworkBehaviour
             health = 0;
             //deadEvent?.Invoke(gameObject, _isEnemy ? typeTank.red : typeTank.blue);
         }
-        if (health < 0) health = 0;
+        if (health <= 0)
+        {
+            health = 0;
+            NetworkServer.Destroy(gameObject);
+        }
         SyncHealth(_health, health);
         //changeHealthEvent?.Invoke(_health);
     }
@@ -64,7 +68,7 @@ public class HealthScript : NetworkBehaviour
         if (!isLocalPlayer) return;
         ShotScript shotScript = collision.GetComponent<ShotScript>();
 
-        if (shotScript != null && shotScript.IsEnemyShot != IsEnemy && !shotScript.Dead)
+        if (shotScript != null && shotScript.IsEnemyShot != IsEnemy) //&& !shotScript.Dead)
         {
             if (isServer)
             {

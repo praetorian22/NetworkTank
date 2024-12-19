@@ -14,7 +14,12 @@ public class UIDataPlayer : NetworkBehaviour
     public Image color;
     public Button buttonChangeType;
     private bool initOK;
-    
+
+    private void Update()
+    {
+        SetColor();
+        SetName();
+    }
     private void SetColor()
     {
         if (playerType == typeTank.blue)
@@ -29,12 +34,6 @@ public class UIDataPlayer : NetworkBehaviour
     private void SetName()
     {
         nameText.text = playerName;
-    }
-
-    private void Update()
-    {
-        SetColor();
-        SetName();
     }
     void SyncName(string oldvalue, string newValue)
     {
