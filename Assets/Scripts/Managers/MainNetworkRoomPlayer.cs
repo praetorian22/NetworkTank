@@ -46,8 +46,11 @@ public class MainNetworkRoomPlayer : NetworkRoomPlayer
     {
         if (!panelUIPlayers) panelUIPlayers = GameObject.FindWithTag("panelUIPlayers");
         playerRoomUI.transform.SetParent(panelUIPlayers.transform, false);
-        if (uiDataPlayer == null) uiDataPlayer = playerRoomUI.GetComponent<UIDataPlayer>();
-        uiDataPlayer.Init();
+        if (uiDataPlayer == null)
+        {
+            uiDataPlayer = playerRoomUI.GetComponent<UIDataPlayer>();
+            if (isLocalPlayer) uiDataPlayer.Init();
+        }
     }
     public override void Start()
     {

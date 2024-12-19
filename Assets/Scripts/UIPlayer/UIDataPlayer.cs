@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
+using Unity.Collections.LowLevel.Unsafe;
 
 
 public class UIDataPlayer : NetworkBehaviour
@@ -13,15 +14,9 @@ public class UIDataPlayer : NetworkBehaviour
     public Image color;
     public Button buttonChangeType;
     private bool initOK;
-
-    void SyncName(string oldvalue, string newValue)
+    
+    private void SetColor()
     {
-        this.playerName = newValue;
-        nameText.text = newValue;
-    }
-    void SyncType(typeTank oldvalue, typeTank newValue)
-    {
-        this.playerType = newValue;
         if (playerType == typeTank.blue)
         {
             color.color = Color.blue;
@@ -30,6 +25,26 @@ public class UIDataPlayer : NetworkBehaviour
         {
             color.color = Color.red;
         }
+    }
+    private void SetName()
+    {
+        nameText.text = playerName;
+    }
+
+    private void Update()
+    {
+        SetColor();
+        SetName();
+    }
+    void SyncName(string oldvalue, string newValue)
+    {
+        this.playerName = newValue;
+        //SetName();
+    }
+    void SyncType(typeTank oldvalue, typeTank newValue)
+    {
+        this.playerType = newValue;
+        //SetColor();
     }
     public void ClientServerChangeName(string name)
     {
