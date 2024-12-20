@@ -176,6 +176,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
             gamePlayer.GetComponent<HealthScript>().ChangeEnemySet(typeTank);
             gamePlayer.GetComponent<HealthScript>().Init();
         }
+        EffectManage.Instance.SetParent();
         return true;
     }
 

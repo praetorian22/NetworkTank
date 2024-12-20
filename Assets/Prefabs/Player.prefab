@@ -595,7 +595,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
-  _healthMax: 2
+  _healthMax: 10
   _healthUp: 
 --- !u!1 &9170463093390222600
 GameObject:

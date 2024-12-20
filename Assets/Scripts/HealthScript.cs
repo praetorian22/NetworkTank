@@ -32,19 +32,13 @@ public class HealthScript : NetworkBehaviour
     {
         int health = _health;
         if (health > 0)
-        {
+        {            
             health -= value;
-            //if (_health <= 0) deadEvent?.Invoke(gameObject, _isEnemy ? typeTank.red : typeTank.blue);
-        }
-        else
-        {
-            health = 0;
-            //deadEvent?.Invoke(gameObject, _isEnemy ? typeTank.red : typeTank.blue);
-        }
+        }        
         if (health <= 0)
         {
             health = 0;
-            NetworkServer.Destroy(gameObject);
+            GameManager.Instance.DestroyTank(gameObject, _isEnemy ? typeTank.red : typeTank.blue);            
         }
         SyncHealth(_health, health);
         //changeHealthEvent?.Invoke(_health);
@@ -77,8 +71,7 @@ public class HealthScript : NetworkBehaviour
             else
             {
                 CmdDamage(shotScript.Damage);
-            }
-            shotEvent?.Invoke(shotScript.gameObject.transform.position);
+            }            
             shotScript.SetDead();
         }
     }

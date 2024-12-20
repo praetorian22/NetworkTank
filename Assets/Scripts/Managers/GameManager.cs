@@ -49,6 +49,11 @@ public class GameManager : GenericSingletonClass<GameManager>
     }
     */
     private GameObject _player;
+    public void DestroyTank(GameObject gameObject, typeTank typeTank)
+    {
+        EffectManage.Instance.Explosion(gameObject.transform.position);
+        NetworkServer.Destroy(gameObject);
+    }
 
     public void SetPlayer(GameObject player)
     {

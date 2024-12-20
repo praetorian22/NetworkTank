@@ -1406,10 +1406,6 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  coinPrefab: {fileID: 957285339245572837, guid: 2f34a00739b82474b9767748d9282ed2, type: 3}
-  globalCoins: 0
-  globalCoinsText: {fileID: 0}
-  coinsText: {fileID: 0}
 --- !u!4 &558136460
 Transform:
   m_ObjectHideFlags: 0
@@ -1679,6 +1675,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854598411}
   m_CullTransparentMesh: 1
+--- !u!1 &875173215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 875173218}
+  - component: {fileID: 875173217}
+  - component: {fileID: 875173216}
+  m_Layer: 0
+  m_Name: EffectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &875173216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875173215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fc154b462828640b1ffc79296b27f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  soundObjectPrefab: {fileID: 0}
+  _boom: {fileID: 1753607616118201506, guid: 49bfa8a355ea1b844afcc4a7ee10dfab, type: 3}
+  _boomShot: {fileID: 8835327909373639707, guid: 7d67dc837231a834790238dd03acfaa9, type: 3}
+  explosion: {fileID: 0}
+  playerShot: {fileID: 0}
+  enemyShot: {fileID: 0}
+  audioSource: {fileID: 0}
+  roundMusic: {fileID: 0}
+  volumeEffect: 1
+  volumeMusic: 1
+  parent: {fileID: 0}
+--- !u!114 &875173217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875173215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 2949971988
+  _assetId: 0
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
+--- !u!4 &875173218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875173215}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.26728, y: -19.532736, z: -10.009219}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &992540302
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,6 +2647,8 @@ MonoBehaviour:
   - {fileID: 6078609245098213169, guid: 5e2e4507ef719314ea82399cd4cf79d0, type: 3}
   - {fileID: 5189488823735920756, guid: fe287c5b2122b1f4d9ce0a55d596c63e, type: 3}
   - {fileID: 5347814738600988827, guid: f5812d48969c79a49ba6d6967896c612, type: 3}
+  - {fileID: 1753607616118201506, guid: 49bfa8a355ea1b844afcc4a7ee10dfab, type: 3}
+  - {fileID: 8835327909373639707, guid: 7d67dc837231a834790238dd03acfaa9, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2
@@ -3245,3 +3319,4 @@ SceneRoots:
   - {fileID: 1686750702}
   - {fileID: 1411223580}
   - {fileID: 558136460}
+  - {fileID: 875173218}
