@@ -88,6 +88,16 @@ public class MainNetworkRoomManager : NetworkRoomManager
             });            
             startButton.interactable = false;
         }
+        else
+        {
+            if (sceneName == GameplayScene)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    MobSpawnerManager.Instance.SpawnTank(typeTank.red, new Vector3(0f, 0f, -0.1f));
+                }
+            }
+        }
     }
     /// <summary>
     /// This allows customization of the creation of the room-player object on the server.
