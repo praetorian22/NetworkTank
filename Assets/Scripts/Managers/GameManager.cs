@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using UnityEngine.UI;
+using System.Linq;
 
 public class GameManager : GenericSingletonClass<GameManager>
 {
@@ -87,5 +88,10 @@ public class GameManager : GenericSingletonClass<GameManager>
     private void RpcPlayerDead(GameObject gameObject, typeTank typeTank)
     {
         gameObject.SetActive(false);
+    }
+
+    public void SpawnMob()
+    {
+        
     }
 }

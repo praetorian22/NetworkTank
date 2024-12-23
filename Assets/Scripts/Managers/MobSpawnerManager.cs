@@ -11,27 +11,32 @@ public class MobSpawnerManager : GenericSingletonClass<MobSpawnerManager>
     public List<GameObject> BlueTanks = new List<GameObject>();
     public List<GameObject> RedTanks = new List<GameObject>();       
     
-
-    [Server]
-    public void SpawnTank(typeTank typeTank, Vector3 position)
+    public void SpawnTank(typeTank typeTank, Vector3 position, GameObject prefabRed)
     {
         GameObject tank;
         if (typeTank == typeTank.blue)
         {
-            tank = Instantiate(_blueTankPrefab, position, Quaternion.identity, _parent);            
-            NetworkServer.Spawn(tank, connectionToClient);            
-            BlueTanks.Add(tank);
+            if (_blueTankPrefab != null)
+            {
+                tank = Instantiate(_blueTankPrefab, position, Quaternion.identity);
+                NetworkServer.Spawn(tank);
+                BlueTanks.Add(tank);
+            }            
             //tankCountChangeEvent?.Invoke(typeTank, BlueTanks.Count);
         }
         else
         {
-            tank = Instantiate(_redTankPrefab, position, Quaternion.identity, _parent);            
-            NetworkServer.Spawn(tank, connectionToClient);
-            RedTanks.Add(tank);
+            if (prefabRed != null)
+            {
+                tank = Instantiate(prefabRed, position, Quaternion.identity);
+                NetworkServer.Spawn(tank);
+                RedTanks.Add(tank);
+            }
+            
             //tankCountChangeEvent?.Invoke(typeTank, RedTanks.Count);
         }
-        tank.GetComponent<HealthScript>().ChangeEnemySet(typeTank);
-        tank.GetComponent<HealthScript>().Init();        
+        //tank.GetComponent<HealthScript>().ChangeEnemySet(typeTank);
+        //tank.GetComponent<HealthScript>().Init();        
         //tank.GetComponent<HealthScript>().deadEvent += DestroyTank;
         //tank.GetComponent<HealthScript>().shotEvent += _effectManager.ExplosionMini;
         //WeaponScript[] weaponScripts = tank.GetComponentsInChildren<WeaponScript>();

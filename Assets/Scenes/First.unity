@@ -2753,6 +2753,8 @@ MonoBehaviour:
   _allPlayersReady: 0
   clientIndex: 0
   UIPlayerPrefab: {fileID: 3476768555009756323, guid: c9be978a8e331654a9aa2acfa23652c3, type: 3}
+  _blueTankPrefab: {fileID: 3855697620832187700, guid: b9ca0ccb11673344cabd6a702558912e, type: 3}
+  _redTankPrefab: {fileID: 6410483837906913102, guid: 051bf2993f7c4454db59c033cb04664d, type: 3}
   debug: 
   debugText: {fileID: 0}
 --- !u!114 &1686750704

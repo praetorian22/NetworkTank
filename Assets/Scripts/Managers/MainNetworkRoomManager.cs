@@ -23,6 +23,8 @@ public class MainNetworkRoomManager : NetworkRoomManager
 {    
     private Button startButton;
     public GameObject UIPlayerPrefab;
+    public GameObject _blueTankPrefab;
+    public GameObject _redTankPrefab;
     private static int startPositionIndexBlue;
     private static int startPositionIndexRed;
     public string debug;
@@ -93,25 +95,28 @@ public class MainNetworkRoomManager : NetworkRoomManager
                 }
             });            
             startButton.interactable = false;
-        }
-        else
+        } 
+        if (sceneName == GameplayScene)
         {
-            if (sceneName == GameplayScene)
+            List<Transform> startPositionsRed = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.red).ToList();
+            List<Transform> startPositionsBlue = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.blue).ToList();
+            //Vector3 position = startPositionsBlue[Random.Range(0, startPositionsBlue.Count)].position;
+            //GameObject tank = Instantiate(_blueTankPrefab, position, Quaternion.identity);
+            //NetworkServer.Spawn(tank);
+            for (int i = 0; i < 5; i++)
             {
-                debugText = GameObject.FindWithTag("Debug").GetComponent<Text>();
-                List<Transform> startPositionsRed = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.red).ToList();
-                List<Transform> startPositionsBlue = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.blue).ToList();
-                for (int i = 0; i < 5; i++)
-                {
-                    Vector3 positionSpawn = startPositionsRed[Random.Range(0, startPositionsRed.Count)].position;
-                    //MobSpawnerManager.Instance.SpawnTank(typeTank.red, positionSpawn);                                        
-                }
-                for (int i = 0; i < 5; i++)
-                {
-                    Vector3 positionSpawn = startPositionsBlue[Random.Range(0, startPositionsBlue.Count)].position;
-                    //MobSpawnerManager.Instance.SpawnTank(typeTank.blue, positionSpawn);
-                }
+                //Vector3 position = startPositionsBlue[Random.Range(0, startPositionsBlue.Count)].position;
+                //GameObject tank = Instantiate(_blueTankPrefab, position, Quaternion.identity);
+                //NetworkServer.Spawn(tank);
+                Vector3 positionSpawn = startPositionsRed[Random.Range(0, startPositionsRed.Count)].position;
+                MobSpawnerManager.Instance.SpawnTank(typeTank.red, positionSpawn, _redTankPrefab);
             }
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Vector3 positionSpawn = startPositionsBlue[Random.Range(0, startPositionsBlue.Count)].position;
+            //    MobSpawnerManager.Instance.SpawnTank(typeTank.blue, positionSpawn);
+            //}
+
         }
     }
     /// <summary>

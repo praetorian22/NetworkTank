@@ -49,10 +49,5 @@ public class GamePlayer : NetworkBehaviour
         GameManager.Instance.SetPlayer(gameObject);
         base.OnStartClient();
     }
-    public override void OnStartServer()
-    {
-        //MobSpawnerManager.Instance.SpawnTank(typeTank.blue, new Vector3(0f, 0f, -0.1f));
-        MainNetworkRoomManager.singleton.debug = "isServer";
-        base.OnStartServer();
-    }
+    
 }
