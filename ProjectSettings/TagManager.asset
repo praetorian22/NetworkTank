@@ -14,6 +14,7 @@ TagManager:
   - joystick
   - OnGravity
   - parentForGameObject
+  - Debug
   layers:
   - Default
   - TransparentFX

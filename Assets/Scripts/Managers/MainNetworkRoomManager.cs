@@ -25,10 +25,16 @@ public class MainNetworkRoomManager : NetworkRoomManager
     public GameObject UIPlayerPrefab;
     private static int startPositionIndexBlue;
     private static int startPositionIndexRed;
+    public string debug;
+    public Text debugText;
     // Overrides the base singleton so we don't
     // have to cast to this type everywhere.
     public static new MainNetworkRoomManager singleton => (MainNetworkRoomManager)NetworkRoomManager.singleton;
-
+    public override void Update()
+    {
+        if (debugText != null) debugText.text = debug;
+        base.Update();
+    }
     #region Server Callbacks
 
     /// <summary>
@@ -92,9 +98,18 @@ public class MainNetworkRoomManager : NetworkRoomManager
         {
             if (sceneName == GameplayScene)
             {
-                for (int i = 0; i < 3; i++)
+                debugText = GameObject.FindWithTag("Debug").GetComponent<Text>();
+                List<Transform> startPositionsRed = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.red).ToList();
+                List<Transform> startPositionsBlue = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.blue).ToList();
+                for (int i = 0; i < 5; i++)
                 {
-                    MobSpawnerManager.Instance.SpawnTank(typeTank.red, new Vector3(0f, 0f, -0.1f));
+                    Vector3 positionSpawn = startPositionsRed[Random.Range(0, startPositionsRed.Count)].position;
+                    //MobSpawnerManager.Instance.SpawnTank(typeTank.red, positionSpawn);                                        
+                }
+                for (int i = 0; i < 5; i++)
+                {
+                    Vector3 positionSpawn = startPositionsBlue[Random.Range(0, startPositionsBlue.Count)].position;
+                    //MobSpawnerManager.Instance.SpawnTank(typeTank.blue, positionSpawn);
                 }
             }
         }
@@ -178,7 +193,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
     /// <returns>False to not allow this player to replace the room player.</returns>
     public override bool OnRoomServerSceneLoadedForPlayer(NetworkConnectionToClient conn, GameObject roomPlayer, GameObject gamePlayer)
     {
-        if (gamePlayer.GetComponent<GamePlayer>() != null)
+        if (gamePlayer != null && gamePlayer.GetComponent<GamePlayer>() != null)
         {
             typeTank typeTank = roomPlayer.GetComponent<MainNetworkRoomPlayer>().uiDataPlayer.playerType;
             gamePlayer.transform.position = GetStartPosition(typeTank).position;

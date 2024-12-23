@@ -48,6 +48,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  _shotPrefab: {fileID: 6078609245098213169, guid: 5e2e4507ef719314ea82399cd4cf79d0, type: 3}
   _timeReloadMin: 1
   _timeReloadMax: 2
   _pointToShot: {fileID: 6375491319058336872}
@@ -101,6 +102,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  _shotPrefab: {fileID: 6078609245098213169, guid: 5e2e4507ef719314ea82399cd4cf79d0, type: 3}
   _timeReloadMin: 1
   _timeReloadMax: 2
   _pointToShot: {fileID: 8951849086511353893}
@@ -154,6 +156,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  _shotPrefab: {fileID: 5347814738600988827, guid: f5812d48969c79a49ba6d6967896c612, type: 3}
   _timeReloadMin: 1
   _timeReloadMax: 2
   _pointToShot: {fileID: 8124592713482106127}
@@ -819,6 +822,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  _shotPrefab: {fileID: 6078609245098213169, guid: 5e2e4507ef719314ea82399cd4cf79d0, type: 3}
   _timeReloadMin: 1
   _timeReloadMax: 2
   _pointToShot: {fileID: 8929387944252173200}

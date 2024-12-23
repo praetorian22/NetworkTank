@@ -6,11 +6,12 @@ using Mirror;
 public class MobSpawnerManager : GenericSingletonClass<MobSpawnerManager>
 {
     [SerializeField] private GameObject _blueTankPrefab;
-    [SerializeField] private GameObject _redTankPrefab;
+    [SerializeField] private GameObject _redTankPrefab;    
     [SerializeField] private Transform _parent;
     public List<GameObject> BlueTanks = new List<GameObject>();
-    public List<GameObject> RedTanks = new List<GameObject>();
+    public List<GameObject> RedTanks = new List<GameObject>();       
     
+
     [Server]
     public void SpawnTank(typeTank typeTank, Vector3 position)
     {
@@ -24,14 +25,13 @@ public class MobSpawnerManager : GenericSingletonClass<MobSpawnerManager>
         }
         else
         {
-            tank = Instantiate(_redTankPrefab, position, Quaternion.identity, _parent);
-            
+            tank = Instantiate(_redTankPrefab, position, Quaternion.identity, _parent);            
             NetworkServer.Spawn(tank, connectionToClient);
             RedTanks.Add(tank);
             //tankCountChangeEvent?.Invoke(typeTank, RedTanks.Count);
         }
         tank.GetComponent<HealthScript>().ChangeEnemySet(typeTank);
-        tank.GetComponent<HealthScript>().Init();
+        tank.GetComponent<HealthScript>().Init();        
         //tank.GetComponent<HealthScript>().deadEvent += DestroyTank;
         //tank.GetComponent<HealthScript>().shotEvent += _effectManager.ExplosionMini;
         //WeaponScript[] weaponScripts = tank.GetComponentsInChildren<WeaponScript>();
@@ -72,5 +72,5 @@ public class MobSpawnerManager : GenericSingletonClass<MobSpawnerManager>
             Destroy(tank);
             RedTanks.Remove(tank);
         }
-    }
+    }    
 }

@@ -59,7 +59,7 @@ public class HealthScript : NetworkBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isLocalPlayer) return;
+        if (!isServer) return;
         ShotScript shotScript = collision.GetComponent<ShotScript>();
 
         if (shotScript != null && shotScript.IsEnemyShot != IsEnemy) //&& !shotScript.Dead)

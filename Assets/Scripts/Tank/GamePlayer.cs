@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-using static UnityEngine.Tilemaps.Tilemap;
+using UnityEngine.UI;
 
 public class GamePlayer : NetworkBehaviour
 {
@@ -13,7 +13,7 @@ public class GamePlayer : NetworkBehaviour
     public Sprite defaultSpriteRed;
     public Sprite defaultSpriteBlue;
     public GameObject _shotPrefabRed;
-    public GameObject _shotPrefabBlue;
+    public GameObject _shotPrefabBlue;    
 
     [Server]
     public void ChangeTypeTank(typeTank typeTank)
@@ -48,5 +48,11 @@ public class GamePlayer : NetworkBehaviour
         SyncSetting(typeTank.red, typeTank);
         GameManager.Instance.SetPlayer(gameObject);
         base.OnStartClient();
+    }
+    public override void OnStartServer()
+    {
+        //MobSpawnerManager.Instance.SpawnTank(typeTank.blue, new Vector3(0f, 0f, -0.1f));
+        MainNetworkRoomManager.singleton.debug = "isServer";
+        base.OnStartServer();
     }
 }

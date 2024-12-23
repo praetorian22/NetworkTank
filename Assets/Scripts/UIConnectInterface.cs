@@ -67,6 +67,11 @@ public class UIConnectInterface : MonoBehaviour
         FindServerStop();
         gameObject.GetComponent<MainNetworkRoomManager>().StartHost();
     }
+    public void StartServer()
+    {
+        FindServerStop();
+        gameObject.GetComponent<MainNetworkRoomManager>().StartServer();
+    }
     public void StartClient()
     {
         FindServerStop();

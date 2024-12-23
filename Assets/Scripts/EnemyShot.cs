@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
+
 
 public class EnemyShot : NetworkBehaviour
 {

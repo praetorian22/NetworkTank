@@ -22,6 +22,16 @@ public class ShotScript : NetworkBehaviour
         }
     }
     */
+    private void Start()
+    {
+        if (isServer)
+            StartCoroutine(TimerLifeCoro());
+    }
+    private IEnumerator TimerLifeCoro()
+    {
+        yield return new WaitForSeconds(_timeLife);
+        NetworkServer.Destroy(gameObject);
+    }
     public void SetDead()
     {
         if (isServer)

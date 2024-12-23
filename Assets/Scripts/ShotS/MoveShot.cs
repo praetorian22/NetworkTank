@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class MoveShot : MonoBehaviour
+public class MoveShot : NetworkBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private bool _blue;
@@ -12,7 +13,7 @@ public class MoveShot : MonoBehaviour
 
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();        
     }   
 
     private void FixedUpdate()
@@ -20,4 +21,6 @@ public class MoveShot : MonoBehaviour
         if (_blue) _rb.velocity = transform.up * _speed;
         else _rb.velocity = - transform.up * _speed;
     }
+
+
 }

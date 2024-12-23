@@ -6,7 +6,7 @@ using Mirror;
 
 public class WeaponScript : NetworkBehaviour
 {
-    private GameObject _shotPrefab;    
+    [SerializeField] private GameObject _shotPrefab;    
     [SerializeField] private float _timeReloadMin;
     [SerializeField] private float _timeReloadMax;
     [SerializeField] private Transform _pointToShot;
