@@ -25,16 +25,15 @@ public class MainNetworkRoomManager : NetworkRoomManager
     public GameObject UIPlayerPrefab;
     public GameObject _blueTankPrefab;
     public GameObject _redTankPrefab;
+    public int mobRedCount;
+    public int mobBlueCount;
     private static int startPositionIndexBlue;
-    private static int startPositionIndexRed;
-    public string debug;
-    public Text debugText;
+    private static int startPositionIndexRed;    
     // Overrides the base singleton so we don't
     // have to cast to this type everywhere.
     public static new MainNetworkRoomManager singleton => (MainNetworkRoomManager)NetworkRoomManager.singleton;
     public override void Update()
     {
-        if (debugText != null) debugText.text = debug;
         base.Update();
     }
     #region Server Callbacks
@@ -100,22 +99,16 @@ public class MainNetworkRoomManager : NetworkRoomManager
         {
             List<Transform> startPositionsRed = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.red).ToList();
             List<Transform> startPositionsBlue = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.blue).ToList();
-            //Vector3 position = startPositionsBlue[Random.Range(0, startPositionsBlue.Count)].position;
-            //GameObject tank = Instantiate(_blueTankPrefab, position, Quaternion.identity);
-            //NetworkServer.Spawn(tank);
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < mobRedCount; i++)
             {
-                //Vector3 position = startPositionsBlue[Random.Range(0, startPositionsBlue.Count)].position;
-                //GameObject tank = Instantiate(_blueTankPrefab, position, Quaternion.identity);
-                //NetworkServer.Spawn(tank);
                 Vector3 positionSpawn = startPositionsRed[Random.Range(0, startPositionsRed.Count)].position;
                 MobSpawnerManager.Instance.SpawnTank(typeTank.red, positionSpawn, _redTankPrefab);
             }
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    Vector3 positionSpawn = startPositionsBlue[Random.Range(0, startPositionsBlue.Count)].position;
-            //    MobSpawnerManager.Instance.SpawnTank(typeTank.blue, positionSpawn);
-            //}
+            for (int i = 0; i < mobBlueCount; i++)
+            {
+                Vector3 positionSpawn = startPositionsBlue[Random.Range(0, startPositionsBlue.Count)].position;
+                MobSpawnerManager.Instance.SpawnTank(typeTank.blue, positionSpawn, _blueTankPrefab);
+            }
 
         }
     }

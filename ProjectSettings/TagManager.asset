@@ -15,6 +15,7 @@ TagManager:
   - OnGravity
   - parentForGameObject
   - Debug
+  - Mob
   layers:
   - Default
   - TransparentFX

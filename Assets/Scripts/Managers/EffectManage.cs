@@ -18,8 +18,15 @@ public class EffectManage : GenericSingletonClass<EffectManage>
     [SerializeField] private float volumeMusic = 1f;
     private Dictionary<typeEffect, GameObject> effectPrefabDict = new Dictionary<typeEffect, GameObject>();
     public Transform parent;
+    public Text debug;
 
-    private void Start()
+    private void Update()
+    {
+        debug.text = Time.deltaTime.ToString();
+    }
+
+    [Server]
+    public void Start()
     {
         effectPrefabDict.Add(typeEffect.explosion, _boom);
         effectPrefabDict.Add(typeEffect.explosionMini, _boomShot);
@@ -28,25 +35,30 @@ public class EffectManage : GenericSingletonClass<EffectManage>
     {
         parent = GameObject.FindWithTag("parentForGameObject").transform;
     }
-
+    [Server]
     public void Explosion(Vector3 position)
     {
-        instantiateCmd(typeEffect.explosion, position, 5, 0, 0, 0);
+        instantiate(typeEffect.explosion, position, 5, 0, 0, 0);
     }
-    
+    [Server]
     public void ExplosionMini(Vector3 position)
     {
-        instantiateCmd(typeEffect.explosionMini, position, 4, 0, 0, 0);
+        instantiate(typeEffect.explosionMini, position, 4, 0, 0, 0);
     }
-    [Command(requiresAuthority = false)]
-    private void instantiateCmd(typeEffect prefabType, Vector3 position, int time, float rotationx, float rotationy, float rotationz)
+    //[Command(requiresAuthority = false)]
+    [Server]
+    private void instantiate(typeEffect prefabType, Vector3 position, int time, float rotationx, float rotationy, float rotationz)
     {
-        GameObject newparticleSystem = Instantiate(effectPrefabDict[prefabType], position, Quaternion.identity);
-        newparticleSystem.transform.rotation = Quaternion.Euler(rotationx, rotationy, rotationz);        
-        NetworkServer.Spawn(newparticleSystem);
-        SetParentPSRPC(newparticleSystem);
-        Destroy(newparticleSystem, time);        
+        if (effectPrefabDict[prefabType] != null)
+        {
+            GameObject newparticleSystem = Instantiate(effectPrefabDict[prefabType], position, Quaternion.identity);
+            newparticleSystem.transform.rotation = Quaternion.Euler(rotationx, rotationy, rotationz);
+            NetworkServer.Spawn(newparticleSystem);
+            //SetParentPSRPC(newparticleSystem);
+            Destroy(newparticleSystem, time);
+        }                
     }
+    /*
     [ClientRpc]
     private void SetParentPSRPC(GameObject ps)
     {
@@ -117,11 +129,11 @@ public class EffectManage : GenericSingletonClass<EffectManage>
         }
         audioSource.volume = 0f;
     }
-
+    */
     public enum typeEffect
     { 
         explosion,
         explosionMini,
     }
-
+    
 }

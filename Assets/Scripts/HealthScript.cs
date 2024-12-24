@@ -40,7 +40,7 @@ public class HealthScript : NetworkBehaviour
             health = 0;
             GameManager.Instance.DestroyTank(gameObject, _isEnemy ? typeTank.red : typeTank.blue);            
         }
-        SyncHealth(_health, health);
+        SyncHealth(_health, health);                
         //changeHealthEvent?.Invoke(_health);
     }
     [Command(requiresAuthority = false)]
@@ -56,10 +56,10 @@ public class HealthScript : NetworkBehaviour
     {
         this._health = newValue;
     }
-    
+    [ServerCallback]
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!isServer) return;
+        //if (!isLocalPlayer) return;
         ShotScript shotScript = collision.GetComponent<ShotScript>();
 
         if (shotScript != null && shotScript.IsEnemyShot != IsEnemy) //&& !shotScript.Dead)
@@ -70,7 +70,7 @@ public class HealthScript : NetworkBehaviour
             }
             else
             {
-                CmdDamage(shotScript.Damage);
+                //CmdDamage(shotScript.Damage);
             }            
             shotScript.SetDead();
         }

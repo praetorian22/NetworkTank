@@ -634,6 +634,7 @@ RectTransform:
   m_Children:
   - {fileID: 1986300503}
   - {fileID: 2000680232}
+  - {fileID: 365382409}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1082,6 +1083,85 @@ Transform:
   m_Children: []
   m_Father: {fileID: 52297786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &365382406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 365382409}
+  - component: {fileID: 365382408}
+  - component: {fileID: 365382407}
+  m_Layer: 5
+  m_Name: Text (Legacy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &365382407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365382406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &365382408
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365382406}
+  m_CullTransparentMesh: 1
+--- !u!224 &365382409
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365382406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 204450465}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -14.54, y: 213}
+  m_SizeDelta: {x: 611.51, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &445899470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1798,6 +1878,7 @@ MonoBehaviour:
   volumeEffect: 1
   volumeMusic: 1
   parent: {fileID: 0}
+  debug: {fileID: 365382407}
 --- !u!114 &875173217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2730,6 +2811,7 @@ MonoBehaviour:
   - {fileID: 8835327909373639707, guid: 7d67dc837231a834790238dd03acfaa9, type: 3}
   - {fileID: 6410483837906913102, guid: 051bf2993f7c4454db59c033cb04664d, type: 3}
   - {fileID: 3855697620832187700, guid: b9ca0ccb11673344cabd6a702558912e, type: 3}
+  - {fileID: 6078609245098213169, guid: c9f9e7d4462295a4881d6e6c0458d3d7, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2
@@ -2755,8 +2837,8 @@ MonoBehaviour:
   UIPlayerPrefab: {fileID: 3476768555009756323, guid: c9be978a8e331654a9aa2acfa23652c3, type: 3}
   _blueTankPrefab: {fileID: 3855697620832187700, guid: b9ca0ccb11673344cabd6a702558912e, type: 3}
   _redTankPrefab: {fileID: 6410483837906913102, guid: 051bf2993f7c4454db59c033cb04664d, type: 3}
-  debug: 
-  debugText: {fileID: 0}
+  mobRedCount: 5
+  mobBlueCount: 5
 --- !u!114 &1686750704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3143,8 +3225,6 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  _blueTankPrefab: {fileID: 3855697620832187700, guid: b9ca0ccb11673344cabd6a702558912e, type: 3}
-  _redTankPrefab: {fileID: 6410483837906913102, guid: 051bf2993f7c4454db59c033cb04664d, type: 3}
   _parent: {fileID: 0}
   BlueTanks: []
   RedTanks: []

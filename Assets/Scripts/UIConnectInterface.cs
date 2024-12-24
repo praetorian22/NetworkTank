@@ -39,7 +39,9 @@ public class UIConnectInterface : MonoBehaviour
         hostButton.onClick.AddListener(() =>
         {
             discoveredServers.Clear();
-            MainNetworkRoomManager.singleton.StartHost();
+            FindServerStop();
+            gameObject.GetComponent<MainNetworkRoomManager>().StartHost();
+            //MainNetworkRoomManager.singleton.StartHost();
             networkDiscovery.AdvertiseServer();
         });
     }
@@ -64,8 +66,8 @@ public class UIConnectInterface : MonoBehaviour
     }
     public void StartHost()
     {
-        FindServerStop();
-        gameObject.GetComponent<MainNetworkRoomManager>().StartHost();
+        //FindServerStop();
+        //gameObject.GetComponent<MainNetworkRoomManager>().StartHost();
     }
     public void StartServer()
     {

@@ -46,7 +46,6 @@ public class GamePlayer : NetworkBehaviour
     public override void OnStartClient()
     {
         SyncSetting(typeTank.red, typeTank);
-        GameManager.Instance.SetPlayer(gameObject);
         base.OnStartClient();
     }
     

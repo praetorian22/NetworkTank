@@ -4,21 +4,19 @@ using UnityEngine;
 using Mirror;
 
 public class MobSpawnerManager : GenericSingletonClass<MobSpawnerManager>
-{
-    [SerializeField] private GameObject _blueTankPrefab;
-    [SerializeField] private GameObject _redTankPrefab;    
+{    
     [SerializeField] private Transform _parent;
     public List<GameObject> BlueTanks = new List<GameObject>();
-    public List<GameObject> RedTanks = new List<GameObject>();       
+    public List<GameObject> RedTanks = new List<GameObject>();
     
-    public void SpawnTank(typeTank typeTank, Vector3 position, GameObject prefabRed)
+    public void SpawnTank(typeTank typeTank, Vector3 position, GameObject prefab)
     {
-        GameObject tank;
+        GameObject tank = null;
         if (typeTank == typeTank.blue)
         {
-            if (_blueTankPrefab != null)
+            if (prefab != null)
             {
-                tank = Instantiate(_blueTankPrefab, position, Quaternion.identity);
+                tank = Instantiate(prefab, position, Quaternion.identity);
                 NetworkServer.Spawn(tank);
                 BlueTanks.Add(tank);
             }            
@@ -26,17 +24,20 @@ public class MobSpawnerManager : GenericSingletonClass<MobSpawnerManager>
         }
         else
         {
-            if (prefabRed != null)
+            if (prefab != null)
             {
-                tank = Instantiate(prefabRed, position, Quaternion.identity);
+                tank = Instantiate(prefab, position, Quaternion.identity);
                 NetworkServer.Spawn(tank);
                 RedTanks.Add(tank);
             }
             
             //tankCountChangeEvent?.Invoke(typeTank, RedTanks.Count);
         }
-        //tank.GetComponent<HealthScript>().ChangeEnemySet(typeTank);
-        //tank.GetComponent<HealthScript>().Init();        
+        if (tank != null)
+        {
+            tank.GetComponent<HealthScript>().ChangeEnemySet(typeTank);
+            tank.GetComponent<HealthScript>().Init();
+        }              
         //tank.GetComponent<HealthScript>().deadEvent += DestroyTank;
         //tank.GetComponent<HealthScript>().shotEvent += _effectManager.ExplosionMini;
         //WeaponScript[] weaponScripts = tank.GetComponentsInChildren<WeaponScript>();

@@ -29,22 +29,25 @@ public class MoveScriptForBot : NetworkBehaviour
 
     private void Start()
     {
-        StartCoroutine(Reposition());
+        if (isServer) StartCoroutine(Reposition());
     }
 
     private void Move()
     {
-        _movement = Vector3.Lerp(_movement, _targetMovement, 0.01f);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 0, Vector3.SignedAngle(Vector3.up, _movement, Vector3.forward))), 0.05f);
+        if (isServer)
+        {
+            _movement = Vector3.Lerp(_movement, _targetMovement, 0.01f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(new Vector3(0, 0, Vector3.SignedAngle(Vector3.up, _movement, Vector3.forward))), 0.05f);
+        }            
     }
 
     private void Update()
     {
-        Move();
+        if (isServer) Move();
     }
 
     private void FixedUpdate()
     {
-        _rb.velocity = _movement * _speed;        
+        if (isServer) _rb.velocity = _movement * _speed;        
     }    
 }
