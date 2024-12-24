@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class MobSpawnerManager : GenericSingletonClass<MobSpawnerManager>
+public class MobSpawnerManager : MonoBehaviour
 {    
     [SerializeField] private Transform _parent;
     public List<GameObject> BlueTanks = new List<GameObject>();

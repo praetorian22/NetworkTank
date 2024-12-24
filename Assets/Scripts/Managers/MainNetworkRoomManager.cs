@@ -22,16 +22,20 @@ using System.Linq;
 public class MainNetworkRoomManager : NetworkRoomManager
 {    
     private Button startButton;
-    public GameObject UIPlayerPrefab;
-    public GameObject _blueTankPrefab;
-    public GameObject _redTankPrefab;
-    public int mobRedCount;
-    public int mobBlueCount;
+    private GameManager gameManager;
+    //public GameObject _blueTankPrefab;
+    //public GameObject _redTankPrefab;    
     private static int startPositionIndexBlue;
     private static int startPositionIndexRed;    
     // Overrides the base singleton so we don't
     // have to cast to this type everywhere.
     public static new MainNetworkRoomManager singleton => (MainNetworkRoomManager)NetworkRoomManager.singleton;
+    public override void Awake()
+    {
+        base.Awake();
+        gameManager = GetComponent<GameManager>();
+    }
+
     public override void Update()
     {
         base.Update();
@@ -97,19 +101,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
         } 
         if (sceneName == GameplayScene)
         {
-            List<Transform> startPositionsRed = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.red).ToList();
-            List<Transform> startPositionsBlue = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.blue).ToList();
-            for (int i = 0; i < mobRedCount; i++)
-            {
-                Vector3 positionSpawn = startPositionsRed[Random.Range(0, startPositionsRed.Count)].position;
-                MobSpawnerManager.Instance.SpawnTank(typeTank.red, positionSpawn, _redTankPrefab);
-            }
-            for (int i = 0; i < mobBlueCount; i++)
-            {
-                Vector3 positionSpawn = startPositionsBlue[Random.Range(0, startPositionsBlue.Count)].position;
-                MobSpawnerManager.Instance.SpawnTank(typeTank.blue, positionSpawn, _blueTankPrefab);
-            }
-
+            gameManager.SpawnMobs(startPositions);
         }
     }
     /// <summary>

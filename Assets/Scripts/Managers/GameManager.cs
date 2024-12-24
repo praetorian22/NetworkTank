@@ -5,51 +5,32 @@ using Mirror;
 using UnityEngine.UI;
 using System.Linq;
 
-public class GameManager : GenericSingletonClass<GameManager>
+public class GameManager : MonoBehaviour
 {
-    //public GameObject coinPrefab;
-
-    //[SyncVar] public int globalCoins;
-
-    //public Text globalCoinsText;
-    //public Text coinsText;
-    /*
-    private void Start()
+    private DataManager dataManager;
+    private MobSpawnerManager mobSpawnerManager;
+    public void Awake()
     {
-        if (isServer)
+        dataManager = GetComponent<DataManager>();
+        mobSpawnerManager = GetComponent<MobSpawnerManager>();
+    }
+
+    public void SpawnMobs(List<Transform> startPositions)
+    {
+        List<Transform> startPositionsRed = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.red).ToList();
+        List<Transform> startPositionsBlue = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.blue).ToList();
+        for (int i = 0; i < dataManager.redCount; i++)
         {
-            for(int  i = 0; i < 5; i++)
-            {
-                Vector2 position = new Vector2(Random.Range(-5f, 5f), Random.Range(-5f, 5f));
-                GameObject coin = Instantiate(coinPrefab, position, Quaternion.identity);
-                NetworkServer.Spawn(coin);
-            }
+            Vector3 positionSpawn = startPositionsRed[Random.Range(0, startPositionsRed.Count)].position;
+            mobSpawnerManager.SpawnTank(typeTank.red, positionSpawn, dataManager.redTankPrefab);
+        }
+        for (int i = 0; i < dataManager.blueCount; i++)
+        {
+            Vector3 positionSpawn = startPositionsBlue[Random.Range(0, startPositionsBlue.Count)].position;
+            mobSpawnerManager.SpawnTank(typeTank.blue, positionSpawn, dataManager.blueTankPrefab);
         }
     }
-    
-    public void StopGame()
-    {
-        if (NetworkServer.active && NetworkClient.isConnected)
-        {
-            NetworkManager.singleton.StopHost();
-        }
-        else
-        {
-            if (NetworkClient.isConnected)
-            {
-                NetworkManager.singleton.StopClient();
-            }
-            else
-            {
-                if (NetworkServer.active)
-                {
-                    NetworkManager.singleton.StopServer();
-                }
-            }
-        }
-    }
-    */
-    
+
     [Server]
     public void DestroyTank(GameObject gameObject, typeTank typeTank)
     {

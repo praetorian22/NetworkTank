@@ -18,12 +18,6 @@ public class EffectManage : GenericSingletonClass<EffectManage>
     [SerializeField] private float volumeMusic = 1f;
     private Dictionary<typeEffect, GameObject> effectPrefabDict = new Dictionary<typeEffect, GameObject>();
     public Transform parent;
-    public Text debug;
-
-    private void Update()
-    {
-        debug.text = Time.deltaTime.ToString();
-    }
 
     [Server]
     public void Start()
