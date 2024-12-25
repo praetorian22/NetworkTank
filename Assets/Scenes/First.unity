@@ -2456,6 +2456,7 @@ GameObject:
   - component: {fileID: 1686750704}
   - component: {fileID: 1686750705}
   - component: {fileID: 1686750707}
+  - component: {fileID: 1686750709}
   - component: {fileID: 1686750706}
   - component: {fileID: 1686750708}
   m_Layer: 0
@@ -2669,6 +2670,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3c421198dcc6d4980484d635fce189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1686750709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686750699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fc154b462828640b1ffc79296b27f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundObjectPrefab: {fileID: 0}
+  explosion: {fileID: 0}
+  playerShot: {fileID: 0}
+  enemyShot: {fileID: 0}
+  audioSource: {fileID: 0}
+  roundMusic: {fileID: 0}
+  volumeEffect: 1
+  volumeMusic: 1
 --- !u!1 &1771480384
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
 
-public class EffectManage : GenericSingletonClass<EffectManage>
+public class EffectManage : MonoBehaviour
 {
-    [SerializeField] private GameObject soundObjectPrefab;
-    [SerializeField] private GameObject _boom;
-    [SerializeField] private GameObject _boomShot;
+    [SerializeField] private GameObject soundObjectPrefab;    
     [SerializeField] private AudioClip explosion;
     [SerializeField] private AudioClip playerShot;
     [SerializeField] private AudioClip enemyShot;
@@ -16,41 +14,18 @@ public class EffectManage : GenericSingletonClass<EffectManage>
     [SerializeField] private AudioClip roundMusic;
     [SerializeField] private float volumeEffect = 1f;
     [SerializeField] private float volumeMusic = 1f;
-    private Dictionary<typeEffect, GameObject> effectPrefabDict = new Dictionary<typeEffect, GameObject>();
-    public Transform parent;
-
+    
     [Server]
-    public void Start()
+    public void Instantiate(GameObject prefab, Vector3 position, int time, float rotationx, float rotationy, float rotationz)
     {
-        effectPrefabDict.Add(typeEffect.explosion, _boom);
-        effectPrefabDict.Add(typeEffect.explosionMini, _boomShot);
-    }
-    public void SetParent()
-    {
-        parent = GameObject.FindWithTag("parentForGameObject").transform;
-    }
-    [Server]
-    public void Explosion(Vector3 position)
-    {
-        instantiate(typeEffect.explosion, position, 5, 0, 0, 0);
-    }
-    [Server]
-    public void ExplosionMini(Vector3 position)
-    {
-        instantiate(typeEffect.explosionMini, position, 4, 0, 0, 0);
-    }
-    //[Command(requiresAuthority = false)]
-    [Server]
-    private void instantiate(typeEffect prefabType, Vector3 position, int time, float rotationx, float rotationy, float rotationz)
-    {
-        if (effectPrefabDict[prefabType] != null)
+        if (prefab != null)
         {
-            GameObject newparticleSystem = Instantiate(effectPrefabDict[prefabType], position, Quaternion.identity);
+            GameObject newparticleSystem = Instantiate(prefab, position, Quaternion.identity);
             newparticleSystem.transform.rotation = Quaternion.Euler(rotationx, rotationy, rotationz);
             NetworkServer.Spawn(newparticleSystem);
             //SetParentPSRPC(newparticleSystem);
             Destroy(newparticleSystem, time);
-        }                
+        }
     }
     /*
     [ClientRpc]
@@ -124,10 +99,6 @@ public class EffectManage : GenericSingletonClass<EffectManage>
         audioSource.volume = 0f;
     }
     */
-    public enum typeEffect
-    { 
-        explosion,
-        explosionMini,
-    }
-    
+
+
 }

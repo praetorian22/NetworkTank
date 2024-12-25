@@ -9,12 +9,15 @@ public class GameManager : MonoBehaviour
 {
     private DataManager dataManager;
     private MobSpawnerManager mobSpawnerManager;
+    private EffectManage effectManage;
     public void Awake()
     {
         dataManager = GetComponent<DataManager>();
         mobSpawnerManager = GetComponent<MobSpawnerManager>();
+        effectManage = GetComponent<EffectManage>();
+        dataManager.Init();
     }
-
+    [Server]
     public void SpawnMobs(List<Transform> startPositions)
     {
         List<Transform> startPositionsRed = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.red).ToList();
@@ -30,11 +33,15 @@ public class GameManager : MonoBehaviour
             mobSpawnerManager.SpawnTank(typeTank.blue, positionSpawn, dataManager.blueTankPrefab);
         }
     }
-
+    [Server]
+    public void Explosion(Vector3 position, typeEffect typeEffect)
+    {
+        effectManage.Instantiate(dataManager.effectPrefabDict[typeEffect], position, 5, 0, 0, 0);
+    }
     [Server]
     public void DestroyTank(GameObject gameObject, typeTank typeTank)
     {
-        EffectManage.Instance.Explosion(gameObject.transform.position);
+        Explosion(gameObject.transform.position, typeEffect.explosion);
         NetworkServer.Destroy(gameObject);
     }
        

@@ -47,7 +47,7 @@ public class ShotScript : NetworkBehaviour
     [Server]
     public void ChangeStatusDead(bool newValue)
     {
-        EffectManage.Instance.ExplosionMini(gameObject.transform.position);
+        //EffectManage.Instance.ExplosionMini(gameObject.transform.position);
         NetworkServer.Destroy(gameObject);
     }
     [Command(requiresAuthority = false)]
