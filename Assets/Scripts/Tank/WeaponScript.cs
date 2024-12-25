@@ -16,7 +16,7 @@ public class WeaponScript : NetworkBehaviour
 
     private bool _readyToShot;
 
-    public Action<Vector3> shotEvent;
+    public Action<Vector3> shotEvent;    
 
     public void SetPointShotPosition(typeTank typeTank)
     {
@@ -40,26 +40,27 @@ public class WeaponScript : NetworkBehaviour
         yield return new WaitForSeconds(UnityEngine.Random.Range(_timeReloadMin, _timeReloadMax));
         _readyToShot = true;
     }
-    public void Shot(Quaternion rotation)
+    public void ShotNow(Quaternion rotation)
     {
         if (_readyToShot)
         {
-            CmdShot(rotation);
+            if (isServer)
+                Shot(rotation);
+            else
+                CmdShot(rotation);
             shotEvent?.Invoke(gameObject.transform.position);
             StartCoroutine(ReloadTimer());
         }
     }
-
+    [Server]
+    public void Shot(Quaternion rotation)
+    {
+        GameObject shot = Instantiate(_shotPrefab, _pointToShot.position, rotation);
+        NetworkServer.Spawn(shot);        
+    }
     [Command(requiresAuthority = false)]
     public void CmdShot(Quaternion rotation)
     {
-        GameObject shot = Instantiate(_shotPrefab, _pointToShot.position, rotation);
-        NetworkServer.Spawn(shot);
-        //RPCCreateShot(shot);
-    }
-    [ClientRpc]
-    public void RPCCreateShot(GameObject shot)
-    {
-        
-    }
+        Shot(rotation);
+    }    
 }

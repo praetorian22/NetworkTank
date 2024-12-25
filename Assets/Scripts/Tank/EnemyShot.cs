@@ -23,7 +23,7 @@ public class EnemyShot : NetworkBehaviour
         foreach (WeaponScript weaponScript in weaponScripts)
         {
             if (weaponScript.enabled)
-                weaponScript.Shot(transform.rotation);
+                weaponScript.ShotNow(transform.rotation);
         }         
     }
 
@@ -38,7 +38,10 @@ public class EnemyShot : NetworkBehaviour
         }
         if (level == 1)
         {
-            weaponScripts[3].enabled = true;
+            weaponScripts[0].enabled = true;
+            weaponScripts[1].enabled = false;
+            weaponScripts[2].enabled = false;
+            weaponScripts[3].enabled = false;
         }
         if (level == 2)
         {

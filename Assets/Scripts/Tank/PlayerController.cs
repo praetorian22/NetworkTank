@@ -17,7 +17,8 @@ public class PlayerController : NetworkBehaviour, Control.IMapActions
     [SerializeField] private Transform _tank;
     [SerializeField] private float _speed;
     [SerializeField] private bool mobile;
-    [SerializeField] private List<WeaponScript> weaponScripts = new List<WeaponScript>();
+    
+    private GamePlayer gamePlayer;
 
     public FixedJoystick fixedJoystick;
     public CinemachineVirtualCamera virtualCamera;
@@ -27,6 +28,7 @@ public class PlayerController : NetworkBehaviour, Control.IMapActions
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        gamePlayer = GetComponent<GamePlayer>();
         _control = new Control();
         _control.Map.SetCallbacks(this);
         _control.Map.Enable();
@@ -126,10 +128,10 @@ public class PlayerController : NetworkBehaviour, Control.IMapActions
             isShot = context.performed;
             if (isShot)
             {
-                foreach (WeaponScript weaponScript in weaponScripts)
+                foreach (WeaponScript weaponScript in gamePlayer.weaponScripts)
                 {
                     if (weaponScript.enabled)
-                        weaponScript.Shot(_tank.rotation);
+                        weaponScript.ShotNow(_tank.rotation);
                 }
             }
         }               
@@ -139,21 +141,21 @@ public class PlayerController : NetworkBehaviour, Control.IMapActions
     {
         if (level == 0)
         {
-            weaponScripts[0].enabled = true;
-            weaponScripts[1].enabled = false;
-            weaponScripts[2].enabled = false;
-            weaponScripts[3].enabled = false;
+            gamePlayer.weaponScripts[0].enabled = true;
+            gamePlayer.weaponScripts[1].enabled = false;
+            gamePlayer.weaponScripts[2].enabled = false;
+            gamePlayer.weaponScripts[3].enabled = false;
         }
         if (level == 1)
         {
-            weaponScripts[3].enabled = true;
+            gamePlayer.weaponScripts[3].enabled = true;
         }
         if (level == 2)
         {
-            weaponScripts[0].enabled = false;
-            weaponScripts[1].enabled = true;
-            weaponScripts[2].enabled = true;
-            weaponScripts[3].enabled = true;
+            gamePlayer.weaponScripts[0].enabled = false;
+            gamePlayer.weaponScripts[1].enabled = true;
+            gamePlayer.weaponScripts[2].enabled = true;
+            gamePlayer.weaponScripts[3].enabled = true;
         }
     }
 }

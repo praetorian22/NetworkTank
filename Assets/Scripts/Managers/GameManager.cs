@@ -4,18 +4,75 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.UI;
 using System.Linq;
+using System.IO;
+using System;
 
 public class GameManager : MonoBehaviour
 {
     private DataManager dataManager;
     private MobSpawnerManager mobSpawnerManager;
     private EffectManage effectManage;
+    private SaveLoad saveLoad;
+    private UIManager uiManager;
+
+    public string playerName;
+    public typeTank type;
+
+    public Action<string> changePlayerNameEvent;
+
+    public static GameManager singleton { get; internal set; }
     public void Awake()
     {
+        if (!InitializeSingleton())
+            singleton = this;
         dataManager = GetComponent<DataManager>();
         mobSpawnerManager = GetComponent<MobSpawnerManager>();
         effectManage = GetComponent<EffectManage>();
         dataManager.Init();
+        saveLoad = GetComponent<SaveLoad>();
+        uiManager = GetComponent<UIManager>();
+    }
+    private void OnEnable()
+    {
+        changePlayerNameEvent += ChangePlayerName;
+        changePlayerNameEvent += uiManager.SetPlayerName;
+    }
+    private void OnDisable()
+    {
+        changePlayerNameEvent -= ChangePlayerName;
+        changePlayerNameEvent -= uiManager.SetPlayerName;
+    }
+    bool InitializeSingleton()
+    {
+        if (singleton != null && singleton == this)
+            return true;
+        else
+            return false;
+    }
+    public void FirstEnterPlayer()
+    {
+        if (File.Exists(Application.persistentDataPath + "/SaveData.dat"))
+        {
+            SaveData saveData = new SaveData();
+            saveData = saveLoad.LoadData();
+            if (saveData.namePlayer != "")
+            {
+                playerName = saveData.namePlayer;
+                changePlayerNameEvent?.Invoke(playerName);
+            }
+        }
+        else
+        {
+            string name = "";            
+            changePlayerNameEvent?.Invoke(name);
+        }
+    }
+    private void ChangePlayerName(string name)
+    {
+        SaveData saveData = new SaveData();
+        saveData.namePlayer = name;
+        saveLoad.SaveData(saveData);
+        playerName = name;
     }
     [Server]
     public void SpawnMobs(List<Transform> startPositions)
@@ -24,12 +81,12 @@ public class GameManager : MonoBehaviour
         List<Transform> startPositionsBlue = startPositions.Select(e => e).Where(e => e.gameObject.GetComponent<PointSpawn>().typeTank == typeTank.blue).ToList();
         for (int i = 0; i < dataManager.redCount; i++)
         {
-            Vector3 positionSpawn = startPositionsRed[Random.Range(0, startPositionsRed.Count)].position;
+            Vector3 positionSpawn = startPositionsRed[UnityEngine.Random.Range(0, startPositionsRed.Count)].position;
             mobSpawnerManager.SpawnTank(typeTank.red, positionSpawn, dataManager.redTankPrefab);
         }
         for (int i = 0; i < dataManager.blueCount; i++)
         {
-            Vector3 positionSpawn = startPositionsBlue[Random.Range(0, startPositionsBlue.Count)].position;
+            Vector3 positionSpawn = startPositionsBlue[UnityEngine.Random.Range(0, startPositionsBlue.Count)].position;
             mobSpawnerManager.SpawnTank(typeTank.blue, positionSpawn, dataManager.blueTankPrefab);
         }
     }

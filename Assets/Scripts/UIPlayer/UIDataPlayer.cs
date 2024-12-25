@@ -55,7 +55,7 @@ public class UIDataPlayer : NetworkBehaviour
     }
     public void ClientServerChangeType(typeTank type)
     {
-        DataPlayer.Instance.type = type;
+        GameManager.singleton.type = type;
         if (isServer) ChangeType(type);
         else CmdChangeType(type);
     }
@@ -63,8 +63,8 @@ public class UIDataPlayer : NetworkBehaviour
     public void Init()
     {
         if (initOK) return;
-        ClientServerChangeName(DataPlayer.Instance.playerName);
-        ClientServerChangeType(DataPlayer.Instance.type);
+        ClientServerChangeName(GameManager.singleton.playerName);
+        ClientServerChangeType(GameManager.singleton.type);
         buttonChangeType.onClick.RemoveAllListeners();
         if (isOwned)
         {

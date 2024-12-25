@@ -5,8 +5,12 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public class SaveLoad : GenericSingletonClass<SaveLoad>
+public class SaveLoad : MonoBehaviour
 {
+    private void OnEnable()
+    {
+        
+    }
     public SaveData LoadData()
     {
         BinaryFormatter bf = new BinaryFormatter();

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using System;
 
 public class ShotScript : NetworkBehaviour
 {
@@ -11,7 +12,7 @@ public class ShotScript : NetworkBehaviour
     //[SyncVar(hook = nameof(DisableShot))] private bool dead;
     //public bool Dead => dead;
     public int Damage { get => _damage; }
-    public bool IsEnemyShot { get => _isEnemyShot; }
+    public bool IsEnemyShot { get => _isEnemyShot; }    
     /*
     private void DisableShot(bool oldValue, bool newValue)
     {
@@ -48,6 +49,7 @@ public class ShotScript : NetworkBehaviour
     public void ChangeStatusDead(bool newValue)
     {
         //EffectManage.Instance.ExplosionMini(gameObject.transform.position);
+        GameManager.singleton.Explosion(gameObject.transform.position, typeEffect.explosionMini);
         NetworkServer.Destroy(gameObject);
     }
     [Command(requiresAuthority = false)]

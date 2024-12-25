@@ -87,7 +87,7 @@ public class MainNetworkDiscovery : NetworkDiscoveryBase<DiscoveryRequest, Disco
             {
                 serverId = ServerId,
                 uri = transport.ServerUri(),
-                hostPlayerName = DataPlayer.Instance.playerName
+                hostPlayerName = GameManager.singleton.playerName
             };
         }
         catch (NotImplementedException)

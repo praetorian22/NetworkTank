@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 52297786}
-  - component: {fileID: 52297787}
   m_Layer: 0
   m_Name: --Scene
   m_TagString: Untagged
@@ -158,21 +157,6 @@ Transform:
   - {fileID: 339428296}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &52297787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52297785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7781dac1d6e9d294e8e70df7dc758e64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startButton: {fileID: 1790095794}
-  inputNameField: {fileID: 509977278}
-  clientServerPanel: {fileID: 2000680231}
 --- !u!1 &81231191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,50 +2124,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132073659}
   m_CullTransparentMesh: 1
---- !u!1 &1174295416
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1174295418}
-  - component: {fileID: 1174295417}
-  m_Layer: 0
-  m_Name: SaveLoad
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1174295417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174295416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9535d39afaedc9044bfb549a0daae0b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1174295418
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174295416}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1286594402
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,52 +2203,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286594402}
   m_CullTransparentMesh: 1
---- !u!1 &1411223578
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1411223580}
-  - component: {fileID: 1411223579}
-  m_Layer: 0
-  m_Name: DataPlayer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1411223579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411223578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e591ca13d645744aa83018fa2ee6f49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerName: 
-  type: 0
---- !u!4 &1411223580
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411223578}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2524699, y: -0.4371697, z: 1.5471472}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1649355354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,6 +2353,8 @@ GameObject:
   - component: {fileID: 1686750709}
   - component: {fileID: 1686750706}
   - component: {fileID: 1686750708}
+  - component: {fileID: 1686750710}
+  - component: {fileID: 1686750711}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -2658,6 +2554,7 @@ MonoBehaviour:
   blueCount: 5
   boom: {fileID: 1753607616118201506, guid: 49bfa8a355ea1b844afcc4a7ee10dfab, type: 3}
   boomShot: {fileID: 8835327909373639707, guid: 7d67dc837231a834790238dd03acfaa9, type: 3}
+  boomShotMini: {fileID: 5592084286907490825, guid: 1b274625e0c278348b9c1b7781430254, type: 3}
 --- !u!114 &1686750708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2670,6 +2567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3c421198dcc6d4980484d635fce189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
+  type: 0
 --- !u!114 &1686750709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2682,14 +2581,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22fc154b462828640b1ffc79296b27f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundObjectPrefab: {fileID: 0}
-  explosion: {fileID: 0}
-  playerShot: {fileID: 0}
-  enemyShot: {fileID: 0}
-  audioSource: {fileID: 0}
-  roundMusic: {fileID: 0}
-  volumeEffect: 1
-  volumeMusic: 1
+--- !u!114 &1686750710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686750699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9535d39afaedc9044bfb549a0daae0b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1686750711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686750699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297ec94a8973dd341876113f08d709fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startButton: {fileID: 1790095794}
+  inputNameField: {fileID: 509977278}
+  clientServerPanel: {fileID: 2000680231}
 --- !u!1 &1771480384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2863,8 +2781,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 52297787}
-        m_TargetAssemblyTypeName: StartPanel, Assembly-CSharp
+      - m_Target: {fileID: 1686750711}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: PressButtonFirstDispleyStart
         m_Mode: 1
         m_Arguments:
@@ -3416,6 +3334,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 52297786}
   - {fileID: 204450465}
-  - {fileID: 1174295418}
   - {fileID: 1686750702}
-  - {fileID: 1411223580}

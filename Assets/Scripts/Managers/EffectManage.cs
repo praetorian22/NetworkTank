@@ -6,14 +6,14 @@ using Mirror;
 
 public class EffectManage : MonoBehaviour
 {
-    [SerializeField] private GameObject soundObjectPrefab;    
-    [SerializeField] private AudioClip explosion;
-    [SerializeField] private AudioClip playerShot;
-    [SerializeField] private AudioClip enemyShot;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip roundMusic;
-    [SerializeField] private float volumeEffect = 1f;
-    [SerializeField] private float volumeMusic = 1f;
+    //[SerializeField] private GameObject soundObjectPrefab;    
+    //[SerializeField] private AudioClip explosion;
+    //[SerializeField] private AudioClip playerShot;
+    //[SerializeField] private AudioClip enemyShot;
+    //[SerializeField] private AudioSource audioSource;
+    //[SerializeField] private AudioClip roundMusic;
+    //[SerializeField] private float volumeEffect = 1f;
+    //[SerializeField] private float volumeMusic = 1f;
     
     [Server]
     public void Instantiate(GameObject prefab, Vector3 position, int time, float rotationx, float rotationy, float rotationz)
