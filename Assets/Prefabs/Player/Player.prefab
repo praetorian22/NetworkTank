@@ -843,8 +843,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9170463092950402573}
   - component: {fileID: 9170463092950402563}
-  m_Layer: 6
-  m_Name: RemainsIN
+  m_Layer: 9
+  m_Name: LootTaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -918,6 +918,7 @@ GameObject:
   - component: {fileID: -225631933353315531}
   - component: {fileID: 1036318319713258240}
   - component: {fileID: 7942526752062611707}
+  - component: {fileID: 3189424281478778870}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1256,7 +1257,25 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   _healthMax: 10
-  _healthUp: 
+  _healthUp: 0a0000000f000000140000001e00000032000000
+--- !u!114 &3189424281478778870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9170463093208556781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4bb141d91044149b7c86685dff0f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  startLevelArmor: 0
+  startLevelEngine: 0
+  startLevelMainCannon: 0
 --- !u!1 &9170463093390222600
 GameObject:
   m_ObjectHideFlags: 0

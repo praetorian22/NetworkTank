@@ -615,6 +615,7 @@ GameObject:
   - component: {fileID: 2288970342564929401}
   - component: {fileID: 1559090301858589270}
   - component: {fileID: -2464856827211297275}
+  - component: {fileID: -4101016365537849562}
   m_Layer: 0
   m_Name: MobTankRed
   m_TagString: Mob
@@ -899,7 +900,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   _healthMax: 10
-  _healthUp: 
+  _healthUp: 0a0000000f000000140000001e00000032000000
 --- !u!114 &477461270359580887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,6 +1008,24 @@ MonoBehaviour:
   rotationSensitivity: 0.01
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!114 &-4101016365537849562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6410483837906913102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4bb141d91044149b7c86685dff0f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  startLevelArmor: 0
+  startLevelEngine: 0
+  startLevelMainCannon: 0
 --- !u!1 &6514291855367373859
 GameObject:
   m_ObjectHideFlags: 0

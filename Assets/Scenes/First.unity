@@ -2355,6 +2355,7 @@ GameObject:
   - component: {fileID: 1686750708}
   - component: {fileID: 1686750710}
   - component: {fileID: 1686750711}
+  - component: {fileID: 1686750712}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -2448,6 +2449,10 @@ MonoBehaviour:
   - {fileID: 6410483837906913102, guid: 051bf2993f7c4454db59c033cb04664d, type: 3}
   - {fileID: 3855697620832187700, guid: b9ca0ccb11673344cabd6a702558912e, type: 3}
   - {fileID: 6078609245098213169, guid: c9f9e7d4462295a4881d6e6c0458d3d7, type: 3}
+  - {fileID: 8488868906046611119, guid: b982172857382e245a73f9b10be14c0f, type: 3}
+  - {fileID: 6078609245098213169, guid: b85cf60a7bb82464d8524a10a4a16f2b, type: 3}
+  - {fileID: 5066236815336661425, guid: 1be72985f70416e41902bf2f15fd8b71, type: 3}
+  - {fileID: 6078609245098213169, guid: 7d275951ac3ad4043941d82051f7b3fb, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2
@@ -2555,6 +2560,7 @@ MonoBehaviour:
   boom: {fileID: 1753607616118201506, guid: 49bfa8a355ea1b844afcc4a7ee10dfab, type: 3}
   boomShot: {fileID: 8835327909373639707, guid: 7d67dc837231a834790238dd03acfaa9, type: 3}
   boomShotMini: {fileID: 5592084286907490825, guid: 1b274625e0c278348b9c1b7781430254, type: 3}
+  armorPrefab: {fileID: 8488868906046611119, guid: b982172857382e245a73f9b10be14c0f, type: 3}
 --- !u!114 &1686750708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2608,6 +2614,18 @@ MonoBehaviour:
   startButton: {fileID: 1790095794}
   inputNameField: {fileID: 509977278}
   clientServerPanel: {fileID: 2000680231}
+--- !u!114 &1686750712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686750699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b094fa4bcf394e45a8bd80fb06eb48d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1771480384
 GameObject:
   m_ObjectHideFlags: 0

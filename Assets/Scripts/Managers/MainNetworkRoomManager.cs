@@ -102,6 +102,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
         if (sceneName == GameplayScene)
         {
             gameManager.SpawnMobs(startPositions);
+            gameManager.SpawnLoot();
         }
     }
     /// <summary>
@@ -190,6 +191,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
             gamePlayer.GetComponent<GamePlayer>().ChangeTypeTank(typeTank);
             gamePlayer.GetComponent<HealthScript>().ChangeEnemySet(typeTank);
             gamePlayer.GetComponent<HealthScript>().Init();
+            gamePlayer.GetComponent<UpgradeTank>().Init();
         }
         return true;
     }

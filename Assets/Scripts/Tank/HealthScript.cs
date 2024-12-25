@@ -13,6 +13,7 @@ public class HealthScript : NetworkBehaviour
     [SerializeField] private List<int> _healthUp = new List<int>();
     public int Health { get => _health; }
     public bool IsEnemy { get => _isEnemy; }
+    public int MaxLevelUP => _healthUp.Count - 1;
 
     public Action<GameObject, typeTank> deadEvent;
     public Action<int> changeHealthEvent;
@@ -55,6 +56,11 @@ public class HealthScript : NetworkBehaviour
     private void SyncHealth(int oldValue, int newValue)
     {
         this._health = newValue;
+    }
+    [Server]
+    public void ChangeLevelArmor(int level)
+    {
+        if (level < _healthUp.Count) SyncHealth(_health, _healthUp[level]);
     }
     [ServerCallback]
     private void OnTriggerEnter2D(Collider2D collision)

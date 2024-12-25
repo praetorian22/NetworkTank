@@ -2,44 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Mirror;
 
-public class UpgradeTank : MonoBehaviour
+public class UpgradeTank : NetworkBehaviour
 {
-    private int _level;    
-    private int _metalRemains;
+    private HealthScript healthScript;
+    [SerializeField] int startLevelArmor;
+    [SerializeField] int startLevelEngine;
+    [SerializeField] int startLevelMainCannon;
 
-    [SerializeField] private int _maxLevel;
-    [SerializeField] private List<int> _levelUpPoints = new List<int>();
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private List<Sprite> _tankTextures = new List<Sprite>();
+    [SyncVar(hook = nameof(SyncLevelArmor))] private int levelArmor;
+    [SyncVar(hook = nameof(SyncLevelEngine))] private int levelEngine;
+    [SyncVar(hook = nameof(SyncLevelMainCannon))] private int levelMainCannon;
 
-    public Action<int> upgradeEvent;
-
-    private void AddRemains(int count)
+    private void Awake()
     {
-        if (_level != _maxLevel)
+        healthScript = GetComponent<HealthScript>();        
+    }
+    public void Init()
+    {
+        SyncLevelArmor(levelArmor, startLevelArmor);
+        SyncLevelEngine(levelEngine, startLevelEngine);
+        SyncLevelMainCannon(levelMainCannon, startLevelMainCannon);
+    }
+    private void SyncLevelArmor(int oldValue, int newValue)
+    {
+        this.levelArmor = newValue;
+        healthScript.ChangeLevelArmor(levelArmor);
+    }
+    private void SyncLevelEngine(int oldValue, int newValue)
+    {
+        this.levelEngine = newValue;
+    }
+    private void SyncLevelMainCannon(int oldValue, int newValue)
+    {
+        this.levelMainCannon = newValue;
+    }
+
+    public void UpgradeArmor()
+    {
+        if (levelArmor < healthScript.MaxLevelUP)
         {
-            _metalRemains += count;
-            if (_metalRemains >= _levelUpPoints[_level])
-            {
-                LevelUp();
-            }
+            int nextLevelArmor = levelArmor + 1;
+            SyncLevelArmor(levelArmor, nextLevelArmor);
         }
+        
     }
-    private void LevelUp()
-    {
-        _level++;
-        upgradeEvent?.Invoke(_level);
-        _spriteRenderer.sprite = _tankTextures[_level];
-    }
-    private void Start()
-    {
-        _level = 0;
-    }
+
+    [ServerCallback]
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AddRemains(collision.GetComponent<MetalRemains>().MetalRemainsCount);
-        collision.GetComponent<MetalRemains>().destroyRemainsEvent?.Invoke(collision.gameObject);
+        if (collision.gameObject.GetComponent<Loot>() == null) return;
+        collision.gameObject.GetComponent<Loot>().ActivateEffect(this);
+        NetworkServer.Destroy(collision.gameObject);
     }
-
 }

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 {
     private DataManager dataManager;
     private MobSpawnerManager mobSpawnerManager;
+    private LootSpawnerManager lootSpawnerManager;
     private EffectManage effectManage;
     private SaveLoad saveLoad;
     private UIManager uiManager;
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
         dataManager.Init();
         saveLoad = GetComponent<SaveLoad>();
         uiManager = GetComponent<UIManager>();
+        lootSpawnerManager = GetComponent<LootSpawnerManager>();
     }
     private void OnEnable()
     {
@@ -89,6 +91,11 @@ public class GameManager : MonoBehaviour
             Vector3 positionSpawn = startPositionsBlue[UnityEngine.Random.Range(0, startPositionsBlue.Count)].position;
             mobSpawnerManager.SpawnTank(typeTank.blue, positionSpawn, dataManager.blueTankPrefab);
         }
+    }
+    [Server]
+    public void SpawnLoot()
+    {
+        lootSpawnerManager.SpawnLoot(new Vector3(0f, 0f, -0.1f), dataManager.armorPrefab);
     }
     [Server]
     public void Explosion(Vector3 position, typeEffect typeEffect)

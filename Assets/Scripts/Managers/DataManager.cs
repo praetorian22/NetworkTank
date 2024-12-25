@@ -16,6 +16,8 @@ public class DataManager : MonoBehaviour
     public GameObject boomShot;
     public GameObject boomShotMini;
     public Dictionary<typeEffect, GameObject> effectPrefabDict = new Dictionary<typeEffect, GameObject>();
+    [Header("Loots")]
+    public GameObject armorPrefab;
     //public Transform parent;
 
     public void Init()

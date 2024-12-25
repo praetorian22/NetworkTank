@@ -37,6 +37,7 @@ public class MobSpawnerManager : MonoBehaviour
         {
             tank.GetComponent<HealthScript>().ChangeEnemySet(typeTank);
             tank.GetComponent<HealthScript>().Init();
+            tank.GetComponent<UpgradeTank>().Init();
         }              
         //tank.GetComponent<HealthScript>().deadEvent += DestroyTank;
         //tank.GetComponent<HealthScript>().shotEvent += _effectManager.ExplosionMini;
