@@ -17,7 +17,7 @@ public class HealthScript : NetworkBehaviour
 
     public Action<GameObject, typeTank> deadEvent;
     public Action<int> changeHealthEvent;
-    public Action<Vector3> shotEvent;
+    public Action<Vector3> shotEvent;    
     public void Init()
     {
         SyncHealth(_health, _healthMax);        
@@ -55,7 +55,7 @@ public class HealthScript : NetworkBehaviour
     }
     private void SyncHealth(int oldValue, int newValue)
     {
-        this._health = newValue;
+        this._health = newValue;        
     }
     [Server]
     public void ChangeLevelArmor(int level)

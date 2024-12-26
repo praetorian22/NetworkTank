@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class MoveScriptForBot : NetworkBehaviour
+public class MoveScriptForBot : NetworkBehaviour, IMove
 {
     private Rigidbody2D _rb;
     private Vector2 _movement;
     private Vector2 _targetMovement;
+    private float _speed;
 
-    [SerializeField] private float _speed;
+    [SerializeField] private float _defaultSpeed;
     [SerializeField] private float _timeRepositionMin;
     [SerializeField] private float _timeRepositionMax;    
 
@@ -49,5 +50,15 @@ public class MoveScriptForBot : NetworkBehaviour
     private void FixedUpdate()
     {
         if (isServer) _rb.velocity = _movement * _speed;        
-    }    
+    }
+
+    public float GetSpeed()
+    {
+        return _speed;
+    }
+
+    public void SetSpeed(float value)
+    {
+        _speed = _defaultSpeed + value;
+    }
 }

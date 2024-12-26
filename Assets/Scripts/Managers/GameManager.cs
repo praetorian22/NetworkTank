@@ -96,6 +96,15 @@ public class GameManager : MonoBehaviour
     public void SpawnLoot()
     {
         lootSpawnerManager.SpawnLoot(new Vector3(0f, 0f, -0.1f), dataManager.armorPrefab);
+        lootSpawnerManager.SpawnLoot(new Vector3(1f, 0f, -0.1f), dataManager.armorPrefab);
+        lootSpawnerManager.SpawnLoot(new Vector3(0f, 1f, -0.1f), dataManager.armorPrefab);
+        lootSpawnerManager.SpawnLoot(new Vector3(-1f, 0f, -0.1f), dataManager.armorPrefab);
+        lootSpawnerManager.SpawnLoot(new Vector3(0f, -1f, -0.1f), dataManager.armorPrefab);
+        lootSpawnerManager.SpawnLoot(new Vector3(2f, 2f, -0.1f), dataManager.enginePrefab);
+        lootSpawnerManager.SpawnLoot(new Vector3(3f, 2f, -0.1f), dataManager.enginePrefab);
+        lootSpawnerManager.SpawnLoot(new Vector3(2f, 3f, -0.1f), dataManager.enginePrefab);
+        lootSpawnerManager.SpawnLoot(new Vector3(4f, 2f, -0.1f), dataManager.enginePrefab);
+        lootSpawnerManager.SpawnLoot(new Vector3(2f, 4f, -0.1f), dataManager.enginePrefab);
     }
     [Server]
     public void Explosion(Vector3 position, typeEffect typeEffect)

@@ -164,7 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4bc87ec74c5c044b8e127ab1a62c407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 2
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  _damage: 5
   _isEnemyShot: 1
   _timeLife: 15
 --- !u!114 &-6098625469551035006

@@ -18,6 +18,8 @@ public class DataManager : MonoBehaviour
     public Dictionary<typeEffect, GameObject> effectPrefabDict = new Dictionary<typeEffect, GameObject>();
     [Header("Loots")]
     public GameObject armorPrefab;
+    public GameObject enginePrefab;
+    public GameObject weaponPrefab;
     //public Transform parent;
 
     public void Init()

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public abstract class Loot : MonoBehaviour
 {
-    [SerializeField] private lootType lootType;
+    //[SerializeField] private lootType lootType;
 
     public abstract void ActivateEffect(UpgradeTank tank);    
 }
 
+/*
 public enum lootType
 {
     mainWeapon,
@@ -16,3 +17,4 @@ public enum lootType
     armor,
     special
 }
+*/

@@ -5,9 +5,10 @@ using Cinemachine;
 using Mirror;
 using UnityEngine.InputSystem;
 
-public class PlayerController : NetworkBehaviour, Control.IMapActions
+public class PlayerController : NetworkBehaviour, Control.IMapActions, IMove
 {    
     private float angleCamera;
+    private float _speed;
     private Control _control;
     private Rigidbody2D _rb;
     private Vector2 _movement;
@@ -15,7 +16,8 @@ public class PlayerController : NetworkBehaviour, Control.IMapActions
     private bool moveNow;
     private bool isShot;
     [SerializeField] private Transform _tank;
-    [SerializeField] private float _speed;
+    [SerializeField] private Transform _tankLootAnimation;
+    [SerializeField] private float _defaultSpeed;
     [SerializeField] private bool mobile;
     
     private GamePlayer gamePlayer;
@@ -43,6 +45,7 @@ public class PlayerController : NetworkBehaviour, Control.IMapActions
             move = new Vector2(fixedJoystick.Horizontal, fixedJoystick.Vertical) * koefReversMove;
         _movement = Vector3.Lerp(_movement, move, 0.01f);
         _tank.rotation = Quaternion.Lerp(_tank.rotation, Quaternion.Euler(new Vector3(0, 0, Vector3.SignedAngle(Vector3.up, _movement * koefReversMove, Vector3.forward))), 0.05f);
+        _tankLootAnimation.rotation = _tank.rotation;
         if (move.magnitude == 0) return false;
         else return true;
     }
@@ -157,5 +160,15 @@ public class PlayerController : NetworkBehaviour, Control.IMapActions
             gamePlayer.weaponScripts[2].enabled = true;
             gamePlayer.weaponScripts[3].enabled = true;
         }
+    }
+
+    public float GetSpeed()
+    {
+        return _speed;
+    }
+
+    public void SetSpeed(float value)
+    {
+        _speed = _defaultSpeed + value;
     }
 }

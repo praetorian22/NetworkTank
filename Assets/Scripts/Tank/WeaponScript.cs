@@ -6,7 +6,8 @@ using Mirror;
 
 public class WeaponScript : NetworkBehaviour
 {
-    [SerializeField] private GameObject _shotPrefab;    
+    [SerializeField] private GameObject _shotPrefabB;
+    [SerializeField] private GameObject _shotPrefabR;
     [SerializeField] private float _timeReloadMin;
     [SerializeField] private float _timeReloadMax;
     [SerializeField] private Transform _pointToShot;
@@ -15,11 +16,13 @@ public class WeaponScript : NetworkBehaviour
 
 
     private bool _readyToShot;
+    private typeTank typeTank;
 
     public Action<Vector3> shotEvent;    
 
     public void SetPointShotPosition(typeTank typeTank)
     {
+        this.typeTank = typeTank;
         if (typeTank == typeTank.red)
             _pointToShot.localPosition = positionPointShotRed;
         else
@@ -30,10 +33,11 @@ public class WeaponScript : NetworkBehaviour
     {
         _readyToShot = true;
     }
-    public void Init(GameObject shotPrefab)
-    {
-        _shotPrefab = shotPrefab;
-    }
+    //public void Init(GameObject shotPrefabB, GameObject shotPrefabR)
+    //{
+    //    _shotPrefabB = shotPrefabB;
+    //    _shotPrefabR = shotPrefabR;
+    //}
     public IEnumerator ReloadTimer()
     {
         _readyToShot = false;
@@ -55,7 +59,9 @@ public class WeaponScript : NetworkBehaviour
     [Server]
     public void Shot(Quaternion rotation)
     {
-        GameObject shot = Instantiate(_shotPrefab, _pointToShot.position, rotation);
+        GameObject shot = null;
+        if (typeTank == typeTank.red) shot = Instantiate(_shotPrefabR, _pointToShot.position, rotation);
+        else shot = Instantiate(_shotPrefabB, _pointToShot.position, rotation);
         NetworkServer.Spawn(shot);        
     }
     [Command(requiresAuthority = false)]

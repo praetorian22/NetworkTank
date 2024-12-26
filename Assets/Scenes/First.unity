@@ -2453,6 +2453,8 @@ MonoBehaviour:
   - {fileID: 6078609245098213169, guid: b85cf60a7bb82464d8524a10a4a16f2b, type: 3}
   - {fileID: 5066236815336661425, guid: 1be72985f70416e41902bf2f15fd8b71, type: 3}
   - {fileID: 6078609245098213169, guid: 7d275951ac3ad4043941d82051f7b3fb, type: 3}
+  - {fileID: 8703367290697487996, guid: 7e0debcd4d1ea864eacec46a0d9011a2, type: 3}
+  - {fileID: 4624165311677736172, guid: 7a350b452c126ae4db7cbce3771cd3bf, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2
@@ -2561,6 +2563,8 @@ MonoBehaviour:
   boomShot: {fileID: 8835327909373639707, guid: 7d67dc837231a834790238dd03acfaa9, type: 3}
   boomShotMini: {fileID: 5592084286907490825, guid: 1b274625e0c278348b9c1b7781430254, type: 3}
   armorPrefab: {fileID: 8488868906046611119, guid: b982172857382e245a73f9b10be14c0f, type: 3}
+  enginePrefab: {fileID: 8703367290697487996, guid: 7e0debcd4d1ea864eacec46a0d9011a2, type: 3}
+  weaponPrefab: {fileID: 4624165311677736172, guid: 7a350b452c126ae4db7cbce3771cd3bf, type: 3}
 --- !u!114 &1686750708
 MonoBehaviour:
   m_ObjectHideFlags: 0
