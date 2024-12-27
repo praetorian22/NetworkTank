@@ -49,7 +49,8 @@ public class ShotScript : NetworkBehaviour
     public void ChangeStatusDead(bool newValue)
     {
         //EffectManage.Instance.ExplosionMini(gameObject.transform.position);
-        GameManager.singleton.Explosion(gameObject.transform.position, typeEffect.explosionMini);
+        if (IsEnemyShot) GameManager.singleton.Explosion(gameObject.transform.position, typeEffect.explosionMiniRed);
+        else GameManager.singleton.Explosion(gameObject.transform.position, typeEffect.explosionMiniBlue);
         NetworkServer.Destroy(gameObject);
     }
     [Command(requiresAuthority = false)]

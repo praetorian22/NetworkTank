@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Mirror;
+using Mirror.Examples.Tanks;
 
 public class UpgradeTank : NetworkBehaviour
 {
@@ -10,7 +11,7 @@ public class UpgradeTank : NetworkBehaviour
     private IMove move;
     [SerializeField] int startLevelArmor;
     [SerializeField] int startLevelEngine;
-    [SerializeField] int startLevelMainCannon;
+    [SerializeField] weaponType startTypeMainCannon;
     [SerializeField] bool player;
     [SerializeField] int maxLevelArmor;
     [SerializeField] int maxLevelEngine;
@@ -19,7 +20,7 @@ public class UpgradeTank : NetworkBehaviour
 
     [SyncVar(hook = nameof(SyncLevelArmor))] private int levelArmor;
     [SyncVar(hook = nameof(SyncLevelEngine))] private int levelEngine;
-    [SyncVar(hook = nameof(SyncLevelMainCannon))] private int levelMainCannon;
+    [SyncVar(hook = nameof(SyncMainCannon))] private weaponType typeMainCannon;
 
 
     private void Awake()
@@ -31,7 +32,7 @@ public class UpgradeTank : NetworkBehaviour
     {
         SyncLevelArmor(levelArmor, startLevelArmor);
         SyncLevelEngine(levelEngine, startLevelEngine);
-        SyncLevelMainCannon(levelMainCannon, startLevelMainCannon);
+        SyncMainCannon(typeMainCannon, startTypeMainCannon);
     }
     private void SyncLevelArmor(int oldValue, int newValue)
     {
@@ -43,10 +44,12 @@ public class UpgradeTank : NetworkBehaviour
             if (player)
             {                
                 gameObject.GetComponent<GamePlayer>().SetSprite(levelArmor);
+                gameObject.GetComponent<PlayerController>().ActivateCannon(levelArmor);                
             }
             else
             {
                 gameObject.GetComponent<GameMob>().SetSprite(levelArmor);
+                gameObject.GetComponent<EnemyShot>().ActivateCannon(levelArmor);
             }
             ActivateAnimationLootTake();
         }        
@@ -57,9 +60,23 @@ public class UpgradeTank : NetworkBehaviour
         move.SetSpeed(levelEngine * koefEngimeModificationList[levelArmor] * 0.5f);
         ActivateAnimationLootTake();
     }
-    private void SyncLevelMainCannon(int oldValue, int newValue)
+    private void SyncMainCannon(weaponType oldValue, weaponType newValue)
     {
-        this.levelMainCannon = newValue;
+        this.typeMainCannon = newValue;
+        if (gameObject.GetComponent<GamePlayer>() != null)
+        {
+            foreach (WeaponScript weaponScript in gameObject.GetComponent<GamePlayer>().weaponScripts)
+            {
+                weaponScript.SetWeapon(GameManager.singleton.GetWeapon(newValue));
+            }
+        }
+        if (gameObject.GetComponent<EnemyShot>() != null)
+        {
+            foreach (WeaponScript weaponScript in gameObject.GetComponent<EnemyShot>().WeaponScripts)
+            {
+                weaponScript.SetWeapon(GameManager.singleton.GetWeapon(newValue));
+            }
+        }
     }
     private void ActivateAnimationLootTake()
     {
@@ -102,6 +119,10 @@ public class UpgradeTank : NetworkBehaviour
             int nextLevelEngine = levelEngine + 1;
             SyncLevelEngine(levelEngine, nextLevelEngine);
         }
+    }
+    public void UpgaredWeapon(weaponType weaponType)
+    {
+        SyncMainCannon(weaponType.first, weaponType);
     }
 
     [ServerCallback]

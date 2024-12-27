@@ -39,7 +39,7 @@ public class HealthScript : NetworkBehaviour
         if (health <= 0)
         {
             health = 0;
-            //GameManager.Instance.DestroyTank(gameObject, _isEnemy ? typeTank.red : typeTank.blue);            
+            GameManager.singleton.DestroyTank(gameObject, _isEnemy ? typeTank.red : typeTank.blue);            
         }
         SyncHealth(_health, health);                
         //changeHealthEvent?.Invoke(_health);

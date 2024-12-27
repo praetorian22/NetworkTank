@@ -8,6 +8,8 @@ public class EnemyShot : NetworkBehaviour
 {
     [SerializeField] private List<WeaponScript> weaponScripts;
 
+    public List<WeaponScript> WeaponScripts { get { return weaponScripts; } }
+
     private void OnEnable()
     {
         ActivateCannon(0);
@@ -27,28 +29,21 @@ public class EnemyShot : NetworkBehaviour
         }         
     }
 
-    private void ActivateCannon(int level)
+    public void ActivateCannon(int level)
     {
-        if (level == 0)
+        if (level < 5)
         {
             weaponScripts[0].enabled = true;
             weaponScripts[1].enabled = false;
             weaponScripts[2].enabled = false;
             weaponScripts[3].enabled = false;
         }
-        if (level == 1)
-        {
-            weaponScripts[0].enabled = true;
-            weaponScripts[1].enabled = false;
-            weaponScripts[2].enabled = false;
-            weaponScripts[3].enabled = false;
-        }
-        if (level == 2)
+        if (level >= 5)
         {
             weaponScripts[0].enabled = false;
             weaponScripts[1].enabled = true;
             weaponScripts[2].enabled = true;
-            weaponScripts[3].enabled = true;
+            weaponScripts[3].enabled = false;
         }
     }
 }

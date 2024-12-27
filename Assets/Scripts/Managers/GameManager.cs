@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
         lootSpawnerManager.SpawnLoot(new Vector3(2f, 3f, -0.1f), dataManager.enginePrefab);
         lootSpawnerManager.SpawnLoot(new Vector3(4f, 2f, -0.1f), dataManager.enginePrefab);
         lootSpawnerManager.SpawnLoot(new Vector3(2f, 4f, -0.1f), dataManager.enginePrefab);
+        lootSpawnerManager.SpawnLoot(new Vector3(5f, 5f, -0.1f), dataManager.weaponFFPrefab);
     }
     [Server]
     public void Explosion(Vector3 position, typeEffect typeEffect)
@@ -114,8 +115,13 @@ public class GameManager : MonoBehaviour
     [Server]
     public void DestroyTank(GameObject gameObject, typeTank typeTank)
     {
-        Explosion(gameObject.transform.position, typeEffect.explosion);
+        if (typeTank == typeTank.red) Explosion(gameObject.transform.position, typeEffect.explosionRed);
+        else Explosion(gameObject.transform.position, typeEffect.explosionBlue);
         NetworkServer.Destroy(gameObject);
     }
-       
+    [Server]
+    public Weapon GetWeapon(weaponType weaponType)
+    {
+        return dataManager.weaponsDict[weaponType];
+    }
 }

@@ -12,27 +12,40 @@ public class DataManager : MonoBehaviour
     public int redCount;
     public int blueCount;
     [Header("Effects")]
-    public GameObject boom;
+    public GameObject boomBlue;
+    public GameObject boomRed;
     public GameObject boomShot;
-    public GameObject boomShotMini;
+    public GameObject boomShotMiniBlue;
+    public GameObject boomShotMiniRed;
     public Dictionary<typeEffect, GameObject> effectPrefabDict = new Dictionary<typeEffect, GameObject>();
     [Header("Loots")]
     public GameObject armorPrefab;
     public GameObject enginePrefab;
-    public GameObject weaponPrefab;
+    public GameObject weaponFFPrefab;
+    [Header("Weapons")]
+    public List<Weapon> weapons = new List<Weapon>();
+    public Dictionary<weaponType, Weapon> weaponsDict = new Dictionary<weaponType, Weapon>();
     //public Transform parent;
 
     public void Init()
     {
-        effectPrefabDict.Add(typeEffect.explosion, boom);
+        effectPrefabDict.Add(typeEffect.explosionBlue, boomBlue);
+        effectPrefabDict.Add(typeEffect.explosionRed, boomRed);
         effectPrefabDict.Add(typeEffect.explosionMidi, boomShot);
-        effectPrefabDict.Add(typeEffect.explosionMini, boomShotMini);
+        effectPrefabDict.Add(typeEffect.explosionMiniRed, boomShotMiniRed);
+        effectPrefabDict.Add(typeEffect.explosionMiniBlue, boomShotMiniBlue);
         //parent = GameObject.FindWithTag("parentForGameObject").transform;
+        foreach (var weapon in weapons)
+        {
+            weaponsDict.Add(weapon.WeaponType, weapon);
+        }
     }
 }
 public enum typeEffect
 {
-    explosion,
+    explosionRed,
+    explosionBlue,
     explosionMidi,
-    explosionMini,
+    explosionMiniRed,
+    explosionMiniBlue,
 }

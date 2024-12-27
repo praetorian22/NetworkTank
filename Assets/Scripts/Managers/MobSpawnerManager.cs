@@ -17,6 +17,10 @@ public class MobSpawnerManager : MonoBehaviour
             if (prefab != null)
             {
                 tank = Instantiate(prefab, position, Quaternion.identity);
+                foreach (WeaponScript weaponScript in tank.GetComponent<EnemyShot>().WeaponScripts)
+                {
+                    weaponScript.SetWeapon(GameManager.singleton.GetWeapon(weaponType.first));
+                }                
                 NetworkServer.Spawn(tank);
                 BlueTanks.Add(tank);
             }            
@@ -27,6 +31,10 @@ public class MobSpawnerManager : MonoBehaviour
             if (prefab != null)
             {
                 tank = Instantiate(prefab, position, Quaternion.identity);
+                foreach (WeaponScript weaponScript in tank.GetComponent<EnemyShot>().WeaponScripts)
+                {
+                    weaponScript.SetWeapon(GameManager.singleton.GetWeapon(weaponType.first));
+                }
                 NetworkServer.Spawn(tank);
                 RedTanks.Add(tank);
             }

@@ -140,26 +140,22 @@ public class PlayerController : NetworkBehaviour, Control.IMapActions, IMove
         }               
     }
 
-    private void ActivateCannon(int level)
+    public void ActivateCannon(int level)
     {
-        if (level == 0)
+        if (level < 5)
         {
             gamePlayer.weaponScripts[0].enabled = true;
             gamePlayer.weaponScripts[1].enabled = false;
             gamePlayer.weaponScripts[2].enabled = false;
             gamePlayer.weaponScripts[3].enabled = false;
         }
-        if (level == 1)
-        {
-            gamePlayer.weaponScripts[3].enabled = true;
-        }
-        if (level == 2)
+        if (level >= 5)
         {
             gamePlayer.weaponScripts[0].enabled = false;
             gamePlayer.weaponScripts[1].enabled = true;
             gamePlayer.weaponScripts[2].enabled = true;
-            gamePlayer.weaponScripts[3].enabled = true;
-        }
+            gamePlayer.weaponScripts[3].enabled = false;
+        }        
     }
 
     public float GetSpeed()

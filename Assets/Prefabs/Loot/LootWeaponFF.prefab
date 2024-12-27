@@ -114,8 +114,9 @@ GameObject:
   - component: {fileID: 3339259521339761845}
   - component: {fileID: 5654779490557960970}
   - component: {fileID: 241074455722010012}
+  - component: {fileID: 6045503481022267263}
   m_Layer: 8
-  m_Name: LootWeapon
+  m_Name: LootWeaponFF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,6 +242,19 @@ MonoBehaviour:
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
+--- !u!114 &6045503481022267263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4624165311677736172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e008fad9291325f4e874492c5a2f9b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 1
 --- !u!1 &5245692317145547011
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +320,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weapon
+  m_text: 'Weapon
+
+    FF'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22dd77e312e2dd747ab997454a1ed263, type: 2}
   m_sharedMaterial: {fileID: -6680225140293735330, guid: 22dd77e312e2dd747ab997454a1ed263, type: 2}
@@ -333,7 +349,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.55
+  m_fontSize: 20.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
