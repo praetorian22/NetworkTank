@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
         lootSpawnerManager.SpawnLoot(new Vector3(4f, 2f, -0.1f), dataManager.enginePrefab);
         lootSpawnerManager.SpawnLoot(new Vector3(2f, 4f, -0.1f), dataManager.enginePrefab);
         lootSpawnerManager.SpawnLoot(new Vector3(5f, 5f, -0.1f), dataManager.weaponFFPrefab);
+        lootSpawnerManager.SpawnLoot(new Vector3(6f, 6f, -0.1f), dataManager.specialInvisibilityPrefab);
     }
     [Server]
     public void Explosion(Vector3 position, typeEffect typeEffect)
@@ -123,5 +124,9 @@ public class GameManager : MonoBehaviour
     public Weapon GetWeapon(weaponType weaponType)
     {
         return dataManager.weaponsDict[weaponType];
+    }
+    public void TakeNewSpecial(Special special)
+    {
+        uiManager.SetNewSpecial(special);
     }
 }

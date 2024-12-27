@@ -2461,6 +2461,7 @@ MonoBehaviour:
   - {fileID: 6078609245098213169, guid: 7d275951ac3ad4043941d82051f7b3fb, type: 3}
   - {fileID: 8703367290697487996, guid: 7e0debcd4d1ea864eacec46a0d9011a2, type: 3}
   - {fileID: 4624165311677736172, guid: 7a350b452c126ae4db7cbce3771cd3bf, type: 3}
+  - {fileID: 4624165311677736172, guid: 54f1319baf7f1b341b49dd79457f21fd, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2
@@ -2573,6 +2574,7 @@ MonoBehaviour:
   armorPrefab: {fileID: 8488868906046611119, guid: b982172857382e245a73f9b10be14c0f, type: 3}
   enginePrefab: {fileID: 8703367290697487996, guid: 7e0debcd4d1ea864eacec46a0d9011a2, type: 3}
   weaponFFPrefab: {fileID: 4624165311677736172, guid: 7a350b452c126ae4db7cbce3771cd3bf, type: 3}
+  specialInvisibilityPrefab: {fileID: 4624165311677736172, guid: 54f1319baf7f1b341b49dd79457f21fd, type: 3}
   weapons:
   - {fileID: 1686750718}
   - {fileID: 1686750717}
@@ -2629,6 +2631,7 @@ MonoBehaviour:
   startButton: {fileID: 1790095794}
   inputNameField: {fileID: 509977278}
   clientServerPanel: {fileID: 2000680231}
+  specialButtonsGO: []
 --- !u!114 &1686750712
 MonoBehaviour:
   m_ObjectHideFlags: 0

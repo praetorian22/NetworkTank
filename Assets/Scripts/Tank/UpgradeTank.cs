@@ -9,6 +9,7 @@ public class UpgradeTank : NetworkBehaviour
 {
     private HealthScript healthScript;
     private IMove move;
+    private SpecialTank specialTank;
     [SerializeField] int startLevelArmor;
     [SerializeField] int startLevelEngine;
     [SerializeField] weaponType startTypeMainCannon;
@@ -21,12 +22,14 @@ public class UpgradeTank : NetworkBehaviour
     [SyncVar(hook = nameof(SyncLevelArmor))] private int levelArmor;
     [SyncVar(hook = nameof(SyncLevelEngine))] private int levelEngine;
     [SyncVar(hook = nameof(SyncMainCannon))] private weaponType typeMainCannon;
+    [SyncVar(hook = nameof(SyncSpecial))] private typeSpecial typeSpecialLast;
 
 
     private void Awake()
     {
         healthScript = GetComponent<HealthScript>();
-        move = GetComponent<IMove>();        
+        move = GetComponent<IMove>();
+        specialTank = GetComponent<SpecialTank>();
     }
     public void Init()
     {
@@ -78,6 +81,12 @@ public class UpgradeTank : NetworkBehaviour
             }
         }
     }
+    private void SyncSpecial(typeSpecial oldValue, typeSpecial newValue)
+    {
+        this.typeSpecialLast = newValue;
+        gameObject.GetComponent<SpecialTank>().AddSpecial(typeSpecialLast);
+        ActivateAnimationLootTake();
+    }
     private void ActivateAnimationLootTake()
     {
         if (player)
@@ -124,6 +133,10 @@ public class UpgradeTank : NetworkBehaviour
     {
         SyncMainCannon(weaponType.first, weaponType);
     }
+    public void UpgradeSpecial(typeSpecial special)
+    {
+        SyncSpecial(typeSpecial.none, special);
+    }
 
     [ServerCallback]
     private void OnTriggerEnter2D(Collider2D collision)
@@ -133,3 +146,4 @@ public class UpgradeTank : NetworkBehaviour
         NetworkServer.Destroy(collision.gameObject);
     }
 }
+

@@ -452,6 +452,8 @@ MonoBehaviour:
   _pointToShot: {fileID: 2092013035781650840}
   positionPointShotRed: {x: -0.1, y: -0.36, z: 0}
   positionPointShotBlue: {x: -0.1, y: 0.36, z: 0}
+  typeTank: 0
+  mob: 0
 --- !u!1 &2986833190957741126
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +635,8 @@ MonoBehaviour:
   _pointToShot: {fileID: 1997540600365769339}
   positionPointShotRed: {x: 0, y: 0, z: 0}
   positionPointShotBlue: {x: 0, y: 0, z: 0}
+  typeTank: 0
+  mob: 0
 --- !u!1 &6043051827566307895
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +908,8 @@ MonoBehaviour:
   _pointToShot: {fileID: 6810413671867949813}
   positionPointShotRed: {x: 0.1, y: -0.36, z: 0}
   positionPointShotBlue: {x: 0.1, y: 0.36, z: 0}
+  typeTank: 0
+  mob: 0
 --- !u!1 &7877981359891174350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,6 +1045,8 @@ MonoBehaviour:
   _pointToShot: {fileID: 3728596774241714057}
   positionPointShotRed: {x: 0, y: -0.36, z: 0}
   positionPointShotBlue: {x: 0, y: 0.36, z: 0}
+  typeTank: 0
+  mob: 0
 --- !u!1 &9170463092950402574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,6 +1135,7 @@ GameObject:
   - component: {fileID: 3189424281478778870}
   - component: {fileID: 9082393064345707877}
   - component: {fileID: 1554909457950119162}
+  - component: {fileID: 2678540977598918808}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1484,7 +1493,7 @@ MonoBehaviour:
   syncInterval: 0
   startLevelArmor: 0
   startLevelEngine: 0
-  startLevelMainCannon: 0
+  startTypeMainCannon: 0
   player: 1
   maxLevelArmor: 7
   maxLevelEngine: 7
@@ -1535,6 +1544,18 @@ MonoBehaviour:
   syncInterval: 0
   clientAuthority: 0
   animator: {fileID: 9082393064345707877}
+--- !u!114 &2678540977598918808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9170463093208556781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1fdd0b789c86e4586811f1c5ada488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9170463093390222600
 GameObject:
   m_ObjectHideFlags: 0

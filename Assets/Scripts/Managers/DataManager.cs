@@ -22,6 +22,7 @@ public class DataManager : MonoBehaviour
     public GameObject armorPrefab;
     public GameObject enginePrefab;
     public GameObject weaponFFPrefab;
+    public GameObject specialInvisibilityPrefab;
     [Header("Weapons")]
     public List<Weapon> weapons = new List<Weapon>();
     public Dictionary<weaponType, Weapon> weaponsDict = new Dictionary<weaponType, Weapon>();
