@@ -103,6 +103,7 @@ public class MainNetworkRoomManager : NetworkRoomManager
         {
             gameManager.SpawnMobs(startPositions);
             gameManager.SpawnLoot();
+            gameManager.InitSpecialButtons();
         }
     }
     /// <summary>

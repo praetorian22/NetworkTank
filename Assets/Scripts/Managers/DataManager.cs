@@ -2,6 +2,7 @@ using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using static EffectManage;
 
 public class DataManager : MonoBehaviour
@@ -26,6 +27,7 @@ public class DataManager : MonoBehaviour
     [Header("Weapons")]
     public List<Weapon> weapons = new List<Weapon>();
     public Dictionary<weaponType, Weapon> weaponsDict = new Dictionary<weaponType, Weapon>();
+    
     //public Transform parent;
 
     public void Init()

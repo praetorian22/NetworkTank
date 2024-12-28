@@ -15,10 +15,19 @@ public class UIManager : MonoBehaviour
     {
         if (checkNameCoro != null) StopCoroutine(checkNameCoro);
         checkNameCoro = StartCoroutine(CheckNameFieldCoro());
-        GameManager.singleton.FirstEnterPlayer();
+        GameManager.singleton.FirstEnterPlayer();        
+    }
+    public void InitSpecialButton()
+    {
+        specialButtonsGO = new List<GameObject>();
+        GameObject[] specButtons = GameObject.FindGameObjectsWithTag("specialButtons");
+        for (int i = 0; i < specButtons.Length; i++)
+        {
+            specialButtonsGO.Add(specButtons[i]);
+        }
         foreach (GameObject go in specialButtonsGO)
         {
-            go.GetComponent<ButtonSpecial>().special = new Special(positionSpecial.free, typeSpecial.none);
+            go.GetComponent<ButtonSpecial>().special = new Special(positionSpecial.free, typeSpecial.none, null);
         }
     }
     private IEnumerator CheckNameFieldCoro()

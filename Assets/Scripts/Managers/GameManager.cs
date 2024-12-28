@@ -129,4 +129,8 @@ public class GameManager : MonoBehaviour
     {
         uiManager.SetNewSpecial(special);
     }
+    public void InitSpecialButtons()
+    {
+        uiManager.InitSpecialButton();
+    }
 }

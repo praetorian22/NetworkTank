@@ -84,7 +84,6 @@ public class UpgradeTank : NetworkBehaviour
     private void SyncSpecial(typeSpecial oldValue, typeSpecial newValue)
     {
         this.typeSpecialLast = newValue;
-        gameObject.GetComponent<SpecialTank>().AddSpecial(typeSpecialLast);
         ActivateAnimationLootTake();
     }
     private void ActivateAnimationLootTake()
@@ -136,6 +135,7 @@ public class UpgradeTank : NetworkBehaviour
     public void UpgradeSpecial(typeSpecial special)
     {
         SyncSpecial(typeSpecial.none, special);
+        gameObject.GetComponent<SpecialTank>().AddSpecial(special);
     }
 
     [ServerCallback]

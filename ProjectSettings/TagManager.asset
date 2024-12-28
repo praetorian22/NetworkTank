@@ -16,6 +16,7 @@ TagManager:
   - parentForGameObject
   - Debug
   - Mob
+  - specialButtons
   layers:
   - Default
   - TransparentFX
