@@ -39,9 +39,12 @@ public class WeaponScript : NetworkBehaviour
     }
     public IEnumerator ReloadTimer()
     {
-        _readyToShot = false;
-        yield return new WaitForSeconds(weaponNow.TimeReload);
-        _readyToShot = true;
+        if (weaponNow != null)
+        {
+            _readyToShot = false;
+            yield return new WaitForSeconds(weaponNow.TimeReload);
+            _readyToShot = true;
+        }        
     }
 
     public void ShotNow(Quaternion rotation)
@@ -49,11 +52,14 @@ public class WeaponScript : NetworkBehaviour
         if (_readyToShot)
         {
             if (isServer)
-                Shot(rotation);
+            {
+                Shot(rotation);                
+            }                
             else
                 CmdShot(rotation);
             shotEvent?.Invoke(gameObject.transform.position);
             StartCoroutine(ReloadTimer());
+
         }
     }
     [Server]
@@ -65,9 +71,8 @@ public class WeaponScript : NetworkBehaviour
             if (!mob) shot = Instantiate(weaponNow.ShotPrefabR, _pointToShot.position, rotation);
             else shot = Instantiate(weaponNow.ShotPrefabRM, _pointToShot.position, rotation);
         }
-
         else shot = Instantiate(weaponNow.ShotPrefabB, _pointToShot.position, rotation);
-        NetworkServer.Spawn(shot);
+        NetworkServer.Spawn(shot);        
     }
     [Command(requiresAuthority = false)]
     public void CmdShot(Quaternion rotation)

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private EffectManage effectManage;
     private SaveLoad saveLoad;
     private UIManager uiManager;
+    public GameObject player;
 
     public string playerName;
     public typeTank type;
@@ -120,7 +121,6 @@ public class GameManager : MonoBehaviour
         else Explosion(gameObject.transform.position, typeEffect.explosionBlue);
         NetworkServer.Destroy(gameObject);
     }
-    [Server]
     public Weapon GetWeapon(weaponType weaponType)
     {
         return dataManager.weaponsDict[weaponType];

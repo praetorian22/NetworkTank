@@ -54,7 +54,7 @@ public class MobSpawnerManager : MonoBehaviour
         //{
         //    weaponScripts[i].shotEvent += _effectManager.MakeEnemyShotSound;
         //}
-    }
+    }    
 
     public void DestroyTank(GameObject gameObject, typeTank typeTank)
     {

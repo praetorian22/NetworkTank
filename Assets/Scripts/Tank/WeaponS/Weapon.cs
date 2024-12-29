@@ -27,4 +27,5 @@ public enum weaponType
     fireGun,
     explosion,
     missle,
+    empty,
 }

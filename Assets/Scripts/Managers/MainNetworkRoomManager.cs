@@ -193,10 +193,10 @@ public class MainNetworkRoomManager : NetworkRoomManager
             gamePlayer.GetComponent<HealthScript>().ChangeEnemySet(typeTank);
             gamePlayer.GetComponent<HealthScript>().Init();
             gamePlayer.GetComponent<UpgradeTank>().Init();
-            foreach (WeaponScript weaponScript in gamePlayer.GetComponent<GamePlayer>().weaponScripts)
-            {
-                weaponScript.SetWeapon(GameManager.singleton.GetWeapon(weaponType.first));
-            }            
+            //foreach (WeaponScript weaponScript in gamePlayer.GetComponent<GamePlayer>().weaponScripts)
+            //{
+            //    weaponScript.SetWeapon(GameManager.singleton.GetWeapon(weaponType.first));
+            //}            
         }
         return true;
     }

@@ -57,7 +57,6 @@ public class HealthScript : NetworkBehaviour
     {
         this._health = newValue;        
     }
-    [Server]
     public void ChangeLevelArmor(int level)
     {
         if (level < _healthUp.Count) SyncHealth(_health, _healthUp[level]);

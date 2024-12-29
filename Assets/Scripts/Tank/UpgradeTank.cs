@@ -30,12 +30,20 @@ public class UpgradeTank : NetworkBehaviour
         healthScript = GetComponent<HealthScript>();
         move = GetComponent<IMove>();
         specialTank = GetComponent<SpecialTank>();
+        if (isLocalPlayer) GameManager.singleton.player = gameObject;
     }
     public void Init()
     {
-        SyncLevelArmor(levelArmor, startLevelArmor);
-        SyncLevelEngine(levelEngine, startLevelEngine);
-        SyncMainCannon(typeMainCannon, startTypeMainCannon);
+        SyncLevelArmor(0, startLevelArmor);
+        SyncLevelEngine(0, startLevelEngine);
+        SyncMainCannon(startTypeMainCannon, startTypeMainCannon);
+    }
+    public override void OnStartClient()
+    {
+        SyncLevelArmor(0, startLevelArmor);
+        SyncLevelEngine(0, startLevelEngine);
+        SyncMainCannon(startTypeMainCannon, startTypeMainCannon);
+        base.OnStartClient();
     }
     private void SyncLevelArmor(int oldValue, int newValue)
     {
@@ -43,7 +51,7 @@ public class UpgradeTank : NetworkBehaviour
         healthScript.ChangeLevelArmor(levelArmor);
         if (levelArmor > 0)
         {
-            move.SetSpeed(levelEngine * koefEngimeModificationList[levelArmor]);            
+            move.SetSpeed(levelEngine * koefEngimeModificationList[levelArmor] * 0.5f);            
             if (player)
             {                
                 gameObject.GetComponent<GamePlayer>().SetSprite(levelArmor);

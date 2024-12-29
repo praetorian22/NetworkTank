@@ -2443,8 +2443,8 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 1
   spawnPrefabs:
-  - {fileID: 5051654939893222197, guid: 23b1547af921a77469ace45c4171e6f2, type: 3}
-  - {fileID: 957285339245572837, guid: 2f34a00739b82474b9767748d9282ed2, type: 3}
+  - {fileID: 1753607616118201506, guid: d9fdcbbeeb2dbbb4f9e244c47ac7282c, type: 3}
+  - {fileID: 5592084286907490825, guid: dd488d53c9af4b14e8c513370eb610dc, type: 3}
   - {fileID: 3476768555009756323, guid: c9be978a8e331654a9aa2acfa23652c3, type: 3}
   - {fileID: 5066236815336661425, guid: dd4721282ae1db4428fafb14c23155ee, type: 3}
   - {fileID: 6078609245098213169, guid: 5e2e4507ef719314ea82399cd4cf79d0, type: 3}
@@ -2462,6 +2462,7 @@ MonoBehaviour:
   - {fileID: 8703367290697487996, guid: 7e0debcd4d1ea864eacec46a0d9011a2, type: 3}
   - {fileID: 4624165311677736172, guid: 7a350b452c126ae4db7cbce3771cd3bf, type: 3}
   - {fileID: 4624165311677736172, guid: 54f1319baf7f1b341b49dd79457f21fd, type: 3}
+  - {fileID: 5592084286907490825, guid: 1c5d1a88a63be0648a9c5be80173d304, type: 3}
   exceptionsDisconnect: 1
   snapshotSettings:
     bufferTimeMultiplier: 2
@@ -2564,8 +2565,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blueTankPrefab: {fileID: 3855697620832187700, guid: b9ca0ccb11673344cabd6a702558912e, type: 3}
   redTankPrefab: {fileID: 6410483837906913102, guid: 051bf2993f7c4454db59c033cb04664d, type: 3}
-  redCount: 5
-  blueCount: 5
+  redCount: 1
+  blueCount: 1
   boomBlue: {fileID: 1753607616118201506, guid: d9fdcbbeeb2dbbb4f9e244c47ac7282c, type: 3}
   boomRed: {fileID: 1753607616118201506, guid: 49bfa8a355ea1b844afcc4a7ee10dfab, type: 3}
   boomShot: {fileID: 8835327909373639707, guid: 7d67dc837231a834790238dd03acfaa9, type: 3}
@@ -2590,6 +2591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3c421198dcc6d4980484d635fce189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   playerName: 
   type: 0
 --- !u!114 &1686750709

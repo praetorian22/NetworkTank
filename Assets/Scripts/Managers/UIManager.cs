@@ -25,10 +25,10 @@ public class UIManager : MonoBehaviour
         {
             specialButtonsGO.Add(specButtons[i]);
         }
-        foreach (GameObject go in specialButtonsGO)
+        for (int i = 0; i < specialButtonsGO.Count; i++)
         {
-            go.GetComponent<ButtonSpecial>().special = new Special(positionSpecial.free, typeSpecial.none, null);
-        }
+            specialButtonsGO[i].GetComponent<ButtonSpecial>().special = new Special((positionSpecial)i, typeSpecial.none, null);
+        }        
     }
     private IEnumerator CheckNameFieldCoro()
     {
@@ -57,6 +57,8 @@ public class UIManager : MonoBehaviour
             if (special.PositionSpecial == go.GetComponent<ButtonSpecial>().special.PositionSpecial)
             {
                 go.GetComponent<ButtonSpecial>().special = new Special(special);
+                go.GetComponent<Button>().onClick.RemoveAllListeners();
+                go.GetComponent<Button>().onClick.AddListener(() => go.GetComponent<ButtonSpecial>().special.action.Invoke(GameManager.singleton.player));
                 return;
             }
         }

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Mirror;
 
-public class SpecialTank : MonoBehaviour
+public class SpecialTank : NetworkBehaviour
 {
     private List<Special> specialsHavePlayer;
     public Dictionary<typeSpecial, Action<GameObject>> actionSpecialsDict;
@@ -19,7 +20,7 @@ public class SpecialTank : MonoBehaviour
         specialsHavePlayer.Add(new Special(positionSpecial.three, typeSpecial.none, null));
 
         actionSpecialsDict = new Dictionary<typeSpecial, Action<GameObject>>();
-        actionSpecialsDict.Add(typeSpecial.invisibility, Invisibility);
+        actionSpecialsDict.Add(typeSpecial.invisibility, Invisibility);        
     }
     private bool CheckTypeSpecial(typeSpecial special)
     {
@@ -74,9 +75,9 @@ public class SpecialTank : MonoBehaviour
     }
     private IEnumerator InvisibilityCoro(GameObject gameObject)
     {
-        gameObject.GetComponent<Animator>().SetTrigger("invisON");
+        gameObject.GetComponent<NetworkAnimator>().SetTrigger("invisON");
         yield return new WaitForSeconds(timeInvisibility);
-        gameObject.GetComponent<Animator>().SetTrigger("invisOFF");
+        gameObject.GetComponent<NetworkAnimator>().SetTrigger("invisOFF");
     }
 }
 
