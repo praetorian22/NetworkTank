@@ -29,8 +29,7 @@ public class UpgradeTank : NetworkBehaviour
     {
         healthScript = GetComponent<HealthScript>();
         move = GetComponent<IMove>();
-        specialTank = GetComponent<SpecialTank>();
-        if (isLocalPlayer) GameManager.singleton.player = gameObject;
+        specialTank = GetComponent<SpecialTank>();        
     }
     public void Init()
     {
@@ -40,9 +39,11 @@ public class UpgradeTank : NetworkBehaviour
     }
     public override void OnStartClient()
     {
+        if (isLocalPlayer) GameManager.singleton.player = gameObject;
         SyncLevelArmor(0, startLevelArmor);
         SyncLevelEngine(0, startLevelEngine);
         SyncMainCannon(startTypeMainCannon, startTypeMainCannon);
+        SyncSpecial(typeSpecial.none, typeSpecial.none);
         base.OnStartClient();
     }
     private void SyncLevelArmor(int oldValue, int newValue)
@@ -88,10 +89,13 @@ public class UpgradeTank : NetworkBehaviour
                 weaponScript.SetWeapon(GameManager.singleton.GetWeapon(newValue));
             }
         }
+        ActivateAnimationLootTake();
     }
     private void SyncSpecial(typeSpecial oldValue, typeSpecial newValue)
     {
         this.typeSpecialLast = newValue;
+        if (isLocalPlayer)
+            gameObject.GetComponent<SpecialTank>().AddSpecial(newValue);
         ActivateAnimationLootTake();
     }
     private void ActivateAnimationLootTake()
@@ -143,7 +147,6 @@ public class UpgradeTank : NetworkBehaviour
     public void UpgradeSpecial(typeSpecial special)
     {
         SyncSpecial(typeSpecial.none, special);
-        gameObject.GetComponent<SpecialTank>().AddSpecial(special);
     }
 
     [ServerCallback]

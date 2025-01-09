@@ -320,9 +320,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Weapon
+  m_text: 'Special
 
-    FF'
+    Inviz'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 22dd77e312e2dd747ab997454a1ed263, type: 2}
   m_sharedMaterial: {fileID: -6680225140293735330, guid: 22dd77e312e2dd747ab997454a1ed263, type: 2}

@@ -20,7 +20,8 @@ public class SpecialTank : NetworkBehaviour
         specialsHavePlayer.Add(new Special(positionSpecial.three, typeSpecial.none, null));
 
         actionSpecialsDict = new Dictionary<typeSpecial, Action<GameObject>>();
-        actionSpecialsDict.Add(typeSpecial.invisibility, Invisibility);        
+        actionSpecialsDict.Add(typeSpecial.invisibility, Invisibility);
+        GameManager.singleton.InitSpecialButtons();
     }
     private bool CheckTypeSpecial(typeSpecial special)
     {
