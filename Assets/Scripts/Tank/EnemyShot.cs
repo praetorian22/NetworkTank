@@ -22,11 +22,14 @@ public class EnemyShot : NetworkBehaviour
 
     private void Update()
     {
-        foreach (WeaponScript weaponScript in weaponScripts)
+        if (isServer)
         {
-            if (weaponScript.enabled)
-                weaponScript.ShotNow(transform.rotation);
-        }         
+            foreach (WeaponScript weaponScript in weaponScripts)
+            {
+                if (weaponScript.enabled)
+                    weaponScript.ShotNow(transform.rotation);
+            }
+        }                
     }
 
     public void ActivateCannon(int level)
