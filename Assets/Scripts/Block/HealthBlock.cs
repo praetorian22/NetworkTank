@@ -12,6 +12,7 @@ public class HealthBlock : NetworkBehaviour
     [SerializeField] private List<Image> images = new List<Image>();
     [SerializeField] private Color _colorEmpty;
     [SerializeField] private Color _colorFull;
+    [SerializeField] private bool _isEnemy;
     public int Health { get => _health; }
     private void PaintImageHealth()
     {
@@ -73,7 +74,7 @@ public class HealthBlock : NetworkBehaviour
         {
             if (isServer)
             {
-                Damage(shotScript.Damage);
+                if (shotScript.IsEnemyShot != _isEnemy) Damage(shotScript.Damage);
             }
             else
             {

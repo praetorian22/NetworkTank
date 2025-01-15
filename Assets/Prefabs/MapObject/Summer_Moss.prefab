@@ -465,7 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
-  _assetId: 3676415349
+  _assetId: 1664732862
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
@@ -527,10 +527,9 @@ MonoBehaviour:
   - {fileID: 5603877615421791787}
   - {fileID: 7181712336228205364}
   - {fileID: 543025934015573608}
-  - {fileID: 0}
-  - {fileID: 0}
   _colorEmpty: {r: 0, g: 0, b: 0, a: 0}
   _colorFull: {r: 0, g: 0, b: 0, a: 0.39215687}
+  _isEnemy: 0
 --- !u!1 &8137457604031773028
 GameObject:
   m_ObjectHideFlags: 0
