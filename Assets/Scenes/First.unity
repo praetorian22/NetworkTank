@@ -2565,8 +2565,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blueTankPrefab: {fileID: 3855697620832187700, guid: b9ca0ccb11673344cabd6a702558912e, type: 3}
   redTankPrefab: {fileID: 6410483837906913102, guid: 051bf2993f7c4454db59c033cb04664d, type: 3}
-  redCount: 1
-  blueCount: 1
+  redCount: 30
+  blueCount: 30
   boomBlue: {fileID: 1753607616118201506, guid: d9fdcbbeeb2dbbb4f9e244c47ac7282c, type: 3}
   boomRed: {fileID: 1753607616118201506, guid: 49bfa8a355ea1b844afcc4a7ee10dfab, type: 3}
   boomShot: {fileID: 8835327909373639707, guid: 7d67dc837231a834790238dd03acfaa9, type: 3}
