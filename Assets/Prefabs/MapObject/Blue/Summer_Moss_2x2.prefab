@@ -1,0 +1,317 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7475959389395124953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2696062289631308233}
+  m_Layer: 0
+  m_Name: Summer_Moss_2x2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2696062289631308233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7475959389395124953}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22, y: -29, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1354599000143462160}
+  - {fileID: 3190063127370237676}
+  - {fileID: 5604964147065295255}
+  - {fileID: 423713766971244840}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &81315622021973780
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2696062289631308233}
+    m_Modifications:
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212069102568742382, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_Name
+      value: Summer_Moss (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305813014348416775, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: sceneId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305813014348416775, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: _assetId
+      value: 3099789428
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+--- !u!4 &423713766971244840 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+  m_PrefabInstance: {fileID: 81315622021973780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1588981015423662380
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2696062289631308233}
+    m_Modifications:
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212069102568742382, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_Name
+      value: Summer_Moss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305813014348416775, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: sceneId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305813014348416775, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: _assetId
+      value: 3099789428
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+--- !u!4 &1354599000143462160 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+  m_PrefabInstance: {fileID: 1588981015423662380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2919688044685902032
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2696062289631308233}
+    m_Modifications:
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212069102568742382, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_Name
+      value: Summer_Moss (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305813014348416775, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: sceneId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305813014348416775, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: _assetId
+      value: 3099789428
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+--- !u!4 &3190063127370237676 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+  m_PrefabInstance: {fileID: 2919688044685902032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5262848138584807339
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2696062289631308233}
+    m_Modifications:
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212069102568742382, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: m_Name
+      value: Summer_Moss (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305813014348416775, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: sceneId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305813014348416775, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+      propertyPath: _assetId
+      value: 3099789428
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+--- !u!4 &5604964147065295255 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 342749993268725308, guid: 9d7f28f301d05b840bc6dd6b96211fce, type: 3}
+  m_PrefabInstance: {fileID: 5262848138584807339}
+  m_PrefabAsset: {fileID: 0}
